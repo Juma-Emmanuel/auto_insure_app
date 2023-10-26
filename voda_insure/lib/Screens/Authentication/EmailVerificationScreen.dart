@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:voda_insure/Styles/style.dart';
 
-class PhoneVerificationScreen extends StatefulWidget {
-  const PhoneVerificationScreen({super.key});
+class EmailVerificationScreen extends StatefulWidget {
+  const EmailVerificationScreen({super.key});
 
   @override
-  State<PhoneVerificationScreen> createState() =>
-      _PhoneVerificationScreenState();
+  State<EmailVerificationScreen> createState() =>
+      _EmailVerificationScreenState();
 }
 
-class _PhoneVerificationScreenState extends State<PhoneVerificationScreen> {
+class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +40,7 @@ class _PhoneVerificationScreenState extends State<PhoneVerificationScreen> {
                 top: 30.0,
               ),
               child: Text(
-                'Phone Verification:',
+                'Email Verification:',
                 style: bodyLarge,
               ),
             ),
@@ -51,7 +51,7 @@ class _PhoneVerificationScreenState extends State<PhoneVerificationScreen> {
                 height: 48,
                 child: TextField(
                   decoration: InputDecoration(
-                    hintText: 'Phone Number',
+                    hintText: 'Email Address',
                     focusedBorder: textfieldBorder,
                     enabledBorder: textfieldBorder,
                   ),

@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:voda_insure/Styles/style.dart';
 
-class PhoneVerificationScreen extends StatefulWidget {
-  const PhoneVerificationScreen({super.key});
+class VerificationCodeScreen extends StatefulWidget {
+  const VerificationCodeScreen({super.key});
 
   @override
-  State<PhoneVerificationScreen> createState() =>
-      _PhoneVerificationScreenState();
+  State<VerificationCodeScreen> createState() => _VerificationCodeScreenState();
 }
 
-class _PhoneVerificationScreenState extends State<PhoneVerificationScreen> {
+class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +39,7 @@ class _PhoneVerificationScreenState extends State<PhoneVerificationScreen> {
                 top: 30.0,
               ),
               child: Text(
-                'Phone Verification:',
+                'Verification Code:',
                 style: bodyLarge,
               ),
             ),
@@ -51,7 +50,7 @@ class _PhoneVerificationScreenState extends State<PhoneVerificationScreen> {
                 height: 48,
                 child: TextField(
                   decoration: InputDecoration(
-                    hintText: 'Phone Number',
+                    hintText: 'Enter Code',
                     focusedBorder: textfieldBorder,
                     enabledBorder: textfieldBorder,
                   ),
@@ -70,7 +69,7 @@ class _PhoneVerificationScreenState extends State<PhoneVerificationScreen> {
                       backgroundColor: const Color(0XFF021E3E),
                     ),
                     child: const Text(
-                      'Request Code',
+                      'Verify',
                       style: buttonText,
                     ),
                   ),
