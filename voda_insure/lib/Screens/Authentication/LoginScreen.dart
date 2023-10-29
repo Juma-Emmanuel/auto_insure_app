@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:voda_insure/Styles/animation.dart';
 import 'package:voda_insure/Styles/style.dart';
-import 'package:voda_insure/trial2.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

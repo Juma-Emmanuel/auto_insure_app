@@ -10,9 +10,14 @@ class EditProfileScreen extends StatefulWidget {
 }
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
-  TextEditingController _textController = TextEditingController(
-    text: 'Initial Text',
-  );
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController fullnameController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -113,39 +118,36 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   style: bodyMediumGrey,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
-                child: TextField(
-                  controller: _textController,
-                  onChanged: (text) {},
-                  style: bodyLarge,
+                child: ProfileTextField(
+                  input: 'ttt',
                 ),
               ),
             ]),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 30),
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Container(
-                // height: 21,
-                margin: const EdgeInsets.only(
-                  bottom: 20.0,
-                ),
-                child: const Text(
-                  'Phone Number',
-                  style: bodyMediumGrey,
-                ),
-              ),
-              SizedBox(
-                height: 15,
-                child: TextField(
-                  onChanged: (text) {},
-                  style: bodyLarge,
-                ),
-              ),
-            ]),
-          ),
+              padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 30),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      // height: 21,
+                      margin: const EdgeInsets.only(
+                        bottom: 20.0,
+                      ),
+                      child: const Text(
+                        'Phone Number',
+                        style: bodyMediumGrey,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15,
+                      child: ProfileTextField(
+                        input: 'halo',
+                      ),
+                    )
+                  ])),
           Padding(
             padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 30),
             child:
@@ -160,11 +162,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   style: bodyMediumGrey,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
-                child: TextField(
-                  onChanged: (text) {},
-                  style: bodyLarge,
+                child: ProfileTextField(
+                  input: 'hiiiii',
                 ),
               ),
             ]),
@@ -172,5 +173,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         ]),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 }

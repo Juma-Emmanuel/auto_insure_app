@@ -82,5 +82,45 @@ const TextStyle buttonText = TextStyle(
   letterSpacing: 0,
 );
 
-TextEditingController _textController =
-    TextEditingController(text: 'Initial Text');
+class CompanyFeed extends StatefulWidget {
+  final String imagePath;
+  final Color containerColor;
+  final VoidCallback? onTap;
+  const CompanyFeed(
+      {super.key,
+      required this.imagePath,
+      required this.containerColor,
+      this.onTap});
+
+  @override
+  State<CompanyFeed> createState() => _CompanyFeedState();
+}
+
+class _CompanyFeedState extends State<CompanyFeed> {
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: widget.onTap,
+      child: Container(
+        width: 60,
+        height: 60,
+        // color: Colors.blue,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          boxShadow: [
+            BoxShadow(
+              color: const Color(0XFF000000).withOpacity(0.2),
+              spreadRadius: 2,
+              blurRadius: 3,
+              offset: const Offset(0, 3),
+            ),
+          ],
+          color: widget.containerColor,
+        ),
+        child: ClipOval(
+          child: Image.asset(widget.imagePath),
+        ),
+      ),
+    );
+  }
+}

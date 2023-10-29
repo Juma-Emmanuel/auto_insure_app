@@ -1,4 +1,3 @@
-import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:voda_insure/Screens/Authentication/EditProfileScreen.dart';
 import 'package:voda_insure/Screens/Authentication/EmailVerificationScreen.dart';
@@ -8,12 +7,10 @@ import 'package:voda_insure/Screens/Authentication/RegistrationScreen.dart';
 import 'package:voda_insure/Screens/Authentication/UserProfileScreen.dart';
 import 'package:voda_insure/Screens/Authentication/VerificationCodeScreen.dart';
 import 'package:voda_insure/Screens/Authentication/VerificationScreen.dart';
+import 'package:voda_insure/Screens/Home/Drawer.dart';
+import 'package:voda_insure/Screens/Home/HomeScreen.dart';
 import 'package:voda_insure/Screens/Splash/SplashScreen.dart';
-import 'package:voda_insure/trial.dart';
-import 'package:voda_insure/trial2.dart';
-
 import 'Screens/Authentication/LoginScreen.dart';
-import 'Screens/Home/HomeScreen.dart';
 
 void main() {
   runApp(const VodaInsure());
@@ -51,8 +48,10 @@ class _VodaInsureState extends State<VodaInsure> {
         '/userprofilescreen': (context) => const UserProfileScreen(),
         '/editprofilescreen': (context) => const EditProfileScreen(),
         '/registration': (context) => const RegistrationScreen(),
+        '/homescreen': (context) => const HomeScreen(),
       },
-      home: const SplashScreen(),
+      home: const RegistrationScreen(),
+      // home: const HomeScreen(),
     );
   }
 }

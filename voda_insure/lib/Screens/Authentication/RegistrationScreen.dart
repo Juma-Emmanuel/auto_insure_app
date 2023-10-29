@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voda_insure/Controllers/Authentication/RegistrationControllers.dart';
 import 'package:voda_insure/Styles/style.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -9,6 +10,11 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
+  TextEditingController fullnameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,6 +55,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   width: 350,
                   height: 48,
                   child: TextField(
+                    controller: fullnameController,
                     decoration: InputDecoration(
                       hintText: 'Full Name',
                       focusedBorder: textfieldBorder,
@@ -63,6 +70,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   width: 350,
                   height: 48,
                   child: TextField(
+                    controller: emailController,
                     decoration: InputDecoration(
                       hintText: 'Email Address',
                       focusedBorder: textfieldBorder,
@@ -77,6 +85,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   width: 350,
                   height: 48,
                   child: TextField(
+                    controller: phoneController,
                     decoration: InputDecoration(
                       hintText: 'Phone number',
                       focusedBorder: textfieldBorder,
@@ -91,6 +100,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   width: 350,
                   height: 48,
                   child: TextField(
+                    controller: passwordController,
                     decoration: InputDecoration(
                       hintText: 'Password',
                       focusedBorder: textfieldBorder,
@@ -105,6 +115,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   width: 350,
                   height: 48,
                   child: TextField(
+                    controller: confirmPasswordController,
                     decoration: InputDecoration(
                       hintText: 'Confirm Password',
                       focusedBorder: textfieldBorder,
@@ -147,9 +158,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       ),
                     ),
                     TextButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/login');
-                        },
+                        onPressed: () {},
                         child: const Text(
                           'Login',
                           style: TextStyle(
