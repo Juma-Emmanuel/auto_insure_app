@@ -9,6 +9,7 @@ class VerificationCodeScreen extends StatefulWidget {
 }
 
 class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
+  TextEditingController verificationController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,60 +24,57 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
           },
         ),
       ),
-      body: Column(
-          mainAxisAlignment: MainAxisAlignment
-              .start, // Align children to the center horizontally
-
-          children: [
-            SizedBox(
+      body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+        SizedBox(
+          width: 350,
+          height: 48,
+          child: logo(),
+        ),
+        const Padding(
+          padding: EdgeInsets.only(
+            right: 170,
+            top: 30.0,
+          ),
+          child: Text(
+            'Verification Code:',
+            style: bodyLarge,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 5),
+          child: SizedBox(
+            width: 350,
+            height: 48,
+            child: TextField(
+              controller: verificationController,
+              decoration: InputDecoration(
+                hintText: 'Enter Code',
+                focusedBorder: textfieldBorder,
+                enabledBorder: textfieldBorder,
+              ),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 30.0),
+          child: Center(
+            child: SizedBox(
               width: 350,
-              height: 48,
-              child: logo(),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(
-                right: 170,
-                top: 30.0,
-              ),
-              child: Text(
-                'Verification Code:',
-                style: bodyLarge,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 5),
-              child: SizedBox(
-                width: 350,
-                height: 48,
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Enter Code',
-                    focusedBorder: textfieldBorder,
-                    enabledBorder: textfieldBorder,
-                  ),
+              height: 42,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0XFF021E3E),
+                ),
+                child: const Text(
+                  'Verify',
+                  style: buttonText,
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 30.0),
-              child: Center(
-                child: SizedBox(
-                  width: 350,
-                  height: 42,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0XFF021E3E),
-                    ),
-                    child: const Text(
-                      'Verify',
-                      style: buttonText,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ]),
+          ),
+        ),
+      ]),
     );
   }
 }

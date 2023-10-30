@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:voda_insure/Controllers/Authentication/RegistrationControllers.dart';
+
 import 'package:voda_insure/Styles/style.dart';
 
 class RegistrationScreen extends StatefulWidget {

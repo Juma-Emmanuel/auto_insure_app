@@ -45,6 +45,6 @@ class MyTextField extends StatefulWidget {
 class _MyTextFieldState extends State<MyTextField> {
   @override
   Widget build(BuildContext context) {
-    return widget.profileTextfield;
+    return TextField();
   }
 }

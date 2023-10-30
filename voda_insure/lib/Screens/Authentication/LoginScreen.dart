@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voda_insure/Controllers/Authentication/LoginController.dart';
 import 'package:voda_insure/Styles/animation.dart';
 import 'package:voda_insure/Styles/style.dart';
 
@@ -32,6 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
               width: 350,
               height: 48,
               child: TextField(
+                controller: emailController,
                 decoration: InputDecoration(
                   hintText: 'Email Address',
                   focusedBorder: textfieldBorder,
@@ -48,6 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
               width: 350,
               height: 48,
               child: TextField(
+                controller: passwordController,
                 decoration: InputDecoration(
                   hintText: 'Password',
                   focusedBorder: textfieldBorder,

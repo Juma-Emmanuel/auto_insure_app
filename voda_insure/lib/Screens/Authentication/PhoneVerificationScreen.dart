@@ -10,6 +10,7 @@ class PhoneVerificationScreen extends StatefulWidget {
 }
 
 class _PhoneVerificationScreenState extends State<PhoneVerificationScreen> {
+  TextEditingController phonecodecontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +27,7 @@ class _PhoneVerificationScreenState extends State<PhoneVerificationScreen> {
       ),
       body: Column(
           mainAxisAlignment: MainAxisAlignment
-              .start, // Align children to the center horizontally
+              .start, 
 
           children: [
             SizedBox(
@@ -50,6 +51,7 @@ class _PhoneVerificationScreenState extends State<PhoneVerificationScreen> {
                 width: 350,
                 height: 48,
                 child: TextField(
+                  controller: phonecodecontroller,
                   decoration: InputDecoration(
                     hintText: 'Phone Number',
                     focusedBorder: textfieldBorder,

@@ -7,9 +7,8 @@ import 'package:voda_insure/Screens/Authentication/RegistrationScreen.dart';
 import 'package:voda_insure/Screens/Authentication/UserProfileScreen.dart';
 import 'package:voda_insure/Screens/Authentication/VerificationCodeScreen.dart';
 import 'package:voda_insure/Screens/Authentication/VerificationScreen.dart';
-import 'package:voda_insure/Screens/Home/Drawer.dart';
+
 import 'package:voda_insure/Screens/Home/HomeScreen.dart';
-import 'package:voda_insure/Screens/Splash/SplashScreen.dart';
 import 'Screens/Authentication/LoginScreen.dart';
 
 void main() {
@@ -48,10 +47,10 @@ class _VodaInsureState extends State<VodaInsure> {
         '/userprofilescreen': (context) => const UserProfileScreen(),
         '/editprofilescreen': (context) => const EditProfileScreen(),
         '/registration': (context) => const RegistrationScreen(),
-        '/homescreen': (context) => const HomeScreen(),
+        '/homescreen': (context) => HomeScreen(),
       },
-      home: const RegistrationScreen(),
-      // home: const HomeScreen(),
+      // home: const SplashScreen(),
+      home: HomeScreen(),
     );
   }
 }

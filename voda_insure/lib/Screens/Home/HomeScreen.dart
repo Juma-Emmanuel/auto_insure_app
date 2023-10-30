@@ -1,15 +1,30 @@
-import "package:flutter/material.dart";
-import "package:voda_insure/Screens/Home/Drawer.dart";
-import "package:voda_insure/Styles/style.dart";
+import 'package:flutter/material.dart';
+import 'package:voda_insure/Screens/Authentication/UserProfileScreen.dart';
+import 'package:voda_insure/Screens/Claims/ClaimsScreen.dart';
+import 'package:voda_insure/Screens/Home/Drawer.dart';
+
+import 'package:voda_insure/Screens/Home/PostView.dart';
+import 'package:voda_insure/Screens/MedicalInsurance/MedicalInsuranceScreen.dart';
+import 'package:voda_insure/Screens/MotorInsurance/MotorInsuranceScreen.dart';
+import 'package:voda_insure/Styles/style.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
-
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int _currentIndex = 0;
+
+  // List of widgets corresponding to each tab
+  final List<Widget> _tabs = [
+    const Postview(),
+    const MotorInsuranceScreen(),
+    const ClaimsScreen(),
+    const MedicalInsuranceScreen(),
+    const UserProfileScreen(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,56 +50,55 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       endDrawer: const MyDrawer(),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 20.0, bottom: 30),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CompanyFeed(
-                    imagePath: 'assets/jubilee.png',
-                    containerColor: const Color(0XFFD21044),
-                    onTap: () {},
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 25.0),
-                    child: CompanyFeed(
-                      imagePath: 'assets/apa_logo.png',
-                      containerColor: const Color(0XFF0D4093),
-                      onTap: () {},
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 25.0, right: 25.0),
-                    child: CompanyFeed(
-                      imagePath: 'assets/uap_logo.jpg',
-                      containerColor: const Color(0XFFCC003D),
-                      onTap: () {},
-                    ),
-                  ),
-                  CompanyFeed(
-                    imagePath: 'assets/cicgroup.png',
-                    containerColor: Colors.white,
-                    onTap: () {},
-                  ),
-                ],
-              ),
+      body: _tabs[_currentIndex], // Display the selected tab content
+      bottomNavigationBar: BottomNavigationBar(
+        showUnselectedLabels: false,
+        selectedItemColor: const Color(0XFF021E3E),
+        unselectedItemColor: const Color(0XFF021E3E),
+        selectedLabelStyle: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+            color: Color(0XFF021E3E)),
+        unselectedLabelStyle: const TextStyle(color: Color(0XFF021E3E)),
+        backgroundColor: Colors.amber,
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index; // Change the current tab when tapped
+          });
+        },
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home_outlined,
             ),
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 8.0,
-                left: 10,
-                right: 10,
-              ),
-              child: Container(
-                height: 1,
-                color: const Color(0XFFBBBBBB),
-              ),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.directions_car,
             ),
-          ],
-        ),
+            label: 'Motor',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.note_outlined,
+            ),
+            label: 'Claims',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.medical_services_outlined,
+            ),
+            label: 'Medical',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.person_outline,
+            ),
+            label: 'Profile',
+          ),
+        ],
       ),
     );
   }
