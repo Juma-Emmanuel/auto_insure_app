@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:voda_insure/Screens/MotorInsurance/MotorForms/BuyCoverScreen.dart';
+import 'package:voda_insure/Screens/MotorInsurance/MotorStyles.dart';
 import 'package:voda_insure/Styles/style.dart';
 
 class MotorInsuranceScreen extends StatefulWidget {
@@ -11,10 +13,12 @@ class MotorInsuranceScreen extends StatefulWidget {
 
 class _MotorInsuranceScreenState extends State<MotorInsuranceScreen> {
   final List<String> images = [
-    'https://picsum.photos/200/300',
-    'https://picsum.photos/300/400',
-    'https://picsum.photos/400/500',
+    'assets/audi.jpg',
+    'assets/Carinsurance.jpg',
+    'assets/motorinsurance.jpg',
   ];
+  int _currentIndex = 0;
+  List<bool> _dotColors = [true, false, false];
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +26,14 @@ class _MotorInsuranceScreenState extends State<MotorInsuranceScreen> {
       child: Column(children: [
         CarouselSlider(
           items: images.map((image) {
-            return Image.network(image, fit: BoxFit.cover);
+            return SizedBox(
+              width: 500,
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset(image, fit: BoxFit.cover)),
+            );
           }).toList(),
           options: CarouselOptions(
-            height: 200,
-            aspectRatio: 16 / 9,
             viewportFraction: 0.8,
             initialPage: 0,
             enableInfiniteScroll: true,
@@ -37,9 +44,155 @@ class _MotorInsuranceScreenState extends State<MotorInsuranceScreen> {
             autoPlayCurve: Curves.fastOutSlowIn,
             enlargeCenterPage: true,
             scrollDirection: Axis.horizontal,
+            onPageChanged: (index, reason) {
+              setState(() {
+                _currentIndex = index;
+                _updateDotColors();
+              });
+            },
           ),
-        )
+        ),
+        const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Text(
+            'Insure your Vehicle today!',
+            style: headlineSmallGrey,
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: _dotColors
+              .asMap()
+              .entries
+              .map((entry) => _buildDot(entry.key, entry.value))
+              .toList(),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 19.0),
+          child: MotorSelect(
+            selectText: 'Buy Cover',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const BuyCoverScreen()),
+              );
+            },
+            icon: const Icon(
+              Icons.monetization_on_outlined,
+              color: Color(0XFF0E2847),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 15.0),
+          child: MotorSelect(
+            selectText: 'Register Vehicle',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => BuyCoverScreen()),
+              );
+            },
+            icon: const Icon(
+              Icons.directions_car,
+              color: Color(0XFF0E2847),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 15.0),
+          child: MotorSelect(
+            selectText: 'My cover',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => BuyCoverScreen()),
+              );
+            },
+            icon: const Icon(
+              Icons.directions_car,
+              color: Color(0XFF0E2847),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 15.0),
+          child: MotorSelect(
+            selectText: 'My Vehicle/Motocycle Report',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => BuyCoverScreen()),
+              );
+            },
+            icon: const Icon(
+              Icons.directions_car,
+              color: Color(0XFF0E2847),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 15.0),
+          child: MotorSelect(
+            selectText: 'FAQS',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => BuyCoverScreen()),
+              );
+            },
+            icon: const Icon(
+              Icons.directions_car,
+              color: Color(0XFF0E2847),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 15.0),
+          child: MotorSelect(
+            selectText: 'Private Policy',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => BuyCoverScreen()),
+              );
+            },
+            icon: const Icon(
+              Icons.directions_car,
+              color: Color(0XFF0E2847),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 15.0, bottom: 19),
+          child: MotorSelect(
+            selectText: 'Terms and Conditions',
+            onTap: () {},
+            icon: const Icon(
+              Icons.directions_car,
+              color: Color(0XFF0E2847),
+            ),
+          ),
+        ),
       ]),
     );
+  }
+
+  Widget _buildDot(int index, bool isActive) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 5),
+      width: 10,
+      height: 10,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: isActive ? const Color(0XFF0E2847) : const Color(0XFF726666),
+      ),
+    );
+  }
+
+  void _updateDotColors() {
+    for (int i = 0; i < _dotColors.length; i++) {
+      _dotColors[i] = (i == _currentIndex);
+    }
   }
 }

@@ -38,6 +38,18 @@ final OutlineInputBorder textfieldBorder = OutlineInputBorder(
     width: 2.0,
   ),
 );
+BoxDecoration shadow = BoxDecoration(
+  borderRadius: BorderRadius.circular(20),
+  color: Colors.white,
+  boxShadow: [
+    BoxShadow(
+      color: const Color(0XFF000000).withOpacity(0.2),
+      spreadRadius: 2,
+      blurRadius: 3,
+      offset: const Offset(0, 3),
+    ),
+  ],
+);
 const TextStyle bodyMediumWhite = TextStyle(
   color: Color(0XFFFFFFFF),
   fontSize: 16.0,
@@ -47,7 +59,25 @@ const TextStyle bodyMediumWhite = TextStyle(
 const TextStyle bodyMediumGrey = TextStyle(
   color: Color(0XFF726666),
   fontSize: 16.0,
+  fontWeight: FontWeight.w600,
+  fontStyle: FontStyle.normal,
+);
+const TextStyle bbodyMediumGrey = TextStyle(
+  color: Color(0XFF726666),
+  fontSize: 16.0,
   fontWeight: FontWeight.normal,
+  fontStyle: FontStyle.normal,
+);
+const TextStyle bbodySmallGrey = TextStyle(
+  color: Color(0XFF726666),
+  fontSize: 12.0,
+  fontWeight: FontWeight.normal,
+  fontStyle: FontStyle.normal,
+);
+const TextStyle bodySmallGrey = TextStyle(
+  color: Color(0XFF726666),
+  fontSize: 12.0,
+  fontWeight: FontWeight.w600,
   fontStyle: FontStyle.normal,
 );
 const TextStyle bodyMediumBlue = TextStyle(
@@ -59,6 +89,12 @@ const TextStyle bodyMediumBlue = TextStyle(
 const TextStyle headlineMedium = TextStyle(
   color: Color(0XFF0E2847),
   fontSize: 28.0,
+  fontWeight: FontWeight.w600,
+  fontStyle: FontStyle.normal,
+);
+const TextStyle headlineSmallGrey = TextStyle(
+  color: Color(0XFF726666),
+  fontSize: 24.0,
   fontWeight: FontWeight.w600,
   fontStyle: FontStyle.normal,
 );

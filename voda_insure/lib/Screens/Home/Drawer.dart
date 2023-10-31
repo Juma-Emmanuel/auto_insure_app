@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:voda_insure/Screens/Home/Privacypolicy.dart';
+import 'package:voda_insure/Screens/Home/TermsandConditions.dart';
 import 'package:voda_insure/Styles/style.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MyDrawer extends StatefulWidget {
   const MyDrawer({super.key});
@@ -54,88 +55,92 @@ class _MyDrawerState extends State<MyDrawer> {
                 onTap: () {},
               ),
               ListTile(
-                title: TextButton(
-                    onPressed: () {},
-                    child: const Row(
-                      children: [
-                        Icon(
-                          Icons.update_outlined,
-                          size: 30,
-                          color: Color(0XFF021E3E),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 10.0),
-                          child: Text(
-                            'Updates',
-                            style: bodyMediumGrey,
-                          ),
-                        ),
-                      ],
-                    )),
+                title: const Row(
+                  children: [
+                    Icon(
+                      Icons.update_outlined,
+                      size: 30,
+                      color: Color(0XFF021E3E),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 10.0),
+                      child: Text(
+                        'Updates',
+                        style: bodyMediumGrey,
+                      ),
+                    ),
+                  ],
+                ),
                 onTap: () {},
               ),
               ListTile(
-                title: TextButton(
-                    onPressed: () {},
-                    child: const Row(
-                      children: [
-                        Icon(
-                          Icons.share_outlined,
-                          size: 30,
-                          color: Color(0XFF021E3E),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 10.0),
-                          child: Text(
-                            'Share',
-                            style: bodyMediumGrey,
-                          ),
-                        ),
-                      ],
-                    )),
+                title: const Row(
+                  children: [
+                    Icon(
+                      Icons.share_outlined,
+                      size: 30,
+                      color: Color(0XFF021E3E),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 10.0),
+                      child: Text(
+                        'Share',
+                        style: bodyMediumGrey,
+                      ),
+                    ),
+                  ],
+                ),
                 onTap: () {},
               ),
               ListTile(
-                title: TextButton(
-                    onPressed: () {},
-                    child: const Row(
-                      children: [
-                        Icon(
-                          Icons.lock_outlined,
-                          size: 30,
-                          color: Color(0XFF021E3E),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 10.0),
-                          child: Text(
-                            'Private Policy',
-                            style: bodyMediumGrey,
-                          ),
-                        ),
-                      ],
-                    )),
-                onTap: () {},
+                title: const Row(
+                  children: [
+                    Icon(
+                      Icons.lock_outlined,
+                      size: 30,
+                      color: Color(0XFF021E3E),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 10.0),
+                      child: Text(
+                        'Private Policy',
+                        style: bodyMediumGrey,
+                      ),
+                    ),
+                  ],
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => PrivatePolicyScreen()),
+                  );
+                },
               ),
               ListTile(
-                title: TextButton(
-                    onPressed: () {},
-                    child: const Row(
-                      children: [
-                        Icon(
-                          Icons.description_outlined,
-                          size: 30,
-                          color: Color(0XFF021E3E),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 10.0),
-                          child: Text(
-                            'Terms and Conditions',
-                            style: bodyMediumGrey,
-                          ),
-                        ),
-                      ],
-                    )),
-                onTap: () {},
+                title: const Row(
+                  children: [
+                    Icon(
+                      Icons.description_outlined,
+                      size: 30,
+                      color: Color(0XFF021E3E),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 10.0),
+                      child: Text(
+                        'Terms and Conditions',
+                        style: bodyMediumGrey,
+                      ),
+                    ),
+                  ],
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => TermsandConditions()),
+                  );
+                },
               ),
             ],
           ),
