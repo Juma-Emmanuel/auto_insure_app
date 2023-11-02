@@ -49,3 +49,40 @@ class _MotorSelectState extends State<MotorSelect> {
     );
   }
 }
+
+class RegisterVehicleTextfield extends StatefulWidget {
+  final TextEditingController controller;
+  final String label;
+  RegisterVehicleTextfield(
+      {super.key, required this.controller, required this.label});
+
+  @override
+  State<RegisterVehicleTextfield> createState() =>
+      _RegisterVehicleTextfieldState();
+}
+
+class _RegisterVehicleTextfieldState extends State<RegisterVehicleTextfield> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          widget.label,
+          style: bodyLarge,
+        ),
+        SizedBox(
+          width: 350,
+          height: 38,
+          child: TextField(
+            controller: widget.controller,
+            decoration: InputDecoration(
+              enabledBorder: textfieldBorder,
+              focusedBorder: textfieldBorder,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}

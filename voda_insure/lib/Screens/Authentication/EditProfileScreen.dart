@@ -23,22 +23,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Color(0XFF726666),
-          ),
-          onPressed: () {
-            Navigator.pushNamed(context, '/login');
-          },
-        ),
         actions: <Widget>[
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
             child: ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/editprofilescreen');
-              },
+              onPressed: () {},
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0XFF021E3E),
               ),

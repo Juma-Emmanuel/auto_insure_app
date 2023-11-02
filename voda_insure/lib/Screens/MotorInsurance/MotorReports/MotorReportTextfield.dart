@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:voda_insure/Styles/style.dart';
 
-class ProfileTextField extends StatefulWidget {
+class MotorReportTextField extends StatefulWidget {
   final String input;
 
-  const ProfileTextField({
+  const MotorReportTextField({
     super.key,
     required this.input,
   });
 
   @override
-  State<ProfileTextField> createState() => _ProfileTextFieldState();
+  State<MotorReportTextField> createState() => _MotorReportTextFieldState();
 }
 
-class _ProfileTextFieldState extends State<ProfileTextField> {
+class _MotorReportTextFieldState extends State<MotorReportTextField> {
   late TextEditingController controller = TextEditingController();
 
   @override
@@ -28,6 +28,7 @@ class _ProfileTextFieldState extends State<ProfileTextField> {
       onChanged: (text) {
         setState(() {});
       },
+      readOnly: true,
       controller: controller,
       style: bodyLarge,
     );

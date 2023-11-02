@@ -31,6 +31,15 @@ Widget logo() {
   );
 }
 
+void _showPopup(BuildContext context, Widget popupWidget) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return popupWidget; // Display the provided popup widget
+    },
+  );
+}
+
 final OutlineInputBorder textfieldBorder = OutlineInputBorder(
   borderRadius: BorderRadius.circular(20.0),
   borderSide: const BorderSide(
@@ -119,6 +128,17 @@ const TextStyle buttonText = TextStyle(
   fontStyle: FontStyle.normal,
   letterSpacing: 0,
 );
+Padding separator = Padding(
+  padding: const EdgeInsets.only(
+    top: 8.0,
+    left: 10,
+    right: 10,
+  ),
+  child: Container(
+    height: 1,
+    color: const Color(0XFFBBBBBB),
+  ),
+);
 
 class CompanyFeed extends StatefulWidget {
   final String imagePath;
@@ -163,156 +183,60 @@ class _CompanyFeedState extends State<CompanyFeed> {
   }
 }
 
-class Post extends StatefulWidget {
-  final String imagePath;
-  final Color containerColor;
-  final String companyName;
-  final String coverType;
-  final String postTime;
-  final String postText;
-  final String? photo;
-  const Post(
-      {super.key,
-      required this.imagePath,
-      required this.containerColor,
-      required this.companyName,
-      required this.coverType,
-      required this.postTime,
-      required this.postText,
-      this.photo});
+class DatePicker extends StatefulWidget {
+  final TextEditingController controller;
+  final String label;
+  const DatePicker({super.key, required this.controller, required this.label});
 
   @override
-  State<Post> createState() => _PostState();
+  State<DatePicker> createState() => _DatePickerState();
 }
 
-class _PostState extends State<Post> {
+class _DatePickerState extends State<DatePicker> {
+  Future<void> _renewalSelectDate(BuildContext context) async {
+    DateTime? pickedDate = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2100),
+    );
+
+    if (pickedDate != null && pickedDate != DateTime.now()) {
+      setState(() {
+        String formattedDate =
+            '${pickedDate.month}-${pickedDate.day}-${pickedDate.year}';
+        widget.controller.text = formattedDate;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 8.0, left: 8.0),
-          child: Row(
-            children: [
-              Container(
-                width: 60,
-                height: 60,
-                // color: Colors.blue,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  boxShadow: [
-                    BoxShadow(
-                      color: const Color(0XFF000000).withOpacity(0.2),
-                      spreadRadius: 2,
-                      blurRadius: 3,
-                      offset: const Offset(0, 3),
-                    ),
-                  ],
-                  color: widget.containerColor,
-                ),
-                child: ClipOval(
-                  child: Image.asset(widget.imagePath),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 10.0),
-                child: Column(
-                  children: [
-                    Text(
-                      widget.companyName,
-                      style: bodyLargeGrey,
-                    ),
-                    Text(
-                      widget.coverType,
-                      style: bodyMediumGrey,
-                    )
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 100.0),
-                child: Row(
-                  children: [
-                    Text(
-                      widget.postTime,
-                      style: bodyMediumGrey,
-                    ),
-                    IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.more_horiz,
-                          size: 32,
-                          color: Color(0XFF9C9494),
-                        ))
-                  ],
-                ),
-              )
-            ],
-          ),
+        Text(
+          widget.label,
+          style: bodyLarge,
         ),
-        Padding(
-          padding: const EdgeInsets.only(
-            top: 8.0,
-            left: 20.0,
-          ),
-          child: InkWell(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ArticleWebView()),
-              );
-            },
-            child: Column(
-              children: [
-                Text(
-                  widget.postText,
-                  style: bodyMediumGrey,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    right: 22.0,
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: widget.photo != null
-                        ? Image.asset(
-                            widget.photo!,
-                          )
-                        : Container(),
-                  ),
-                ),
-              ],
+        SizedBox(
+          width: 350,
+          height: 38,
+          child: TextField(
+            controller: widget.controller,
+            decoration: InputDecoration(
+              suffixIcon: IconButton(
+                icon: Icon(Icons.calendar_month),
+                onPressed: () {
+                  _renewalSelectDate(context);
+                },
+              ),
+              enabledBorder: textfieldBorder,
+              focusedBorder: textfieldBorder,
             ),
+            readOnly: true,
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 1.0, left: 18.0),
-          child: Row(
-            children: [
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.thumb_up_alt_outlined,
-                    color: Color(0XFF0E2847),
-                  )),
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.sms_outlined,
-                    color: Color(0XFF0E2847),
-                  )),
-              Padding(
-                padding: const EdgeInsets.only(left: 180.0),
-                child: IconButton(
-                    onPressed: () {},
-                    icon: const FaIcon(
-                      FontAwesomeIcons.share,
-                      color: Color(0XFF0E2847),
-                    )),
-              ),
-            ],
-          ),
-        )
       ],
     );
   }

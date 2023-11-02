@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:voda_insure/Controllers/Authentication/LoginController.dart';
+import 'package:voda_insure/Screens/Home/HomeScreen.dart';
 import 'package:voda_insure/Styles/animation.dart';
 import 'package:voda_insure/Styles/style.dart';
-
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -84,7 +84,12 @@ class _LoginScreenState extends State<LoginScreen> {
               width: 350,
               height: 42,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => HomeScreen()));
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, '/homescreen', ((route) => false));
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0XFF021E3E),
                 ),

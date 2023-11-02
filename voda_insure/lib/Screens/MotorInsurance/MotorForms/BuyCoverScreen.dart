@@ -10,11 +10,6 @@ class BuyCoverScreen extends StatefulWidget {
 }
 
 class _BuyCoverScreenState extends State<BuyCoverScreen> {
-  TextEditingController fullnameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
   TextEditingController _renewalDateController = TextEditingController();
   TextEditingController _expiryDateController = TextEditingController();
   Future<void> _renewalSelectDate(BuildContext context) async {
@@ -82,6 +77,7 @@ class _BuyCoverScreenState extends State<BuyCoverScreen> {
               style: bodyLarge,
             ),
           ),
+          separator,
           Padding(
             padding: const EdgeInsets.only(left: 18.0),
             child: Column(
@@ -157,7 +153,7 @@ class _BuyCoverScreenState extends State<BuyCoverScreen> {
                         controller: _renewalDateController,
                         decoration: InputDecoration(
                           suffixIcon: IconButton(
-                            icon: Icon(Icons.calendar_today),
+                            icon: Icon(Icons.calendar_month),
                             onPressed: () {
                               _renewalSelectDate(context);
                             },
@@ -184,7 +180,7 @@ class _BuyCoverScreenState extends State<BuyCoverScreen> {
                         controller: _expiryDateController,
                         decoration: InputDecoration(
                           suffixIcon: IconButton(
-                            icon: Icon(Icons.calendar_today),
+                            icon: Icon(Icons.calendar_month),
                             onPressed: () {
                               _expirySelectDate(context);
                             },

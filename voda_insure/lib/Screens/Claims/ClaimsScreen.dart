@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voda_insure/Screens/Claims/Popup.dart';
 import 'package:voda_insure/Styles/style.dart';
 
 class ClaimsScreen extends StatefulWidget {
@@ -9,6 +10,15 @@ class ClaimsScreen extends StatefulWidget {
 }
 
 class _ClaimsScreenState extends State<ClaimsScreen> {
+  void _showPopup(BuildContext context, Widget popupWidget) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return popupWidget; // Display the provided popup widget
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -16,7 +26,69 @@ class _ClaimsScreenState extends State<ClaimsScreen> {
         Padding(
           padding: const EdgeInsets.only(left: 20.0, top: 120),
           child: InkWell(
-            onTap: () {},
+            onTap: () {
+              showMenu(
+                context: context,
+                position: RelativeRect.fromLTRB(50.0, 400.0, 50.0, 0.0),
+                items: [
+                  PopupMenuItem(
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: const Color(0XFF958C8C),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: const Icon(
+                            Icons.note_add,
+                            size: 30,
+                            color: Color(0XFF0E2847),
+                          ),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 10),
+                          child: Text(
+                            'Make claims',
+                            style: bodyMediumBlue,
+                          ),
+                        ),
+                      ],
+                    ),
+                    onTap: () {
+                      Navigator.pushNamed(context, '/makemotorclaim');
+                    },
+                  ),
+                  PopupMenuItem(
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: const Color(0XFF958C8C),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: const Icon(
+                            Icons.description,
+                            size: 30,
+                            color: Color(0XFF0E2847),
+                          ),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 10),
+                          child: Text(
+                            'Claims History',
+                            style: bodyMediumBlue,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              );
+            },
             child: Container(
               height: 48,
               width: 355,
@@ -39,7 +111,66 @@ class _ClaimsScreenState extends State<ClaimsScreen> {
         Padding(
           padding: const EdgeInsets.only(left: 20.0, top: 50),
           child: InkWell(
-            onTap: () {},
+            onTap: () {
+              showMenu(
+                context: context,
+                position: RelativeRect.fromLTRB(50.0, 400.0, 50.0, 0.0),
+                items: [
+                  PopupMenuItem(
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: const Color(0XFF958C8C),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: const Icon(
+                            Icons.note_add,
+                            size: 30,
+                            color: Color(0XFF0E2847),
+                          ),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 10),
+                          child: Text(
+                            'Make claims',
+                            style: bodyMediumBlue,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  PopupMenuItem(
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: const Color(0XFF958C8C),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: const Icon(
+                            Icons.description,
+                            size: 30,
+                            color: Color(0XFF0E2847),
+                          ),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 10),
+                          child: Text(
+                            'Claims History',
+                            style: bodyMediumBlue,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              );
+            },
             child: Container(
               height: 48,
               width: 355,

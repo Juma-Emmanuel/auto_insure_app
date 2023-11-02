@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voda_insure/Screens/Home/Post.dart';
 import 'package:voda_insure/Styles/style.dart';
 
 class ArticleWebView extends StatefulWidget {
@@ -12,17 +13,7 @@ class _ArticleWebViewState extends State<ArticleWebView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Color(0XFF726666),
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
+      appBar: AppBar(),
       body: SingleChildScrollView(
         child: Column(children: [
           Column(

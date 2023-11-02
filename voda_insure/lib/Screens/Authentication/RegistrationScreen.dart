@@ -1,6 +1,24 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
 
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:voda_insure/Styles/style.dart';
+
+class User {
+  String fullname;
+  String email;
+  String password;
+
+  User({required this.fullname, required this.email, required this.password});
+
+  Map<String, dynamic> toJson() {
+    return {
+      'fullname': fullname,
+      'email': email,
+      'password': password,
+    };
+  }
+}
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});
@@ -10,6 +28,34 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
+  Future<void> registerUser(User user) async {
+    final response = await http.post(
+      Uri.parse('http://localhost:8080/api/users/register'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(user.toJson()),
+    );
+
+    if (response.statusCode == 200) {
+      print('User registered successfully');
+    } else {
+      throw Exception('Failed to register user');
+    }
+  }
+
+  void _registerUser() {
+    User user = User(
+      fullname: fullnameController.text,
+      email: emailController.text,
+      password: passwordController.text,
+    );
+
+    registerUser(user)
+        .then((_) => print('Registration successful'))
+        .catchError((error) => print('Error: $error'));
+  }
+
   TextEditingController fullnameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
@@ -130,7 +176,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   width: 350,
                   height: 42,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      _registerUser();
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0XFF021E3E),
                     ),
