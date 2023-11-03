@@ -12,6 +12,7 @@ class MotorVehiclesMotorcyclesReportScreen extends StatefulWidget {
 
 class _MotorVehiclesMotorcyclesReportScreenState
     extends State<MotorVehiclesMotorcyclesReportScreen> {
+  Textstyle textStyle = Textstyle();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,13 +26,13 @@ class _MotorVehiclesMotorcyclesReportScreenState
               height: 48,
               child: logo(),
             ),
-            const Padding(
-              padding: EdgeInsets.only(
+            Padding(
+              padding: const EdgeInsets.only(
                 top: 10,
               ),
               child: Text(
                 'Motorvehicle/Motorcycle Report',
-                style: bodyLarge,
+                style: textStyle.bodyLarge,
               ),
             ),
             separator,
@@ -48,9 +49,9 @@ class _MotorVehiclesMotorcyclesReportScreenState
                             margin: const EdgeInsets.only(
                               bottom: 20.0,
                             ),
-                            child: const Text(
+                            child: Text(
                               'Registration Number:',
-                              style: bodyMediumGrey,
+                              style: textStyle.bodyMediumGrey,
                             ),
                           ),
                           const SizedBox(
@@ -71,9 +72,9 @@ class _MotorVehiclesMotorcyclesReportScreenState
                             margin: const EdgeInsets.only(
                               bottom: 20.0,
                             ),
-                            child: const Text(
+                            child: Text(
                               'Chasis Number:',
-                              style: bodyMediumGrey,
+                              style: textStyle.bodyMediumGrey,
                             ),
                           ),
                           const SizedBox(
@@ -94,9 +95,9 @@ class _MotorVehiclesMotorcyclesReportScreenState
                             margin: const EdgeInsets.only(
                               bottom: 20.0,
                             ),
-                            child: const Text(
+                            child: Text(
                               'CV Number',
-                              style: bodyMediumGrey,
+                              style: textStyle.bodyMediumGrey,
                             ),
                           ),
                           const SizedBox(
@@ -117,9 +118,9 @@ class _MotorVehiclesMotorcyclesReportScreenState
                             margin: const EdgeInsets.only(
                               bottom: 20.0,
                             ),
-                            child: const Text(
+                            child: Text(
                               'Tonnage:',
-                              style: bodyMediumGrey,
+                              style: textStyle.bodyMediumGrey,
                             ),
                           ),
                           const SizedBox(
@@ -140,9 +141,9 @@ class _MotorVehiclesMotorcyclesReportScreenState
                             margin: const EdgeInsets.only(
                               bottom: 20.0,
                             ),
-                            child: const Text(
+                            child: Text(
                               'Make:',
-                              style: bodyMediumGrey,
+                              style: textStyle.bodyMediumGrey,
                             ),
                           ),
                           const SizedBox(
@@ -163,9 +164,9 @@ class _MotorVehiclesMotorcyclesReportScreenState
                             margin: const EdgeInsets.only(
                               bottom: 20.0,
                             ),
-                            child: const Text(
+                            child: Text(
                               'Value:',
-                              style: bodyMediumGrey,
+                              style: textStyle.bodyMediumGrey,
                             ),
                           ),
                           const SizedBox(
@@ -186,9 +187,9 @@ class _MotorVehiclesMotorcyclesReportScreenState
                             margin: const EdgeInsets.only(
                               bottom: 20.0,
                             ),
-                            child: const Text(
+                            child: Text(
                               'Place:',
-                              style: bodyMediumGrey,
+                              style: textStyle.bodyMediumGrey,
                             ),
                           ),
                           const SizedBox(
@@ -209,9 +210,9 @@ class _MotorVehiclesMotorcyclesReportScreenState
                             margin: const EdgeInsets.only(
                               bottom: 20.0,
                             ),
-                            child: const Text(
+                            child: Text(
                               'Year of Manufacture:',
-                              style: bodyMediumGrey,
+                              style: textStyle.bodyMediumGrey,
                             ),
                           ),
                           const SizedBox(
@@ -232,9 +233,9 @@ class _MotorVehiclesMotorcyclesReportScreenState
                             margin: const EdgeInsets.only(
                               bottom: 20.0,
                             ),
-                            child: const Text(
+                            child: Text(
                               'ID Number of Driver:',
-                              style: bodyMediumGrey,
+                              style: textStyle.bodyMediumGrey,
                             ),
                           ),
                           const SizedBox(
@@ -255,9 +256,9 @@ class _MotorVehiclesMotorcyclesReportScreenState
                             margin: const EdgeInsets.only(
                               bottom: 20.0,
                             ),
-                            child: const Text(
+                            child: Text(
                               'Name of Driver:',
-                              style: bodyMediumGrey,
+                              style: textStyle.bodyMediumGrey,
                             ),
                           ),
                           const SizedBox(
@@ -278,9 +279,9 @@ class _MotorVehiclesMotorcyclesReportScreenState
                             margin: const EdgeInsets.only(
                               bottom: 20.0,
                             ),
-                            child: const Text(
+                            child: Text(
                               'Years of Experience:',
-                              style: bodyMediumGrey,
+                              style: textStyle.bodyMediumGrey,
                             ),
                           ),
                           const SizedBox(

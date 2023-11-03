@@ -10,24 +10,9 @@ class MakeMotorClaimScreen extends StatefulWidget {
 }
 
 class _MakeMotorClaimScreenState extends State<MakeMotorClaimScreen> {
-  TextEditingController _renewalDateController = TextEditingController();
-  TextEditingController _expiryDateController = TextEditingController();
-  Future<void> _renewalSelectDate(BuildContext context) async {
-    DateTime? pickedDate = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2100),
-    );
-
-    if (pickedDate != null && pickedDate != DateTime.now()) {
-      setState(() {
-        String formattedDate =
-            '${pickedDate.month}-${pickedDate.day}-${pickedDate.year}';
-        _renewalDateController.text = formattedDate;
-      });
-    }
-  }
+  Textstyle textStyle = Textstyle();
+  final TextEditingController _claimDateController = TextEditingController();
+  final TextEditingController _expiryDateController = TextEditingController();
 
   Future<void> _expirySelectDate(BuildContext context) async {
     DateTime? pickedDate = await showDatePicker(
@@ -68,13 +53,13 @@ class _MakeMotorClaimScreenState extends State<MakeMotorClaimScreen> {
             height: 48,
             child: logo(),
           ),
-          const Padding(
-            padding: EdgeInsets.only(
+          Padding(
+            padding: const EdgeInsets.only(
               top: 10,
             ),
             child: Text(
               'Make claims involving your Vehicle',
-              style: bodyLarge,
+              style: textStyle.bodyLarge,
             ),
           ),
           separator,
@@ -83,16 +68,18 @@ class _MakeMotorClaimScreenState extends State<MakeMotorClaimScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                DatePicker(
+                    controller: _claimDateController, label: 'Claim Date'),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'Policy:',
-                      style: bodyLarge,
+                      style: textStyle.bodyLarge,
                     ),
                     DropdownButton<String>(
                       menuMaxHeight: 130.0,
-                      hint: Text('policy'),
+                      hint: const Text('policy'),
                       borderRadius: BorderRadius.circular(20),
                       value: _selectedItem,
                       onChanged: (String? newValue) {
@@ -114,9 +101,9 @@ class _MakeMotorClaimScreenState extends State<MakeMotorClaimScreen> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'Insurance Cover Type:',
-                      style: bodyLarge,
+                      style: textStyle.bodyLarge,
                     ),
                     DropdownButton<String>(
                       menuMaxHeight: 130.0,
@@ -136,60 +123,6 @@ class _MakeMotorClaimScreenState extends State<MakeMotorClaimScreen> {
                             ),
                           )
                           .toList(),
-                    ),
-                  ],
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Cover Renewal Date:',
-                      style: bodyLarge,
-                    ),
-                    SizedBox(
-                      width: 350,
-                      height: 38,
-                      child: TextField(
-                        controller: _renewalDateController,
-                        decoration: InputDecoration(
-                          suffixIcon: IconButton(
-                            icon: Icon(Icons.calendar_month),
-                            onPressed: () {
-                              _renewalSelectDate(context);
-                            },
-                          ),
-                          enabledBorder: textfieldBorder,
-                          focusedBorder: textfieldBorder,
-                        ),
-                        readOnly: true,
-                      ),
-                    ),
-                  ],
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Cover Expiry Date:',
-                      style: bodyLarge,
-                    ),
-                    SizedBox(
-                      width: 350,
-                      height: 38,
-                      child: TextField(
-                        controller: _expiryDateController,
-                        decoration: InputDecoration(
-                          suffixIcon: IconButton(
-                            icon: Icon(Icons.calendar_month),
-                            onPressed: () {
-                              _expirySelectDate(context);
-                            },
-                          ),
-                          enabledBorder: textfieldBorder,
-                          focusedBorder: textfieldBorder,
-                        ),
-                        readOnly: true,
-                      ),
                     ),
                   ],
                 ),
@@ -206,9 +139,9 @@ class _MakeMotorClaimScreenState extends State<MakeMotorClaimScreen> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0XFF021E3E),
                 ),
-                child: const Text(
+                child: Text(
                   'BUY INSURANCE COVER ',
-                  style: buttonText,
+                  style: textStyle.buttonText,
                 ),
               ),
             ),

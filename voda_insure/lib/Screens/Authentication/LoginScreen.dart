@@ -12,6 +12,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  Textstyle textStyle = Textstyle();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,9 +70,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 onPressed: () {
                   Navigator.pushNamed(context, '/verificationscreen');
                 },
-                child: const Text(
+                child: Text(
                   'Forgot password',
-                  style: bodyLarge,
+                  style: textStyle.bodyLarge,
                 ),
               ),
             ),
@@ -93,9 +94,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0XFF021E3E),
                 ),
-                child: const Text(
+                child: Text(
                   'Login',
-                  style: buttonText,
+                  style: textStyle.buttonText,
                 ),
               ),
             ),

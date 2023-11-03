@@ -9,6 +9,7 @@ class MedicalInsuranceScreen extends StatefulWidget {
 }
 
 class _MedicalInsuranceScreenState extends State<MedicalInsuranceScreen> {
+  Textstyle textStyle = Textstyle();
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -35,13 +36,13 @@ class _MedicalInsuranceScreenState extends State<MedicalInsuranceScreen> {
                           ),
                         ),
                       ),
-                      const Text(
+                      Text(
                         'Corporate Medical Insurance Cover',
-                        style: bodyLargeGrey,
+                        style: textStyle.bodyLargeGrey,
                       ),
-                      const Text(
+                      Text(
                         'Get your Organization Covered!',
-                        style: bodyMediumGrey,
+                        style: textStyle.bodyMediumGrey,
                       )
                     ],
                   ),
@@ -67,13 +68,13 @@ class _MedicalInsuranceScreenState extends State<MedicalInsuranceScreen> {
                           ),
                         ),
                       ),
-                      const Text(
+                      Text(
                         'Self/Family Medical Insurance Cover',
-                        style: bodyLargeGrey,
+                        style: textStyle.bodyLargeGrey,
                       ),
-                      const Text(
+                      Text(
                         'Get your self/family covered today!',
-                        style: bodyMediumGrey,
+                        style: textStyle.bodyMediumGrey,
                       )
                     ],
                   ),
@@ -99,9 +100,9 @@ class _MedicalInsuranceScreenState extends State<MedicalInsuranceScreen> {
                           ),
                         ),
                       ),
-                      const Text(
+                      Text(
                         'Privacy Policy',
-                        style: bodyLargeGrey,
+                        style: textStyle.bodyLargeGrey,
                       ),
                     ],
                   ),
@@ -127,9 +128,9 @@ class _MedicalInsuranceScreenState extends State<MedicalInsuranceScreen> {
                           ),
                         ),
                       ),
-                      const Text(
+                      Text(
                         'Terms and conditions',
-                        style: bodyLargeGrey,
+                        style: textStyle.bodyLargeGrey,
                       ),
                     ],
                   ),

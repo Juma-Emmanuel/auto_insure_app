@@ -2,23 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:voda_insure/Controllers/Authentication/RegistrationController.dart';
+import 'package:voda_insure/Models/AuthModels/RegistrationModel.dart';
 import 'package:voda_insure/Styles/style.dart';
-
-class User {
-  String fullname;
-  String email;
-  String password;
-
-  User({required this.fullname, required this.email, required this.password});
-
-  Map<String, dynamic> toJson() {
-    return {
-      'fullname': fullname,
-      'email': email,
-      'password': password,
-    };
-  }
-}
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});
@@ -28,39 +14,25 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
-  Future<void> registerUser(User user) async {
-    final response = await http.post(
-      Uri.parse('http://localhost:8080/api/users/register'),
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-      body: jsonEncode(user.toJson()),
-    );
+  Textstyle textStyle = Textstyle();
+  final RegistrationRequest request = RegistrationRequest();
 
-    if (response.statusCode == 200) {
-      print('User registered successfully');
-    } else {
-      throw Exception('Failed to register user');
-    }
+  late TextEditingController fullnameController = TextEditingController();
+  late TextEditingController emailController = TextEditingController();
+  late TextEditingController phoneController = TextEditingController();
+  late TextEditingController passwordController = TextEditingController();
+  late TextEditingController confirmPasswordController =
+      TextEditingController();
+  @override
+  void initState() {
+    super.initState();
+    fullnameController = TextEditingController(text: '');
+    emailController = TextEditingController(text: '');
+    phoneController = TextEditingController(text: '');
+    passwordController = TextEditingController(text: '');
+    confirmPasswordController = TextEditingController(text: '');
   }
 
-  void _registerUser() {
-    User user = User(
-      fullname: fullnameController.text,
-      email: emailController.text,
-      password: passwordController.text,
-    );
-
-    registerUser(user)
-        .then((_) => print('Registration successful'))
-        .catchError((error) => print('Error: $error'));
-  }
-
-  TextEditingController fullnameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,13 +58,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 height: 48,
                 child: logo(),
               ),
-              const Padding(
-                padding: EdgeInsets.only(
+              Padding(
+                padding: const EdgeInsets.only(
                   top: 10,
                 ),
                 child: Text(
                   'Create your Account',
-                  style: bodyLarge,
+                  style: textStyle.bodyLarge,
                 ),
               ),
               Padding(
@@ -147,6 +119,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   height: 48,
                   child: TextField(
                     controller: passwordController,
+                    onChanged: (val) {},
                     decoration: InputDecoration(
                       hintText: 'Password',
                       focusedBorder: textfieldBorder,
@@ -177,14 +150,22 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   height: 42,
                   child: ElevatedButton(
                     onPressed: () {
-                      _registerUser();
+                      var email, password;
+
+                      setState() {
+                        email = emailController.text;
+                        password = passwordController.text;
+                      }
+
+                      request.registrationRequest(
+                          emailController.text, passwordController.text);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0XFF021E3E),
                     ),
-                    child: const Text(
+                    child: Text(
                       'Create Account',
-                      style: buttonText,
+                      style: textStyle.buttonText,
                     ),
                   ),
                 ),

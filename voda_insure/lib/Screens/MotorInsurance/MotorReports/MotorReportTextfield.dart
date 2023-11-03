@@ -14,12 +14,13 @@ class MotorReportTextField extends StatefulWidget {
 }
 
 class _MotorReportTextFieldState extends State<MotorReportTextField> {
+  Textstyle textStyle = Textstyle();
   late TextEditingController controller = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    controller = new TextEditingController(text: widget.input);
+    controller = TextEditingController(text: widget.input);
   }
 
   @override
@@ -30,7 +31,7 @@ class _MotorReportTextFieldState extends State<MotorReportTextField> {
       },
       readOnly: true,
       controller: controller,
-      style: bodyLarge,
+      style: textStyle.bodyLarge,
     );
   }
 }

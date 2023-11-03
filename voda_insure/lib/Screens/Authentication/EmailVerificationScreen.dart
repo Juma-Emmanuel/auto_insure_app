@@ -10,6 +10,7 @@ class EmailVerificationScreen extends StatefulWidget {
 }
 
 class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
+  Textstyle textStyle = Textstyle();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,14 +35,14 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
               height: 48,
               child: logo(),
             ),
-            const Padding(
+            Padding(
               padding: EdgeInsets.only(
                 right: 170,
                 top: 30.0,
               ),
               child: Text(
                 'Email Verification:',
-                style: bodyLarge,
+                style: textStyle.bodyLarge,
               ),
             ),
             Padding(
@@ -69,9 +70,9 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0XFF021E3E),
                     ),
-                    child: const Text(
+                    child: Text(
                       'Request Code',
-                      style: buttonText,
+                      style: textStyle.buttonText,
                     ),
                   ),
                 ),

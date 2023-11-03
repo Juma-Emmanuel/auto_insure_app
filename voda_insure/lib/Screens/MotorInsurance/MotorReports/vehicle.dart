@@ -12,6 +12,7 @@ class Vehicle extends StatefulWidget {
 }
 
 class _VehicleState extends State<Vehicle> {
+  Textstyle textStyle = Textstyle();
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -40,7 +41,7 @@ class _VehicleState extends State<Vehicle> {
                 padding: const EdgeInsets.only(left: 10.0),
                 child: Text(
                   widget.registrationNumber,
-                  style: bodyLarge,
+                  style: textStyle.bodyLarge,
                 ),
               )
             ],

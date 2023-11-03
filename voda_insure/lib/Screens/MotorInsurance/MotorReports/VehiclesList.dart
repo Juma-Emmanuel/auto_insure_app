@@ -9,6 +9,7 @@ class VehiclesList extends StatefulWidget {
 }
 
 class _VehiclesListState extends State<VehiclesList> {
+  Textstyle textStyle = Textstyle();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,13 +22,13 @@ class _VehiclesListState extends State<VehiclesList> {
             height: 48,
             child: logo(),
           ),
-          const Padding(
-            padding: EdgeInsets.only(
+          Padding(
+            padding: const EdgeInsets.only(
               top: 10,
             ),
             child: Text(
               'MY VEHICLES/MOTOCYCLES REPORT ',
-              style: bodyLarge,
+              style: textStyle.bodyLarge,
             ),
           ),
           separator,
@@ -56,11 +57,11 @@ class _VehiclesListState extends State<VehiclesList> {
                                 fit: BoxFit.cover,
                               )),
                         ),
-                        const Padding(
-                          padding: EdgeInsets.only(left: 10.0),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10.0),
                           child: Text(
                             'KDC 5000',
-                            style: bodyLarge,
+                            style: textStyle.bodyLarge,
                           ),
                         )
                       ],

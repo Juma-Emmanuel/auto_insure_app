@@ -14,6 +14,7 @@ class MotorSelect extends StatefulWidget {
 }
 
 class _MotorSelectState extends State<MotorSelect> {
+  Textstyle textStyle = Textstyle();
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -40,7 +41,7 @@ class _MotorSelectState extends State<MotorSelect> {
               Padding(padding: EdgeInsets.only(right: 9.0), child: widget.icon),
               Text(
                 widget.selectText,
-                style: bodyLargeGrey,
+                style: textStyle.bodyLargeGrey,
               ),
             ],
           ),
@@ -62,6 +63,7 @@ class RegisterVehicleTextfield extends StatefulWidget {
 }
 
 class _RegisterVehicleTextfieldState extends State<RegisterVehicleTextfield> {
+  Textstyle textStyle = Textstyle();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -69,7 +71,7 @@ class _RegisterVehicleTextfieldState extends State<RegisterVehicleTextfield> {
       children: [
         Text(
           widget.label,
-          style: bodyLarge,
+          style: textStyle.bodyLarge,
         ),
         SizedBox(
           width: 350,

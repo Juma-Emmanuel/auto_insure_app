@@ -10,8 +10,9 @@ class BuyCoverScreen extends StatefulWidget {
 }
 
 class _BuyCoverScreenState extends State<BuyCoverScreen> {
-  TextEditingController _renewalDateController = TextEditingController();
-  TextEditingController _expiryDateController = TextEditingController();
+  Textstyle textStyle = Textstyle();
+  final TextEditingController _renewalDateController = TextEditingController();
+  final TextEditingController _expiryDateController = TextEditingController();
   Future<void> _renewalSelectDate(BuildContext context) async {
     DateTime? pickedDate = await showDatePicker(
       context: context,
@@ -68,13 +69,13 @@ class _BuyCoverScreenState extends State<BuyCoverScreen> {
             height: 48,
             child: logo(),
           ),
-          const Padding(
-            padding: EdgeInsets.only(
+          Padding(
+            padding: const EdgeInsets.only(
               top: 10,
             ),
             child: Text(
               'Register the cover of your Choice',
-              style: bodyLarge,
+              style: textStyle.bodyLarge,
             ),
           ),
           separator,
@@ -86,13 +87,13 @@ class _BuyCoverScreenState extends State<BuyCoverScreen> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'Policy:',
-                      style: bodyLarge,
+                      style: textStyle.bodyLarge,
                     ),
                     DropdownButton<String>(
                       menuMaxHeight: 130.0,
-                      hint: Text('policy'),
+                      hint: const Text('policy'),
                       borderRadius: BorderRadius.circular(20),
                       value: _selectedItem,
                       onChanged: (String? newValue) {
@@ -114,13 +115,13 @@ class _BuyCoverScreenState extends State<BuyCoverScreen> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'Insurance Cover Type:',
-                      style: bodyLarge,
+                      style: textStyle.bodyLarge,
                     ),
                     DropdownButton<String>(
                       menuMaxHeight: 130.0,
-                      hint: Text('policy'),
+                      hint: const Text('policy'),
                       borderRadius: BorderRadius.circular(20),
                       value: _selectedItem,
                       onChanged: (String? newValue) {
@@ -144,7 +145,7 @@ class _BuyCoverScreenState extends State<BuyCoverScreen> {
                   children: [
                     Text(
                       'Cover Renewal Date:',
-                      style: bodyLarge,
+                      style: textStyle.bodyLarge,
                     ),
                     SizedBox(
                       width: 350,
@@ -153,7 +154,7 @@ class _BuyCoverScreenState extends State<BuyCoverScreen> {
                         controller: _renewalDateController,
                         decoration: InputDecoration(
                           suffixIcon: IconButton(
-                            icon: Icon(Icons.calendar_month),
+                            icon: const Icon(Icons.calendar_month),
                             onPressed: () {
                               _renewalSelectDate(context);
                             },
@@ -171,7 +172,7 @@ class _BuyCoverScreenState extends State<BuyCoverScreen> {
                   children: [
                     Text(
                       'Cover Expiry Date:',
-                      style: bodyLarge,
+                      style: textStyle.bodyLarge,
                     ),
                     SizedBox(
                       width: 350,
@@ -180,7 +181,7 @@ class _BuyCoverScreenState extends State<BuyCoverScreen> {
                         controller: _expiryDateController,
                         decoration: InputDecoration(
                           suffixIcon: IconButton(
-                            icon: Icon(Icons.calendar_month),
+                            icon: const Icon(Icons.calendar_month),
                             onPressed: () {
                               _expirySelectDate(context);
                             },
@@ -206,9 +207,9 @@ class _BuyCoverScreenState extends State<BuyCoverScreen> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0XFF021E3E),
                 ),
-                child: const Text(
+                child: Text(
                   'BUY INSURANCE COVER ',
-                  style: buttonText,
+                  style: textStyle.buttonText,
                 ),
               ),
             ),

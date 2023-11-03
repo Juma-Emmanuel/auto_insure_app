@@ -10,6 +10,7 @@ class RegisterVehicleScreen extends StatefulWidget {
 }
 
 class _RegisterVehicleScreenState extends State<RegisterVehicleScreen> {
+  Textstyle textStyle = Textstyle();
   TextEditingController excontroller = TextEditingController();
   String _selectedCategory = 'SUV';
 
@@ -46,13 +47,13 @@ class _RegisterVehicleScreenState extends State<RegisterVehicleScreen> {
             height: 48,
             child: logo(),
           ),
-          const Padding(
-            padding: EdgeInsets.only(
+          Padding(
+            padding: const EdgeInsets.only(
               top: 10,
             ),
             child: Text(
               'Register the cover of your Choice',
-              style: bodyLarge,
+              style: textStyle.bodyLarge,
             ),
           ),
           separator,
@@ -64,9 +65,9 @@ class _RegisterVehicleScreenState extends State<RegisterVehicleScreen> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
+                        Text(
                           'Select Vehicle Category:',
-                          style: bodyLarge,
+                          style: textStyle.bodyLarge,
                         ),
                         DropdownButton<String>(
                           // menuMaxHeight: 130.0,
@@ -143,9 +144,9 @@ class _RegisterVehicleScreenState extends State<RegisterVehicleScreen> {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0XFF021E3E),
                           ),
-                          child: const Text(
+                          child: Text(
                             'REGISTER VEHICLE',
-                            style: buttonText,
+                            style: textStyle.buttonText,
                           ),
                         ),
                       ),

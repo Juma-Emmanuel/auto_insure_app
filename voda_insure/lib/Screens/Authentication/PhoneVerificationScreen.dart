@@ -10,6 +10,7 @@ class PhoneVerificationScreen extends StatefulWidget {
 }
 
 class _PhoneVerificationScreenState extends State<PhoneVerificationScreen> {
+  Textstyle textStyle = Textstyle();
   TextEditingController phonecodecontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -25,61 +26,57 @@ class _PhoneVerificationScreenState extends State<PhoneVerificationScreen> {
           },
         ),
       ),
-      body: Column(
-          mainAxisAlignment: MainAxisAlignment
-              .start, 
-
-          children: [
-            SizedBox(
+      body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+        SizedBox(
+          width: 350,
+          height: 48,
+          child: logo(),
+        ),
+        Padding(
+          padding: EdgeInsets.only(
+            right: 170,
+            top: 30.0,
+          ),
+          child: Text(
+            'Phone Verification:',
+            style: textStyle.bodyLarge,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 5),
+          child: SizedBox(
+            width: 350,
+            height: 48,
+            child: TextField(
+              controller: phonecodecontroller,
+              decoration: InputDecoration(
+                hintText: 'Phone Number',
+                focusedBorder: textfieldBorder,
+                enabledBorder: textfieldBorder,
+              ),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 30.0),
+          child: Center(
+            child: SizedBox(
               width: 350,
-              height: 48,
-              child: logo(),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(
-                right: 170,
-                top: 30.0,
-              ),
-              child: Text(
-                'Phone Verification:',
-                style: bodyLarge,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 5),
-              child: SizedBox(
-                width: 350,
-                height: 48,
-                child: TextField(
-                  controller: phonecodecontroller,
-                  decoration: InputDecoration(
-                    hintText: 'Phone Number',
-                    focusedBorder: textfieldBorder,
-                    enabledBorder: textfieldBorder,
-                  ),
+              height: 42,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0XFF021E3E),
+                ),
+                child: Text(
+                  'Request Code',
+                  style: textStyle.buttonText,
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 30.0),
-              child: Center(
-                child: SizedBox(
-                  width: 350,
-                  height: 42,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0XFF021E3E),
-                    ),
-                    child: const Text(
-                      'Request Code',
-                      style: buttonText,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ]),
+          ),
+        ),
+      ]),
     );
   }
 }

@@ -25,6 +25,7 @@ class Post extends StatefulWidget {
 }
 
 class _PostState extends State<Post> {
+  Textstyle textStyle = Textstyle();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -58,11 +59,11 @@ class _PostState extends State<Post> {
                   children: [
                     Text(
                       widget.companyName,
-                      style: bodyLargeGrey,
+                      style: textStyle.bodyLargeGrey,
                     ),
                     Text(
                       widget.coverType,
-                      style: bodyMediumGrey,
+                      style: textStyle.bodyMediumGrey,
                     )
                   ],
                 ),
@@ -73,7 +74,7 @@ class _PostState extends State<Post> {
                   children: [
                     Text(
                       widget.postTime,
-                      style: bodyMediumGrey,
+                      style: textStyle.bodyMediumGrey,
                     ),
                     IconButton(
                         onPressed: () {},
@@ -101,7 +102,7 @@ class _PostState extends State<Post> {
               children: [
                 Text(
                   widget.postText,
-                  style: bodyMediumGrey,
+                  style: textStyle.bodyMediumGrey,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(

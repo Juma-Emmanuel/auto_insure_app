@@ -9,6 +9,7 @@ class VerificationScreen extends StatefulWidget {
 }
 
 class _VerificationScreenState extends State<VerificationScreen> {
+  Textstyle textStyle = Textstyle();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,13 +30,13 @@ class _VerificationScreenState extends State<VerificationScreen> {
           height: 48,
           child: logo(),
         ),
-        const Padding(
-          padding: EdgeInsets.only(
+        Padding(
+          padding: const EdgeInsets.only(
             top: 10,
           ),
           child: Text(
             'Verify by',
-            style: bodyLarge,
+            style: textStyle.bodyLarge,
           ),
         ),
         Padding(
@@ -51,21 +52,21 @@ class _VerificationScreenState extends State<VerificationScreen> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0XFF021E3E),
                 ),
-                child: const Text(
+                child: Text(
                   'Email',
-                  style: buttonText,
+                  style: textStyle.buttonText,
                 ),
               ),
             ),
           ),
         ),
-        const Padding(
-          padding: EdgeInsets.only(
+        Padding(
+          padding: const EdgeInsets.only(
             top: 30.0,
           ),
           child: Text(
             'OR',
-            style: bodyLarge,
+            style: textStyle.bodyLarge,
           ),
         ),
         Padding(
@@ -81,9 +82,9 @@ class _VerificationScreenState extends State<VerificationScreen> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0XFF021E3E),
                 ),
-                child: const Text(
+                child: Text(
                   'Phone Number',
-                  style: buttonText,
+                  style: textStyle.buttonText,
                 ),
               ),
             ),

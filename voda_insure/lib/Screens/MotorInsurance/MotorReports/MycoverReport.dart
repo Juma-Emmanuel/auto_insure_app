@@ -10,6 +10,7 @@ class MycoverReport extends StatefulWidget {
 }
 
 class _MycoverReportState extends State<MycoverReport> {
+  Textstyle textStyle = Textstyle();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,13 +23,13 @@ class _MycoverReportState extends State<MycoverReport> {
             height: 48,
             child: logo(),
           ),
-          const Padding(
-            padding: EdgeInsets.only(
+          Padding(
+            padding: const EdgeInsets.only(
               top: 10,
             ),
             child: Text(
               'My Cover',
-              style: bodyLarge,
+              style: textStyle.bodyLarge,
             ),
           ),
           separator,
@@ -45,9 +46,9 @@ class _MycoverReportState extends State<MycoverReport> {
                           margin: const EdgeInsets.only(
                             bottom: 20.0,
                           ),
-                          child: const Text(
+                          child: Text(
                             'Policy',
-                            style: bodyMediumGrey,
+                            style: textStyle.bodyMediumGrey,
                           ),
                         ),
                         const SizedBox(
@@ -68,9 +69,9 @@ class _MycoverReportState extends State<MycoverReport> {
                           margin: const EdgeInsets.only(
                             bottom: 20.0,
                           ),
-                          child: const Text(
+                          child: Text(
                             'Insurance Cover:',
-                            style: bodyMediumGrey,
+                            style: textStyle.bodyMediumGrey,
                           ),
                         ),
                         const SizedBox(
@@ -91,9 +92,9 @@ class _MycoverReportState extends State<MycoverReport> {
                           margin: const EdgeInsets.only(
                             bottom: 20.0,
                           ),
-                          child: const Text(
+                          child: Text(
                             'Renewal Date',
-                            style: bodyMediumGrey,
+                            style: textStyle.bodyMediumGrey,
                           ),
                         ),
                         const SizedBox(
@@ -114,9 +115,9 @@ class _MycoverReportState extends State<MycoverReport> {
                           margin: const EdgeInsets.only(
                             bottom: 20.0,
                           ),
-                          child: const Text(
+                          child: Text(
                             'Expiry Date:',
-                            style: bodyMediumGrey,
+                            style: textStyle.bodyMediumGrey,
                           ),
                         ),
                         const SizedBox(

@@ -19,44 +19,28 @@ import 'package:voda_insure/Screens/MotorInsurance/MotorReports/MotorVehiclesMot
 import 'package:voda_insure/Screens/MotorInsurance/MotorReports/MycoverReport.dart';
 import 'package:voda_insure/Screens/MotorInsurance/MotorReports/VehiclesList.dart';
 
-class Navigation extends StatefulWidget {
-  const Navigation({super.key});
-
-  @override
-  State<Navigation> createState() => _NavigationState();
-}
-
-class _NavigationState extends State<Navigation> {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: '/',
-      routes: {
-        '/login': (context) => const LoginScreen(),
-        '/verificationscreen': (context) => const VerificationScreen(),
-        '/emailverificationscreen': (context) =>
-            const EmailVerificationScreen(),
-        '/phoneverificationscreen': (context) =>
-            const PhoneVerificationScreen(),
-        '/forgotpasswordscreen': (context) => const VerificationScreen(),
-        '/verificationcodescreen': (context) => const VerificationCodeScreen(),
-        '/passwordresetscreen': (context) => const PasswordResetScreen(),
-        '/userprofilescreen': (context) => const UserProfileScreen(),
-        '/editprofilescreen': (context) => const EditProfileScreen(),
-        '/registration': (context) => const RegistrationScreen(),
-        '/homescreen': (context) => HomeScreen(),
-        '/articlewebview': (context) => const ArticleWebView(),
-        '/registervehicle': (context) => const RegisterVehicleScreen(),
-        '/mycoverreport': (context) => const MycoverReport(),
-        '/motorvehiclemotorcyclereport': (context) =>
-            const MotorVehiclesMotorcyclesReportScreen(),
-        '/motortermsandconditions': (context) =>
-            const MotorTermsandConditions(),
-        '/motorprivacypolicy': (context) => const MotorPrivacyPolicy(),
-        '/faqs': (context) => const Faqs(),
-        '/vehicleslist': (context) => const VehiclesList(),
-        '/makemotorclaim': (context) => const MakeMotorClaimScreen(),
-      },
-    );
-  }
+class AppRoutes {
+  static Map<String, WidgetBuilder> routes = {
+    '/login': (context) => const LoginScreen(),
+    '/verificationscreen': (context) => const VerificationScreen(),
+    '/emailverificationscreen': (context) => const EmailVerificationScreen(),
+    '/phoneverificationscreen': (context) => const PhoneVerificationScreen(),
+    '/forgotpasswordscreen': (context) => const VerificationScreen(),
+    '/verificationcodescreen': (context) => const VerificationCodeScreen(),
+    '/passwordresetscreen': (context) => const PasswordResetScreen(),
+    '/userprofilescreen': (context) => const UserProfileScreen(),
+    '/editprofilescreen': (context) => const EditProfileScreen(),
+    '/registration': (context) => const RegistrationScreen(),
+    '/homescreen': (context) => HomeScreen(),
+    '/articlewebview': (context) => const ArticleWebView(),
+    '/registervehicle': (context) => const RegisterVehicleScreen(),
+    '/mycoverreport': (context) => const MycoverReport(),
+    '/motorvehiclemotorcyclereport': (context) =>
+        const MotorVehiclesMotorcyclesReportScreen(),
+    '/motortermsandconditions': (context) => const MotorTermsandConditions(),
+    '/motorprivacypolicy': (context) => const MotorPrivacyPolicy(),
+    '/faqs': (context) => const Faqs(),
+    '/vehicleslist': (context) => const VehiclesList(),
+    '/makemotorclaim': (context) => const MakeMotorClaimScreen(),
+  };
 }

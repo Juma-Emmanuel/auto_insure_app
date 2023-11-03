@@ -9,6 +9,7 @@ class UserProfileScreen extends StatefulWidget {
 }
 
 class _UserProfileScreenState extends State<UserProfileScreen> {
+  Textstyle textStyle = Textstyle();
   @override
   Widget build(BuildContext context) {
     return Column(children: [
@@ -29,22 +30,22 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
           ),
         ),
       ),
-      const Padding(
-        padding: EdgeInsets.only(
+      Padding(
+        padding: const EdgeInsets.only(
           top: 10,
         ),
         child: Text(
           'Torvald Linus',
-          style: headlineMedium,
+          style: textStyle.headlineMedium,
         ),
       ),
-      const Padding(
-        padding: EdgeInsets.only(
+      Padding(
+        padding: const EdgeInsets.only(
           top: 8,
         ),
         child: Text(
           '+254712345678',
-          style: bodyLargeGrey,
+          style: textStyle.bodyLargeGrey,
         ),
       ),
       Padding(
@@ -54,9 +55,9 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
+            Text(
               'torvaldlinus@yahoo.com',
-              style: bodyLargeGrey,
+              style: textStyle.bodyLargeGrey,
             ),
             Container(
               margin: const EdgeInsets.only(
@@ -70,9 +71,9 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0XFF021E3E),
                 ),
-                child: const Text(
+                child: Text(
                   'Edit Profile',
-                  style: bodyMediumWhite,
+                  style: textStyle.bodyMediumWhite,
                 ),
               ),
             ),
@@ -121,19 +122,19 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           color: Color(0XFF0E2847),
                         ),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.only(left: 10),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
                               'Payment',
-                              style: bodyMediumBlue,
+                              style: textStyle.bbodyMediumGrey,
                             ),
                             Text(
                               'Details',
-                              style: bodyMediumBlue,
+                              style: textStyle.bodyMediumBlue,
                             ),
                           ],
                         ),
@@ -173,11 +174,11 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           color: Color(0XFF0E2847),
                         ),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.only(left: 10),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
                         child: Text(
                           'Premiums',
-                          style: bodyMediumBlue,
+                          style: textStyle.bodyMediumBlue,
                         ),
                       ),
                     ],
@@ -197,31 +198,31 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 onPressed: () {
                   Navigator.pushNamed(context, '/login');
                 },
-                child: const Row(
+                child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.logout,
                       size: 30,
                       color: Color(0XFF958C8C),
                     ),
                     Text(
                       'Log out',
-                      style: bodyMediumGrey,
+                      style: textStyle.bodyMediumGrey,
                     ),
                   ],
                 )),
             TextButton(
                 onPressed: () {},
-                child: const Row(
+                child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.delete_forever,
                       size: 30,
                       color: Color(0XFF958C8C),
                     ),
                     Text(
                       'Delete account',
-                      style: bodyMediumGrey,
+                      style: textStyle.bodyMediumGrey,
                     ),
                   ],
                 )),

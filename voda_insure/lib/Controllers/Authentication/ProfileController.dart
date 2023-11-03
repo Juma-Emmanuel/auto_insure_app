@@ -14,6 +14,7 @@ class ProfileTextField extends StatefulWidget {
 }
 
 class _ProfileTextFieldState extends State<ProfileTextField> {
+  Textstyle textStyle = Textstyle();
   late TextEditingController controller = TextEditingController();
 
   @override
@@ -29,7 +30,7 @@ class _ProfileTextFieldState extends State<ProfileTextField> {
         setState(() {});
       },
       controller: controller,
-      style: bodyLarge,
+      style: textStyle.bodyLarge,
     );
   }
 }

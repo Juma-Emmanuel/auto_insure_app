@@ -10,6 +10,7 @@ class EditProfileScreen extends StatefulWidget {
 }
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
+  Textstyle textStyle = Textstyle();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController fullnameController = TextEditingController();
@@ -31,9 +32,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0XFF021E3E),
               ),
-              child: const Text(
+              child: Text(
                 'Save',
-                style: bodyMediumWhite,
+                style: textStyle.bodyMediumWhite,
               ),
             ),
           ),
@@ -82,17 +83,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(
-              top: 8.0,
-              left: 10,
-              right: 10,
-            ),
-            child: Container(
-              height: 1,
-              color: const Color(0XFFBBBBBB),
-            ),
-          ),
+          separator,
           Padding(
             padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 30),
             child:
@@ -102,9 +93,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 margin: const EdgeInsets.only(
                   bottom: 20.0,
                 ),
-                child: const Text(
+                child: Text(
                   'Email',
-                  style: bodyMediumGrey,
+                  style: textStyle.bodyMediumGrey,
                 ),
               ),
               const SizedBox(
@@ -125,12 +116,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       margin: const EdgeInsets.only(
                         bottom: 20.0,
                       ),
-                      child: const Text(
+                      child: Text(
                         'Phone Number',
-                        style: bodyMediumGrey,
+                        style: textStyle.bodyMediumGrey,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                       child: ProfileTextField(
                         input: 'halo',
@@ -142,13 +133,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Container(
-                // height: 21,
                 margin: const EdgeInsets.only(
                   bottom: 20.0,
                 ),
-                child: const Text(
+                child: Text(
                   'Full Name',
-                  style: bodyMediumGrey,
+                  style: textStyle.bodyMediumGrey,
                 ),
               ),
               const SizedBox(

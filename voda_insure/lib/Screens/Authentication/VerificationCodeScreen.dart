@@ -9,6 +9,7 @@ class VerificationCodeScreen extends StatefulWidget {
 }
 
 class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
+  Textstyle textStyle = Textstyle();
   TextEditingController verificationController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -30,14 +31,14 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
           height: 48,
           child: logo(),
         ),
-        const Padding(
-          padding: EdgeInsets.only(
+        Padding(
+          padding: const EdgeInsets.only(
             right: 170,
             top: 30.0,
           ),
           child: Text(
             'Verification Code:',
-            style: bodyLarge,
+            style: textStyle.bodyLarge,
           ),
         ),
         Padding(
@@ -66,9 +67,9 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0XFF021E3E),
                 ),
-                child: const Text(
+                child: Text(
                   'Verify',
-                  style: buttonText,
+                  style: textStyle.buttonText,
                 ),
               ),
             ),

@@ -59,75 +59,79 @@ BoxDecoration shadow = BoxDecoration(
     ),
   ],
 );
-const TextStyle bodyMediumWhite = TextStyle(
-  color: Color(0XFFFFFFFF),
-  fontSize: 16.0,
-  fontWeight: FontWeight.normal,
-  fontStyle: FontStyle.normal,
-);
-const TextStyle bodyMediumGrey = TextStyle(
-  color: Color(0XFF726666),
-  fontSize: 16.0,
-  fontWeight: FontWeight.w600,
-  fontStyle: FontStyle.normal,
-);
-const TextStyle bbodyMediumGrey = TextStyle(
-  color: Color(0XFF726666),
-  fontSize: 16.0,
-  fontWeight: FontWeight.normal,
-  fontStyle: FontStyle.normal,
-);
-const TextStyle bbodySmallGrey = TextStyle(
-  color: Color(0XFF726666),
-  fontSize: 12.0,
-  fontWeight: FontWeight.normal,
-  fontStyle: FontStyle.normal,
-);
-const TextStyle bodySmallGrey = TextStyle(
-  color: Color(0XFF726666),
-  fontSize: 12.0,
-  fontWeight: FontWeight.w600,
-  fontStyle: FontStyle.normal,
-);
-const TextStyle bodyMediumBlue = TextStyle(
-  color: Color(0XFF0E2847),
-  fontSize: 16.0,
-  fontWeight: FontWeight.normal,
-  fontStyle: FontStyle.normal,
-);
-const TextStyle headlineMedium = TextStyle(
-  color: Color(0XFF0E2847),
-  fontSize: 28.0,
-  fontWeight: FontWeight.w600,
-  fontStyle: FontStyle.normal,
-);
-const TextStyle headlineSmallGrey = TextStyle(
-  color: Color(0XFF726666),
-  fontSize: 24.0,
-  fontWeight: FontWeight.w600,
-  fontStyle: FontStyle.normal,
-);
-const TextStyle bodyLargeGrey = TextStyle(
-  color: Color(0XFF726666),
-  fontSize: 20.0,
-  fontWeight: FontWeight.w600,
-  fontStyle: FontStyle.normal,
-  letterSpacing: 0,
-);
-const TextStyle bodyLarge = TextStyle(
-  color: Color(0XFF021E3E),
-  fontSize: 20.0,
-  fontWeight: FontWeight.w600,
-  fontStyle: FontStyle.normal,
-  letterSpacing: 0,
-);
-const TextStyle buttonText = TextStyle(
-  color: Color(0XFFFFFFFF),
-  fontSize: 20.0,
-  fontWeight: FontWeight.w600,
-  fontStyle: FontStyle.normal,
-  letterSpacing: 0,
-);
+
+class Textstyle {
+  TextStyle buttonText = const TextStyle(
+    color: Color(0XFFFFFFFF),
+    fontSize: 20.0,
+    fontWeight: FontWeight.w600,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 0,
+  );
+  TextStyle bbodyMediumGrey = const TextStyle(
+    color: Color(0XFF726666),
+    fontSize: 16.0,
+    fontWeight: FontWeight.normal,
+    fontStyle: FontStyle.normal,
+  );
+  TextStyle bodyMediumWhite = const TextStyle(
+    color: Color(0XFFFFFFFF),
+    fontSize: 16.0,
+    fontWeight: FontWeight.normal,
+    fontStyle: FontStyle.normal,
+  );
+  TextStyle bodyMediumGrey = const TextStyle(
+    color: Color(0XFF726666),
+    fontSize: 16.0,
+    fontWeight: FontWeight.w600,
+    fontStyle: FontStyle.normal,
+  );
+  TextStyle bbodySmallGrey = const TextStyle(
+    color: Color(0XFF726666),
+    fontSize: 12.0,
+    fontWeight: FontWeight.normal,
+    fontStyle: FontStyle.normal,
+  );
+  TextStyle bodySmallGrey = const TextStyle(
+    color: Color(0XFF726666),
+    fontSize: 12.0,
+    fontWeight: FontWeight.w600,
+    fontStyle: FontStyle.normal,
+  );
+  TextStyle bodyMediumBlue = const TextStyle(
+    color: Color(0XFF0E2847),
+    fontSize: 16.0,
+    fontWeight: FontWeight.normal,
+    fontStyle: FontStyle.normal,
+  );
+  TextStyle headlineMedium = const TextStyle(
+    color: Color(0XFF0E2847),
+    fontSize: 28.0,
+    fontWeight: FontWeight.w600,
+    fontStyle: FontStyle.normal,
+  );
+  TextStyle headlineSmallGrey = const TextStyle(
+    color: Color(0XFF726666),
+    fontSize: 24.0,
+    fontWeight: FontWeight.w600,
+    fontStyle: FontStyle.normal,
+  );
+  TextStyle bodyLargeGrey = const TextStyle(
+    color: Color(0XFF726666),
+    fontSize: 20.0,
+    fontWeight: FontWeight.w600,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 0,
+  );
+  TextStyle bodyLarge = const TextStyle(
+    color: Color(0XFF021E3E),
+    fontSize: 20.0,
+    fontWeight: FontWeight.w600,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 0,
+  );
+}
+
 Padding separator = Padding(
   padding: const EdgeInsets.only(
     top: 8.0,
@@ -193,6 +197,7 @@ class DatePicker extends StatefulWidget {
 }
 
 class _DatePickerState extends State<DatePicker> {
+  Textstyle textStyle = Textstyle();
   Future<void> _renewalSelectDate(BuildContext context) async {
     DateTime? pickedDate = await showDatePicker(
       context: context,
@@ -217,7 +222,7 @@ class _DatePickerState extends State<DatePicker> {
       children: [
         Text(
           widget.label,
-          style: bodyLarge,
+          style: textStyle.bodyLarge,
         ),
         SizedBox(
           width: 350,

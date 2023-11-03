@@ -9,6 +9,7 @@ class PrivatePolicyScreen extends StatefulWidget {
 }
 
 class _PrivatePolicyScreenState extends State<PrivatePolicyScreen> {
+  Textstyle textStyle = Textstyle();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,76 +30,77 @@ class _PrivatePolicyScreenState extends State<PrivatePolicyScreen> {
           height: 48,
           child: logo(),
         ),
-        const Padding(
-          padding: EdgeInsets.only(
+        Padding(
+          padding: const EdgeInsets.only(
             top: 10,
           ),
           child: Text(
             'Private Policy for VodaInsure',
-            style: bodyLarge,
+            style: textStyle.bodyLarge,
           ),
         ),
-        const Padding(
-          padding: EdgeInsets.all(8.0),
+        separator,
+        Padding(
+          padding: const EdgeInsets.all(8.0),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   '1. Introduction',
-                  style: bbodyMediumGrey,
+                  style: textStyle.bbodyMediumGrey,
                 ),
                 Text(
                   'Welcome to Vodalnsure, an online insurance platform. This Privacy Policy explains how we collect, use, disclose, and protect your personal information when you use our web application ("the Application").',
-                  style: bbodySmallGrey,
+                  style: textStyle.bbodySmallGrey,
                 ),
                 Text(
                   '2. Information We Collect',
-                  style: bbodyMediumGrey,
+                  style: textStyle.bbodyMediumGrey,
                 ),
                 Text(
                   '1. Information You Provide: We may collect personal information that you voluntarily provide when using the Application, such as your name, contact information, payment details, and other data necessary to provide our services.',
-                  style: bbodySmallGrey,
+                  style: textStyle.bbodySmallGrey,
                 ),
                 Text(
                   ' 2. Automatically Collected Information: We may collect information about your use of the Application, including your IP address, device information, browsing history, and usage patterns.',
-                  style: bbodySmallGrey,
+                  style: textStyle.bbodySmallGrey,
                 ),
                 Text(
                   '3. Cookies and Tracking Technologies: We use cookies and similar tracking technologies to enhance your experience and collect information about your online activities. You can manage your cookie preferences in your browser settings.',
-                  style: bbodySmallGrey,
+                  style: textStyle.bbodySmallGrey,
                 ),
                 Text(
                   '3. How We Use Your Information',
-                  style: bbodyMediumGrey,
+                  style: textStyle.bbodyMediumGrey,
                 ),
                 Text(
                   '1. To provide and maintain our services.',
-                  style: bbodySmallGrey,
+                  style: textStyle.bbodySmallGrey,
                 ),
                 Text(
                   '2. To process transactions and payments.',
-                  style: bbodySmallGrey,
+                  style: textStyle.bbodySmallGrey,
                 ),
                 Text(
                   '3. To communicate with you about our services.',
-                  style: bbodySmallGrey,
+                  style: textStyle.bbodySmallGrey,
                 ),
                 Text(
                   '4. To personalize and improve your experience.',
-                  style: bbodySmallGrey,
+                  style: textStyle.bbodySmallGrey,
                 ),
                 Text(
                   '5. To comply with legal obligations.',
-                  style: bbodySmallGrey,
+                  style: textStyle.bbodySmallGrey,
                 ),
                 Text(
                   '5. To comply with legal obligations.',
-                  style: bbodySmallGrey,
+                  style: textStyle.bbodySmallGrey,
                 ),
                 Text(
                   '6. To protect our rights and interests.',
-                  style: bbodySmallGrey,
+                  style: textStyle.bbodySmallGrey,
                 ),
               ],
             ),

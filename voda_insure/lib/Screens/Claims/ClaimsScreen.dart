@@ -10,6 +10,7 @@ class ClaimsScreen extends StatefulWidget {
 }
 
 class _ClaimsScreenState extends State<ClaimsScreen> {
+  Textstyle textStyle = Textstyle();
   void _showPopup(BuildContext context, Widget popupWidget) {
     showDialog(
       context: context,
@@ -47,11 +48,11 @@ class _ClaimsScreenState extends State<ClaimsScreen> {
                             color: Color(0XFF0E2847),
                           ),
                         ),
-                        const Padding(
+                        Padding(
                           padding: EdgeInsets.only(left: 10),
                           child: Text(
                             'Make claims',
-                            style: bodyMediumBlue,
+                            style: textStyle.bodyMediumBlue,
                           ),
                         ),
                       ],
@@ -76,11 +77,11 @@ class _ClaimsScreenState extends State<ClaimsScreen> {
                             color: Color(0XFF0E2847),
                           ),
                         ),
-                        const Padding(
+                        Padding(
                           padding: EdgeInsets.only(left: 10),
                           child: Text(
                             'Claims History',
-                            style: bodyMediumBlue,
+                            style: textStyle.bodyMediumBlue,
                           ),
                         ),
                       ],
@@ -93,15 +94,15 @@ class _ClaimsScreenState extends State<ClaimsScreen> {
               height: 48,
               width: 355,
               decoration: shadow,
-              child: const Row(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Padding(
+                  const Padding(
                       padding: EdgeInsets.only(right: 9.0),
                       child: Icon(Icons.directions_car)),
                   Text(
                     'Motor',
-                    style: bodyLargeGrey,
+                    style: textStyle.bodyLargeGrey,
                   ),
                 ],
               ),
@@ -132,11 +133,11 @@ class _ClaimsScreenState extends State<ClaimsScreen> {
                             color: Color(0XFF0E2847),
                           ),
                         ),
-                        const Padding(
-                          padding: EdgeInsets.only(left: 10),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10),
                           child: Text(
                             'Make claims',
-                            style: bodyMediumBlue,
+                            style: textStyle.bodyMediumBlue,
                           ),
                         ),
                       ],
@@ -158,11 +159,11 @@ class _ClaimsScreenState extends State<ClaimsScreen> {
                             color: Color(0XFF0E2847),
                           ),
                         ),
-                        const Padding(
-                          padding: EdgeInsets.only(left: 10),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10),
                           child: Text(
                             'Claims History',
-                            style: bodyMediumBlue,
+                            style: textStyle.bodyMediumBlue,
                           ),
                         ),
                       ],
@@ -175,15 +176,15 @@ class _ClaimsScreenState extends State<ClaimsScreen> {
               height: 48,
               width: 355,
               decoration: shadow,
-              child: const Row(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Padding(
+                  const Padding(
                       padding: EdgeInsets.only(right: 9.0),
                       child: Icon(Icons.medical_services)),
                   Text(
                     'Medical',
-                    style: bodyLargeGrey,
+                    style: textStyle.bodyLargeGrey,
                   ),
                 ],
               ),

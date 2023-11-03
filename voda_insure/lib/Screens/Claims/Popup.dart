@@ -9,6 +9,7 @@ class Popup extends StatefulWidget {
 }
 
 class _PopupState extends State<Popup> {
+  Textstyle textStyle = Textstyle();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -21,15 +22,15 @@ class _PopupState extends State<Popup> {
               height: 48,
               width: 340,
               decoration: shadow,
-              child: const Row(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Padding(
+                  const Padding(
                       padding: EdgeInsets.only(right: 9.0),
                       child: Icon(Icons.medical_services)),
                   Text(
                     'Medical',
-                    style: bodyLargeGrey,
+                    style: textStyle.bodyLargeGrey,
                   ),
                 ],
               ),

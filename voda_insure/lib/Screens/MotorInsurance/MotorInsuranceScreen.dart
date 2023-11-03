@@ -15,6 +15,7 @@ class MotorInsuranceScreen extends StatefulWidget {
 }
 
 class _MotorInsuranceScreenState extends State<MotorInsuranceScreen> {
+  Textstyle textStyle = Textstyle();
   final List<String> images = [
     'assets/audi.jpg',
     'assets/Carinsurance.jpg',
@@ -55,11 +56,11 @@ class _MotorInsuranceScreenState extends State<MotorInsuranceScreen> {
             },
           ),
         ),
-        const Padding(
-          padding: EdgeInsets.all(8.0),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
           child: Text(
             'Insure your Vehicle today!',
-            style: headlineSmallGrey,
+            style: textStyle.headlineSmallGrey,
           ),
         ),
         Row(

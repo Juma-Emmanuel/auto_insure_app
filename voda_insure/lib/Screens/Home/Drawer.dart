@@ -11,6 +11,7 @@ class MyDrawer extends StatefulWidget {
 }
 
 class _MyDrawerState extends State<MyDrawer> {
+  Textstyle textStyle = Textstyle();
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -36,18 +37,18 @@ class _MyDrawerState extends State<MyDrawer> {
               ListTile(
                 title: TextButton(
                     onPressed: () {},
-                    child: const Row(
+                    child: Row(
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.settings_outlined,
                           size: 30,
                           color: Color(0XFF021E3E),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(left: 10.0),
+                          padding: const EdgeInsets.only(left: 10.0),
                           child: Text(
                             'Settings',
-                            style: bodyMediumGrey,
+                            style: textStyle.bodyMediumGrey,
                           ),
                         ),
                       ],
@@ -55,9 +56,9 @@ class _MyDrawerState extends State<MyDrawer> {
                 onTap: () {},
               ),
               ListTile(
-                title: const Row(
+                title: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.update_outlined,
                       size: 30,
                       color: Color(0XFF021E3E),
@@ -66,7 +67,7 @@ class _MyDrawerState extends State<MyDrawer> {
                       padding: EdgeInsets.only(left: 10.0),
                       child: Text(
                         'Updates',
-                        style: bodyMediumGrey,
+                        style: textStyle.bodyMediumGrey,
                       ),
                     ),
                   ],
@@ -74,9 +75,9 @@ class _MyDrawerState extends State<MyDrawer> {
                 onTap: () {},
               ),
               ListTile(
-                title: const Row(
+                title: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.share_outlined,
                       size: 30,
                       color: Color(0XFF021E3E),
@@ -85,7 +86,7 @@ class _MyDrawerState extends State<MyDrawer> {
                       padding: EdgeInsets.only(left: 10.0),
                       child: Text(
                         'Share',
-                        style: bodyMediumGrey,
+                        style: textStyle.bodyMediumGrey,
                       ),
                     ),
                   ],
@@ -93,18 +94,18 @@ class _MyDrawerState extends State<MyDrawer> {
                 onTap: () {},
               ),
               ListTile(
-                title: const Row(
+                title: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.lock_outlined,
                       size: 30,
                       color: Color(0XFF021E3E),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 10.0),
+                      padding: const EdgeInsets.only(left: 10.0),
                       child: Text(
                         'Private Policy',
-                        style: bodyMediumGrey,
+                        style: textStyle.bodyMediumGrey,
                       ),
                     ),
                   ],
@@ -113,23 +114,23 @@ class _MyDrawerState extends State<MyDrawer> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => PrivatePolicyScreen()),
+                        builder: (context) => const PrivatePolicyScreen()),
                   );
                 },
               ),
               ListTile(
-                title: const Row(
+                title: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.description_outlined,
                       size: 30,
                       color: Color(0XFF021E3E),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 10.0),
+                      padding: const EdgeInsets.only(left: 10.0),
                       child: Text(
                         'Terms and Conditions',
-                        style: bodyMediumGrey,
+                        style: textStyle.bodyMediumGrey,
                       ),
                     ),
                   ],
