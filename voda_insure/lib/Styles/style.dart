@@ -123,6 +123,13 @@ class Textstyle {
     fontStyle: FontStyle.normal,
     letterSpacing: 0,
   );
+  TextStyle bodyLargeBlue = const TextStyle(
+    color: Color(0XFF0E2847),
+    fontSize: 20.0,
+    fontWeight: FontWeight.w600,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 0,
+  );
   TextStyle bodyLarge = const TextStyle(
     color: Color(0XFF021E3E),
     fontSize: 20.0,
@@ -131,6 +138,8 @@ class Textstyle {
     letterSpacing: 0,
   );
 }
+
+class Appstyle {}
 
 Padding separator = Padding(
   padding: const EdgeInsets.only(
@@ -209,7 +218,7 @@ class _DatePickerState extends State<DatePicker> {
     if (pickedDate != null && pickedDate != DateTime.now()) {
       setState(() {
         String formattedDate =
-            '${pickedDate.month}-${pickedDate.day}-${pickedDate.year}';
+            '${pickedDate.month}/${pickedDate.day}/${pickedDate.year}';
         widget.controller.text = formattedDate;
       });
     }

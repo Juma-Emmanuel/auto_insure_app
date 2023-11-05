@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:voda_insure/Screens/Claims/Popup.dart';
+
 import 'package:voda_insure/Styles/style.dart';
 
 class ClaimsScreen extends StatefulWidget {
@@ -11,14 +11,6 @@ class ClaimsScreen extends StatefulWidget {
 
 class _ClaimsScreenState extends State<ClaimsScreen> {
   Textstyle textStyle = Textstyle();
-  void _showPopup(BuildContext context, Widget popupWidget) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return popupWidget; // Display the provided popup widget
-      },
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +22,7 @@ class _ClaimsScreenState extends State<ClaimsScreen> {
             onTap: () {
               showMenu(
                 context: context,
-                position: RelativeRect.fromLTRB(50.0, 400.0, 50.0, 0.0),
+                position: const RelativeRect.fromLTRB(50.0, 400.0, 50.0, 0.0),
                 items: [
                   PopupMenuItem(
                     child: Row(
@@ -86,6 +78,9 @@ class _ClaimsScreenState extends State<ClaimsScreen> {
                         ),
                       ],
                     ),
+                    onTap: () {
+                      Navigator.pushNamed(context, '/motorclaimshistory');
+                    },
                   ),
                 ],
               );
@@ -142,6 +137,9 @@ class _ClaimsScreenState extends State<ClaimsScreen> {
                         ),
                       ],
                     ),
+                    onTap: () {
+                      Navigator.pushNamed(context, '/makemedicalclaim');
+                    },
                   ),
                   PopupMenuItem(
                     child: Row(
@@ -168,6 +166,9 @@ class _ClaimsScreenState extends State<ClaimsScreen> {
                         ),
                       ],
                     ),
+                    onTap: () {
+                      Navigator.pushNamed(context, '/medicalclaimshistory');
+                    },
                   ),
                 ],
               );

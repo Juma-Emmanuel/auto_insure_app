@@ -12,24 +12,12 @@ class MakeMotorClaimScreen extends StatefulWidget {
 class _MakeMotorClaimScreenState extends State<MakeMotorClaimScreen> {
   Textstyle textStyle = Textstyle();
   final TextEditingController _claimDateController = TextEditingController();
-  final TextEditingController _expiryDateController = TextEditingController();
-
-  Future<void> _expirySelectDate(BuildContext context) async {
-    DateTime? pickedDate = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2100),
-    );
-
-    if (pickedDate != null && pickedDate != DateTime.now()) {
-      setState(() {
-        String formattedDate =
-            '${pickedDate.month}-${pickedDate.day}-${pickedDate.year}';
-        _expiryDateController.text = formattedDate;
-      });
-    }
-  }
+  final TextEditingController claimStatusController = TextEditingController();
+  final TextEditingController claimAmountController = TextEditingController();
+  final TextEditingController claimDescriptionController =
+      TextEditingController();
+  final TextEditingController claimDocumentController = TextEditingController();
+  final TextEditingController claimCommentController = TextEditingController();
 
   String _selectedItem = 'Third party';
   @override
@@ -69,70 +57,135 @@ class _MakeMotorClaimScreenState extends State<MakeMotorClaimScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 DatePicker(
-                    controller: _claimDateController, label: 'Claim Date'),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Policy:',
-                      style: textStyle.bodyLarge,
-                    ),
-                    DropdownButton<String>(
-                      menuMaxHeight: 130.0,
-                      hint: const Text('policy'),
-                      borderRadius: BorderRadius.circular(20),
-                      value: _selectedItem,
-                      onChanged: (String? newValue) {
-                        setState(() {
-                          _selectedItem = newValue!;
-                        });
-                      },
-                      items: <String>['Third party', 'Comprehensive']
-                          .map<DropdownMenuItem<String>>(
-                            (String value) => DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            ),
-                          )
-                          .toList(),
-                    ),
-                  ],
+                    controller: _claimDateController, label: 'Claim Date:'),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Claim Status:',
+                        style: textStyle.bodyLarge,
+                      ),
+                      SizedBox(
+                        width: 350,
+                        height: 38,
+                        child: TextField(
+                          controller: claimStatusController,
+                          decoration: InputDecoration(
+                            focusedBorder: textfieldBorder,
+                            enabledBorder: textfieldBorder,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Insurance Cover Type:',
-                      style: textStyle.bodyLarge,
-                    ),
-                    DropdownButton<String>(
-                      menuMaxHeight: 130.0,
-                      hint: Text('policy'),
-                      borderRadius: BorderRadius.circular(20),
-                      value: _selectedItem,
-                      onChanged: (String? newValue) {
-                        setState(() {
-                          _selectedItem = newValue!;
-                        });
-                      },
-                      items: <String>['Third party', 'Comprehensive']
-                          .map<DropdownMenuItem<String>>(
-                            (String value) => DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            ),
-                          )
-                          .toList(),
-                    ),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Claim Amount:',
+                        style: textStyle.bodyLarge,
+                      ),
+                      SizedBox(
+                        width: 350,
+                        height: 38,
+                        child: TextField(
+                          controller: claimAmountController,
+                          decoration: InputDecoration(
+                            focusedBorder: textfieldBorder,
+                            enabledBorder: textfieldBorder,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Claim Description:',
+                        style: textStyle.bodyLarge,
+                      ),
+                      SizedBox(
+                        width: 350,
+                        height: 38,
+                        child: TextField(
+                          controller: claimDescriptionController,
+                          decoration: InputDecoration(
+                            focusedBorder: textfieldBorder,
+                            enabledBorder: textfieldBorder,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Claim Type:',
+                        style: textStyle.bodyLarge,
+                      ),
+                      DropdownButton<String>(
+                        menuMaxHeight: 130.0,
+                        borderRadius: BorderRadius.circular(20),
+                        value: _selectedItem,
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            _selectedItem = newValue!;
+                          });
+                        },
+                        items: <String>['Third party', 'Comprehensive']
+                            .map<DropdownMenuItem<String>>(
+                              (String value) => DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              ),
+                            )
+                            .toList(),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Claim Document (Link):',
+                        style: textStyle.bodyLarge,
+                      ),
+                      SizedBox(
+                        width: 350,
+                        height: 38,
+                        child: TextField(
+                          controller: claimDocumentController,
+                          decoration: InputDecoration(
+                            focusedBorder: textfieldBorder,
+                            enabledBorder: textfieldBorder,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 30),
+            padding: const EdgeInsets.only(top: 20),
             child: SizedBox(
-              width: 350,
               height: 42,
               child: ElevatedButton(
                 onPressed: () {},
@@ -140,7 +193,7 @@ class _MakeMotorClaimScreenState extends State<MakeMotorClaimScreen> {
                   backgroundColor: const Color(0XFF021E3E),
                 ),
                 child: Text(
-                  'BUY INSURANCE COVER ',
+                  'Submit Claim',
                   style: textStyle.buttonText,
                 ),
               ),

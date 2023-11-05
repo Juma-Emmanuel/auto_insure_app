@@ -8,7 +8,20 @@ import 'package:voda_insure/Screens/Authentication/RegistrationScreen.dart';
 import 'package:voda_insure/Screens/Authentication/UserProfileScreen.dart';
 import 'package:voda_insure/Screens/Authentication/VerificationCodeScreen.dart';
 import 'package:voda_insure/Screens/Authentication/VerificationScreen.dart';
+import 'package:voda_insure/Screens/Claims/MedicalClaims/ClaimForms/MakeClaimScreen.dart';
+import 'package:voda_insure/Screens/Claims/MedicalClaims/ClaimReports/ClaimDetailsReport.dart';
+import 'package:voda_insure/Screens/Claims/MedicalClaims/ClaimReports/ClaimDocumentView.dart';
+import 'package:voda_insure/Screens/Claims/MedicalClaims/ClaimReports/ClaimsDocumentsScreen.dart';
+import 'package:voda_insure/Screens/Claims/MedicalClaims/ClaimReports/ClaimsHistoryScreen.dart';
+import 'package:voda_insure/Screens/Claims/MedicalClaims/ClaimReports/ClaimsUploadScreen.dart';
 import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimForms/MakeClaimScreen.dart';
+import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimReports/ClaimDetailsReport.dart';
+import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimReports/ClaimDocumentView.dart';
+import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimReports/ClaimDocumentsScreen.dart';
+import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimReports/ClaimImageView.dart';
+import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimReports/ClaimsHistoryScreen.dart';
+import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimReports/ClaimsImagesScreen.dart';
+import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimReports/ClaimsUploadsScreen.dart';
 import 'package:voda_insure/Screens/Home/ArticleWebView.dart';
 import 'package:voda_insure/Screens/Home/HomeScreen.dart';
 import 'package:voda_insure/Screens/MotorInsurance/Agreements/Faqs.dart';
@@ -42,5 +55,22 @@ class AppRoutes {
     '/faqs': (context) => const Faqs(),
     '/vehicleslist': (context) => const VehiclesList(),
     '/makemotorclaim': (context) => const MakeMotorClaimScreen(),
+    '/motorclaimshistory': (context) => const MotorClaimsHistory(),
+    '/motorclaimdetailsreport': (context) => const MotorClaimDetailsReport(),
+    '/motorclaimuploadsreport': (context) => const MotorClaimsUploadReport(),
+    '/makemedicalclaim': (context) => const MakeMedicalClaimScreen(),
+    '/medicalclaimshistory': (context) => const MedicalClaimsHistory(),
+    '/medicalclaimdetailsreport': (context) =>
+        const MedicalClaimDetailsReport(),
+    '/medicalclaimuploadsreport': (context) =>
+        const MedicalClaimsUploadReport(),
+    '/motorclaimimagesscreen': (context) => const MotorClaimsImagesScreen(),
+    '/motorclaimimageview': (context) => const MotorClaimImageView(),
+    '/motorclaimdocumentview': (context) => const MotorClaimDocumentView(),
+    '/motorclaimdocumentsscreen': (context) =>
+        const MotorClaimsDocumentsScreen(),
+    '/medicalclaimdocumentsscreen': (context) =>
+        const MedicalClaimsDocumentsScreen(),
+    '/medicalclaimdocumentview': (context) => const MedicalClaimDocumentView(),
   };
 }
