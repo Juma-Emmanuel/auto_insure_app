@@ -10,6 +10,7 @@ class PasswordResetScreen extends StatefulWidget {
 
 class _PasswordResetScreenState extends State<PasswordResetScreen> {
   Textstyle textStyle = Textstyle();
+  Appstyle appStyle = Appstyle();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +32,7 @@ class _PasswordResetScreenState extends State<PasswordResetScreen> {
               top: 80.0,
               bottom: 20,
             ),
-            child: logo(),
+            child: appStyle.logo(),
           ),
           Padding(
             padding: EdgeInsets.only(

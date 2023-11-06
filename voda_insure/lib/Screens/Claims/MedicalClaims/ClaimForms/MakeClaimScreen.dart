@@ -11,6 +11,7 @@ class MakeMedicalClaimScreen extends StatefulWidget {
 
 class _MakeMedicalClaimScreenState extends State<MakeMedicalClaimScreen> {
   Textstyle textStyle = Textstyle();
+  Appstyle appStyle = Appstyle();
   final TextEditingController _claimDateController = TextEditingController();
   final TextEditingController claimStatusController = TextEditingController();
   final TextEditingController claimAmountController = TextEditingController();
@@ -39,7 +40,7 @@ class _MakeMedicalClaimScreenState extends State<MakeMedicalClaimScreen> {
           SizedBox(
             width: 350,
             height: 48,
-            child: logo(),
+            child: appStyle.logo(),
           ),
           Padding(
             padding: const EdgeInsets.only(

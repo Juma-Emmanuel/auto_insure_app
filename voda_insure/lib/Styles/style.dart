@@ -1,34 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:voda_insure/Screens/Home/ArticleWebView.dart';
 
-Widget logo() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      SizedBox(
-        width: 50.16,
-        height: 40,
-        child: Image.asset('assets/voda_logo.png'),
-      ),
-      const Text(
-        'VODA',
-        style: TextStyle(
-          fontSize: 26,
-          color: Color(0XFF726666),
-          fontWeight: FontWeight.w600,
+class Appstyle {
+  Widget logo() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SizedBox(
+          width: 50.16,
+          height: 40,
+          child: Image.asset('assets/voda_logo.png'),
         ),
-      ),
-      const Text(
-        'INSURE',
-        style: TextStyle(
-          fontSize: 26,
-          color: Color(0XFFF30E0E),
-          fontWeight: FontWeight.w600,
+        const Text(
+          'VODA',
+          style: TextStyle(
+            fontSize: 26,
+            color: Color(0XFF726666),
+            fontWeight: FontWeight.w600,
+          ),
         ),
-      ),
-    ],
-  );
+        const Text(
+          'INSURE',
+          style: TextStyle(
+            fontSize: 26,
+            color: Color(0XFFF30E0E),
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ],
+    );
+  }
 }
 
 void _showPopup(BuildContext context, Widget popupWidget) {
@@ -92,6 +92,12 @@ class Textstyle {
     fontWeight: FontWeight.normal,
     fontStyle: FontStyle.normal,
   );
+  TextStyle bbodySmallblue = const TextStyle(
+    color: Color(0XFF0E2847),
+    fontSize: 12.0,
+    fontWeight: FontWeight.w600,
+    fontStyle: FontStyle.normal,
+  );
   TextStyle bodySmallGrey = const TextStyle(
     color: Color(0XFF726666),
     fontSize: 12.0,
@@ -102,6 +108,12 @@ class Textstyle {
     color: Color(0XFF0E2847),
     fontSize: 16.0,
     fontWeight: FontWeight.normal,
+    fontStyle: FontStyle.normal,
+  );
+  TextStyle bbodyMediumBlue = const TextStyle(
+    color: Color(0XFF0E2847),
+    fontSize: 16.0,
+    fontWeight: FontWeight.w600,
     fontStyle: FontStyle.normal,
   );
   TextStyle headlineMedium = const TextStyle(
@@ -138,8 +150,6 @@ class Textstyle {
     letterSpacing: 0,
   );
 }
-
-class Appstyle {}
 
 Padding separator = Padding(
   padding: const EdgeInsets.only(

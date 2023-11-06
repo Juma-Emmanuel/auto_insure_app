@@ -10,6 +10,7 @@ class VerificationCodeScreen extends StatefulWidget {
 
 class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
   Textstyle textStyle = Textstyle();
+  Appstyle appStyle = Appstyle();
   TextEditingController verificationController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
         SizedBox(
           width: 350,
           height: 48,
-          child: logo(),
+          child: appStyle.logo(),
         ),
         Padding(
           padding: const EdgeInsets.only(

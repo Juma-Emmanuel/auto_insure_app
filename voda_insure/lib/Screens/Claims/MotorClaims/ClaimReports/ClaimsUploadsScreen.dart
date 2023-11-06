@@ -11,7 +11,7 @@ class MotorClaimsUploadReport extends StatefulWidget {
 
 class _MotorClaimsUploadReportState extends State<MotorClaimsUploadReport> {
   Textstyle textStyle = Textstyle();
-
+  Appstyle appStyle = Appstyle();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +31,7 @@ class _MotorClaimsUploadReportState extends State<MotorClaimsUploadReport> {
           SizedBox(
             width: 350,
             height: 48,
-            child: logo(),
+            child: appStyle.logo(),
           ),
           Padding(
             padding: const EdgeInsets.only(

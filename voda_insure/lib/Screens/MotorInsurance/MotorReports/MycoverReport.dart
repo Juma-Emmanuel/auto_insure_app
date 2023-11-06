@@ -11,6 +11,7 @@ class MycoverReport extends StatefulWidget {
 
 class _MycoverReportState extends State<MycoverReport> {
   Textstyle textStyle = Textstyle();
+  Appstyle appStyle = Appstyle();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +22,7 @@ class _MycoverReportState extends State<MycoverReport> {
           SizedBox(
             width: 350,
             height: 48,
-            child: logo(),
+            child: appStyle.logo(),
           ),
           Padding(
             padding: const EdgeInsets.only(

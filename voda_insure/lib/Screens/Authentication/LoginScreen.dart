@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:voda_insure/Controllers/Authentication/LoginController.dart';
-import 'package:voda_insure/Screens/Home/HomeScreen.dart';
 import 'package:voda_insure/Styles/animation.dart';
 import 'package:voda_insure/Styles/style.dart';
 
@@ -13,6 +12,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   Textstyle textStyle = Textstyle();
+  Appstyle appStyle = Appstyle();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
               top: 80.0,
               bottom: 61,
             ),
-            child: logo(),
+            child: appStyle.logo(),
           )),
           Padding(
             padding: const EdgeInsets.only(

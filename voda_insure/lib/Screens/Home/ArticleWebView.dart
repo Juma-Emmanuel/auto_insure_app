@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:voda_insure/Screens/Home/Post.dart';
-import 'package:voda_insure/Styles/style.dart';
 
 class ArticleWebView extends StatefulWidget {
   const ArticleWebView({super.key});

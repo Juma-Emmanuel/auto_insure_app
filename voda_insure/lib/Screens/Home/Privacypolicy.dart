@@ -10,6 +10,7 @@ class PrivatePolicyScreen extends StatefulWidget {
 
 class _PrivatePolicyScreenState extends State<PrivatePolicyScreen> {
   Textstyle textStyle = Textstyle();
+  Appstyle appStyle = Appstyle();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +29,7 @@ class _PrivatePolicyScreenState extends State<PrivatePolicyScreen> {
         SizedBox(
           width: 350,
           height: 48,
-          child: logo(),
+          child: appStyle.logo(),
         ),
         Padding(
           padding: const EdgeInsets.only(

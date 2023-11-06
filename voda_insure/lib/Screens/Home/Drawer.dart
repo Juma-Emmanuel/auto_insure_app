@@ -12,6 +12,7 @@ class MyDrawer extends StatefulWidget {
 
 class _MyDrawerState extends State<MyDrawer> {
   Textstyle textStyle = Textstyle();
+  Appstyle appStyle = Appstyle();
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -19,7 +20,7 @@ class _MyDrawerState extends State<MyDrawer> {
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: logo(),
+            child: appStyle.logo(),
           ),
           Padding(
             padding: const EdgeInsets.only(

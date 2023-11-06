@@ -11,6 +11,7 @@ class MotorTermsandConditions extends StatefulWidget {
 
 class _MotorTermsandConditionsState extends State<MotorTermsandConditions> {
   Textstyle textStyle = Textstyle();
+  Appstyle appStyle = Appstyle();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +31,7 @@ class _MotorTermsandConditionsState extends State<MotorTermsandConditions> {
           SizedBox(
             width: 350,
             height: 48,
-            child: logo(),
+            child: appStyle.logo(),
           ),
           Padding(
             padding: const EdgeInsets.only(

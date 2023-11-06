@@ -13,6 +13,7 @@ class MedicalClaimsDocumentsScreen extends StatefulWidget {
 class _MedicalClaimsDocumentsScreenState
     extends State<MedicalClaimsDocumentsScreen> {
   Textstyle textStyle = Textstyle();
+  Appstyle appStyle = Appstyle();
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class _MedicalClaimsDocumentsScreenState
           SizedBox(
             width: 350,
             height: 48,
-            child: logo(),
+            child: appStyle.logo(),
           ),
           Padding(
             padding: const EdgeInsets.only(
@@ -45,6 +46,129 @@ class _MedicalClaimsDocumentsScreenState
             ),
           ),
           separator,
+          Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                    onTap: () {},
+                    child: Row(
+                      children: [
+                        SizedBox(
+                            width: 25, child: Image.asset('assets/pdf.png')),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Text(
+                            'policy.pdf',
+                            style: textStyle.bodyMediumBlue,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30.0, right: 30),
+                    child: Text(
+                      '10/09/2023',
+                      style: textStyle.bodyMediumBlue,
+                    ),
+                  ),
+                  IconButton(
+                      onPressed: () {
+                        showMenu(
+                          context: context,
+                          position: const RelativeRect.fromLTRB(
+                              50.0, 400.0, 50.0, 0.0),
+                          items: [
+                            PopupMenuItem(
+                              child: Row(
+                                children: [
+                                  const Icon(
+                                    Icons.download_outlined,
+                                    size: 30,
+                                    color: Color(0XFF021E3E),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 10.0),
+                                    child: Text(
+                                      'Download',
+                                      style: textStyle.bodyMediumBlue,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              onTap: () {},
+                            ),
+                            PopupMenuItem(
+                              child: Row(
+                                children: [
+                                  const Icon(
+                                    Icons.share_outlined,
+                                    size: 30,
+                                    color: Color(0XFF021E3E),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 10.0),
+                                    child: Text(
+                                      'Share',
+                                      style: textStyle.bodyMediumBlue,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              onTap: () {},
+                            ),
+                            PopupMenuItem(
+                              child: Row(
+                                children: [
+                                  const Icon(
+                                    Icons.edit_outlined,
+                                    size: 30,
+                                    color: Color(0XFF021E3E),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 10.0),
+                                    child: Text(
+                                      'Rename',
+                                      style: textStyle.bodyMediumBlue,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              onTap: () {
+                                Navigator.pushNamed(
+                                    context, '/medicalclaimuploadsreport');
+                              },
+                            ),
+                            PopupMenuItem(
+                              child: Row(
+                                children: [
+                                  const Icon(
+                                    Icons.delete_outline,
+                                    size: 30,
+                                    color: Color(0XFF021E3E),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 10.0),
+                                    child: Text(
+                                      'Delete',
+                                      style: textStyle.bodyMediumBlue,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              onTap: () {},
+                            ),
+                          ],
+                        );
+                      },
+                      icon: const Icon(Icons.more_vert)),
+                ],
+              ),
+              separator,
+            ],
+          )
         ]),
       ),
     );

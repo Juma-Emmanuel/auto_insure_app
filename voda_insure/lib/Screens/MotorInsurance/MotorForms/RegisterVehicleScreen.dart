@@ -11,6 +11,7 @@ class RegisterVehicleScreen extends StatefulWidget {
 
 class _RegisterVehicleScreenState extends State<RegisterVehicleScreen> {
   Textstyle textStyle = Textstyle();
+  Appstyle appStyle = Appstyle();
   TextEditingController excontroller = TextEditingController();
   String _selectedCategory = 'SUV';
 
@@ -45,7 +46,7 @@ class _RegisterVehicleScreenState extends State<RegisterVehicleScreen> {
           SizedBox(
             width: 350,
             height: 48,
-            child: logo(),
+            child: appStyle.logo(),
           ),
           Padding(
             padding: const EdgeInsets.only(

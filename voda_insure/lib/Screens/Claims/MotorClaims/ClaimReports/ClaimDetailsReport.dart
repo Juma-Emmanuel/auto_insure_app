@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimReports/ClaimDetailTextfield.dart';
-import 'package:voda_insure/Screens/MotorInsurance/MotorReports/MotorReportTextfield.dart';
+
 import 'package:voda_insure/Styles/style.dart';
 
 class MotorClaimDetailsReport extends StatefulWidget {
@@ -13,6 +13,7 @@ class MotorClaimDetailsReport extends StatefulWidget {
 
 class _MotorClaimDetailsReportState extends State<MotorClaimDetailsReport> {
   Textstyle textStyle = Textstyle();
+  Appstyle appStyle = Appstyle();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +25,7 @@ class _MotorClaimDetailsReportState extends State<MotorClaimDetailsReport> {
             SizedBox(
               width: 350,
               height: 48,
-              child: logo(),
+              child: appStyle.logo(),
             ),
             separator,
             Column(

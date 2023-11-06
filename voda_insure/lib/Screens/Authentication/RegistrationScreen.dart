@@ -5,6 +5,8 @@ import 'package:http/http.dart' as http;
 import 'package:voda_insure/Controllers/Authentication/RegistrationController.dart';
 import 'package:voda_insure/Models/AuthModels/RegistrationModel.dart';
 import 'package:voda_insure/Styles/style.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:country_picker/country_picker.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});
@@ -15,6 +17,7 @@ class RegistrationScreen extends StatefulWidget {
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
   Textstyle textStyle = Textstyle();
+  Appstyle appStyle = Appstyle();
   final RegistrationRequest request = RegistrationRequest();
 
   late TextEditingController fullnameController = TextEditingController();
@@ -56,7 +59,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               SizedBox(
                 width: 350,
                 height: 48,
-                child: logo(),
+                child: appStyle.logo(),
               ),
               Padding(
                 padding: const EdgeInsets.only(
@@ -101,14 +104,18 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 padding: const EdgeInsets.only(top: 30),
                 child: SizedBox(
                   width: 350,
-                  height: 48,
-                  child: TextField(
-                    controller: phoneController,
+                  height: 68,
+                  child: IntlPhoneField(
                     decoration: InputDecoration(
-                      hintText: 'Phone number',
                       focusedBorder: textfieldBorder,
                       enabledBorder: textfieldBorder,
+                      labelText: 'Phone Number',
+                      border: const OutlineInputBorder(
+                        borderSide: BorderSide(),
+                      ),
                     ),
+                    initialCountryCode: 'IN',
+                    onChanged: (phone) {},
                   ),
                 ),
               ),

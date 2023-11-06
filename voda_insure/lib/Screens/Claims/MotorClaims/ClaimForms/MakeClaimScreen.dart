@@ -11,6 +11,7 @@ class MakeMotorClaimScreen extends StatefulWidget {
 
 class _MakeMotorClaimScreenState extends State<MakeMotorClaimScreen> {
   Textstyle textStyle = Textstyle();
+  Appstyle appStyle = Appstyle();
   final TextEditingController _claimDateController = TextEditingController();
   final TextEditingController claimStatusController = TextEditingController();
   final TextEditingController claimAmountController = TextEditingController();
@@ -39,7 +40,7 @@ class _MakeMotorClaimScreenState extends State<MakeMotorClaimScreen> {
           SizedBox(
             width: 350,
             height: 48,
-            child: logo(),
+            child: appStyle.logo(),
           ),
           Padding(
             padding: const EdgeInsets.only(

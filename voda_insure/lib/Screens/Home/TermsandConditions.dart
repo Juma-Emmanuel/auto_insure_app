@@ -10,6 +10,7 @@ class TermsandConditions extends StatefulWidget {
 
 class _TermsandConditionsState extends State<TermsandConditions> {
   Textstyle textStyle = Textstyle();
+  Appstyle appStyle = Appstyle();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +30,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
           SizedBox(
             width: 350,
             height: 48,
-            child: logo(),
+            child: appStyle.logo(),
           ),
           Padding(
             padding: const EdgeInsets.only(

@@ -1,8 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:voda_insure/Screens/MotorInsurance/MotorForms/BuyCoverScreen.dart';
-import 'package:voda_insure/Screens/MotorInsurance/MotorForms/RegisterVehicleScreen.dart';
-import 'package:voda_insure/Screens/MotorInsurance/MotorReports/MotorVehiclesMotorcyclesReportScreen.dart';
 import 'package:voda_insure/Screens/MotorInsurance/MotorReports/MycoverReport.dart';
 import 'package:voda_insure/Screens/MotorInsurance/MotorStyles.dart';
 import 'package:voda_insure/Styles/style.dart';

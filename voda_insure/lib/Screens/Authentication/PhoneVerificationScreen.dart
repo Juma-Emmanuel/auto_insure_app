@@ -11,6 +11,7 @@ class PhoneVerificationScreen extends StatefulWidget {
 
 class _PhoneVerificationScreenState extends State<PhoneVerificationScreen> {
   Textstyle textStyle = Textstyle();
+  Appstyle appStyle = Appstyle();
   TextEditingController phonecodecontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -30,10 +31,10 @@ class _PhoneVerificationScreenState extends State<PhoneVerificationScreen> {
         SizedBox(
           width: 350,
           height: 48,
-          child: logo(),
+          child: appStyle.logo(),
         ),
         Padding(
-          padding: EdgeInsets.only(
+          padding: const EdgeInsets.only(
             right: 170,
             top: 30.0,
           ),

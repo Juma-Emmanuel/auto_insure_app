@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimReports/ClaimImageView.dart';
 
 import 'package:voda_insure/Styles/style.dart';
 
@@ -12,6 +13,15 @@ class MotorClaimsImagesScreen extends StatefulWidget {
 
 class _MotorClaimsImagesScreenState extends State<MotorClaimsImagesScreen> {
   Textstyle textStyle = Textstyle();
+  Appstyle appStyle = Appstyle();
+  final List<String> images = [
+    'assets/lexus_suv.jpg',
+    'assets/audi.jpg',
+    'assets/white_lexus.jpg',
+    'assets/audi.jpg',
+    'assets/white_lexus.jpg',
+    'assets/lexus_suv.jpg',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -27,12 +37,13 @@ class _MotorClaimsImagesScreenState extends State<MotorClaimsImagesScreen> {
           },
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+      body: Column(
+        // crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
           SizedBox(
             width: 350,
             height: 48,
-            child: logo(),
+            child: appStyle.logo(),
           ),
           Padding(
             padding: const EdgeInsets.only(
@@ -44,8 +55,57 @@ class _MotorClaimsImagesScreenState extends State<MotorClaimsImagesScreen> {
             ),
           ),
           separator,
-        ]),
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0),
+            child: Wrap(
+                spacing: 5.1,
+                runSpacing: 5.1,
+                children: List.generate(
+                  images.length,
+                  (index) => InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MotorClaimImageView(
+                              imageUrls: images, initialIndex: index),
+                        ),
+                      );
+                    },
+                    child: SizedBox(
+                      width: 120,
+                      height: 100,
+                      child: Image.asset((images[index]), fit: BoxFit.cover),
+                    ),
+                  ),
+                )),
+          ),
+        ],
       ),
+    );
+  }
+}
+
+class ImageGrid extends StatelessWidget {
+  final List<String> images = [
+    'assets/audi.jpg',
+    'assets/lexus_suv.jpg',
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+          ),
+          itemCount: images.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Image.asset(images[index], fit: BoxFit.cover);
+          },
+        ),
+      ],
     );
   }
 }

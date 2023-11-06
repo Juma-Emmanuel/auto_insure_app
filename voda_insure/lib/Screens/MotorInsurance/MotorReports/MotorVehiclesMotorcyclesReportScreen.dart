@@ -13,6 +13,7 @@ class MotorVehiclesMotorcyclesReportScreen extends StatefulWidget {
 class _MotorVehiclesMotorcyclesReportScreenState
     extends State<MotorVehiclesMotorcyclesReportScreen> {
   Textstyle textStyle = Textstyle();
+  Appstyle appStyle = Appstyle();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +25,7 @@ class _MotorVehiclesMotorcyclesReportScreenState
             SizedBox(
               width: 350,
               height: 48,
-              child: logo(),
+              child: appStyle.logo(),
             ),
             Padding(
               padding: const EdgeInsets.only(

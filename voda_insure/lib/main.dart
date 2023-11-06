@@ -27,7 +27,7 @@ class _VodaInsureState extends State<VodaInsure> {
       initialRoute: '/',
       routes: AppRoutes.routes,
       home: const SplashScreen(),
-      // home: HomeScreen(),
+      // home: MotorClaimsDocumentsScreen(),
     );
   }
 }

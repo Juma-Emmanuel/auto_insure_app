@@ -10,6 +10,7 @@ class EmailVerificationScreen extends StatefulWidget {
 }
 
 class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
+  Appstyle appStyle = Appstyle();
   Textstyle textStyle = Textstyle();
   @override
   Widget build(BuildContext context) {
@@ -33,10 +34,10 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
             SizedBox(
               width: 350,
               height: 48,
-              child: logo(),
+              child: appStyle.logo(),
             ),
             Padding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 right: 170,
                 top: 30.0,
               ),

@@ -11,7 +11,7 @@ class MotorClaimsHistory extends StatefulWidget {
 
 class _MotorClaimsHistoryState extends State<MotorClaimsHistory> {
   Textstyle textStyle = Textstyle();
-
+  Appstyle appStyle = Appstyle();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +31,7 @@ class _MotorClaimsHistoryState extends State<MotorClaimsHistory> {
           SizedBox(
             width: 350,
             height: 48,
-            child: logo(),
+            child: appStyle.logo(),
           ),
           Padding(
             padding: const EdgeInsets.only(

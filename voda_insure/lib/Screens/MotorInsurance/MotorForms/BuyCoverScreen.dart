@@ -11,6 +11,7 @@ class BuyCoverScreen extends StatefulWidget {
 
 class _BuyCoverScreenState extends State<BuyCoverScreen> {
   Textstyle textStyle = Textstyle();
+  Appstyle appStyle = Appstyle();
   final TextEditingController _renewalDateController = TextEditingController();
   final TextEditingController _expiryDateController = TextEditingController();
   Future<void> _renewalSelectDate(BuildContext context) async {
@@ -67,7 +68,7 @@ class _BuyCoverScreenState extends State<BuyCoverScreen> {
           SizedBox(
             width: 350,
             height: 48,
-            child: logo(),
+            child: appStyle.logo(),
           ),
           Padding(
             padding: const EdgeInsets.only(

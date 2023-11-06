@@ -14,6 +14,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  Appstyle appStyle = Appstyle();
   int _currentIndex = 0;
 
   // List of widgets corresponding to each tab
@@ -33,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 8.0, right: 55),
-              child: logo(),
+              child: appStyle.logo(),
             ),
             IconButton(
                 onPressed: () {},
@@ -50,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       endDrawer: const MyDrawer(),
-      body: _tabs[_currentIndex], // Display the selected tab content
+      body: _tabs[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         showUnselectedLabels: false,
         selectedItemColor: const Color(0XFF021E3E),
@@ -64,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
         currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {
-            _currentIndex = index; // Change the current tab when tapped
+            _currentIndex = index;
           });
         },
         items: const [
