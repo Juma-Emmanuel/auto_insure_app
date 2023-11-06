@@ -8,12 +8,14 @@ import 'package:voda_insure/Screens/Authentication/RegistrationScreen.dart';
 import 'package:voda_insure/Screens/Authentication/UserProfileScreen.dart';
 import 'package:voda_insure/Screens/Authentication/VerificationCodeScreen.dart';
 import 'package:voda_insure/Screens/Authentication/VerificationScreen.dart';
+import 'package:voda_insure/Screens/Claims/MedicalClaims/ClaimForms/ClaimFileUpload.dart';
 import 'package:voda_insure/Screens/Claims/MedicalClaims/ClaimForms/MakeClaimScreen.dart';
 import 'package:voda_insure/Screens/Claims/MedicalClaims/ClaimReports/ClaimDetailsReport.dart';
 
 import 'package:voda_insure/Screens/Claims/MedicalClaims/ClaimReports/ClaimsDocumentsScreen.dart';
 import 'package:voda_insure/Screens/Claims/MedicalClaims/ClaimReports/ClaimsHistoryScreen.dart';
 import 'package:voda_insure/Screens/Claims/MedicalClaims/ClaimReports/ClaimsUploadScreen.dart';
+import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimForms/ClaimFileUpload.dart';
 import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimForms/MakeClaimScreen.dart';
 import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimReports/ClaimDetailsReport.dart';
 
@@ -69,5 +71,7 @@ class AppRoutes {
         const MotorClaimsDocumentsScreen(),
     '/medicalclaimdocumentsscreen': (context) =>
         const MedicalClaimsDocumentsScreen(),
+    '/medicalfileupload': (context) => const MedicalFileUpload(),
+    '/motorfileupload': (context) => const MotorFileUpload(),
   };
 }

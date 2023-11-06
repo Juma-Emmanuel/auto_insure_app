@@ -12,7 +12,5 @@ class RegistrationRequest {
     final res = await http.post(Uri.parse(registrationUrl),
         headers: {'Content-Type': 'application/json'},
         body: json.encode({'email': user.email, 'password': user.password}));
-    print(res.body);
-    if (res.body != null) {}
   }
 }

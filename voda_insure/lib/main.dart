@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:voda_insure/NavigationandRouting.dart';
+import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimForms/ClaimFileUpload.dart';
 
 import 'package:voda_insure/Screens/Splash/SplashScreen.dart';
 
@@ -27,7 +28,7 @@ class _VodaInsureState extends State<VodaInsure> {
       initialRoute: '/',
       routes: AppRoutes.routes,
       home: const SplashScreen(),
-      // home: MotorClaimsDocumentsScreen(),
+      // home: MotorFileUpload(),
     );
   }
 }
