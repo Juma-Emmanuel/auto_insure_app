@@ -66,7 +66,7 @@ class AppRoutes {
         const MedicalClaimDetailsReport(),
     '/medicalclaimuploadsreport': (context) =>
         const MedicalClaimsUploadReport(),
-    '/motorclaimimagesscreen': (context) => const MotorClaimsImagesScreen(),
+    // '/motorclaimimagesscreen': (context) => const MotorClaimsImagesScreen(),
     '/motorclaimdocumentsscreen': (context) =>
         const MotorClaimsDocumentsScreen(),
     '/medicalclaimdocumentsscreen': (context) =>
