@@ -33,20 +33,21 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Row(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 8.0, right: 55),
+              padding: const EdgeInsets.only(top: 8.0),
               child: appStyle.logo(),
             ),
+            Spacer(),
             IconButton(
                 onPressed: () {},
                 icon: const Icon(
                   Icons.notifications_none,
-                  size: 32,
+                  size: 25,
                   color: Color(0XFF9C9494),
                 ))
           ],
         ),
         iconTheme: const IconThemeData(
-          size: 32.0,
+          size: 30.0,
           color: Color(0XFF9C9494),
         ),
       ),

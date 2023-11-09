@@ -45,6 +45,12 @@ dependencies:
   photo_view: ^0.14.0
   intl_phone_field: ^3.1.0
   country_picker: ^2.0.22
+  flutter_launcher_icons: ^0.13.1
+
+flutter_icons:
+  image_path: "assets/voda_logo.png" 
+  android: true
+  ios: true
 
 dev_dependencies:
   flutter_test:
