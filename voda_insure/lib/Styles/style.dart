@@ -35,7 +35,7 @@ void _showPopup(BuildContext context, Widget popupWidget) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
-      return popupWidget; // Display the provided popup widget
+      return popupWidget;
     },
   );
 }

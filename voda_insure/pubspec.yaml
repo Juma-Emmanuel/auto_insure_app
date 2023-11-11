@@ -41,8 +41,8 @@ dependencies:
   shadow_clip: any
   carousel_slider: ^4.2.1
   http: ^0.13.5
-  flutter_photo_view: ^1.0.3
-  photo_view: ^0.14.0
+  # flutter_photo_view: ^1.0.3
+  # photo_view: ^0.14.0
   intl_phone_field: ^3.1.0
   country_picker: ^2.0.22
   flutter_launcher_icons: ^0.13.1

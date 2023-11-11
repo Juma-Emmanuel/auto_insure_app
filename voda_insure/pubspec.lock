@@ -150,14 +150,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3"
-  flutter_photo_view:
-    dependency: "direct main"
-    description:
-      name: flutter_photo_view
-      sha256: "9bbde2443cc27701dbe202b03ea203191174bd9dce720c481b398646a7f193cd"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.3"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -275,22 +267,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.4.0"
-  photo_view:
-    dependency: "direct main"
-    description:
-      name: photo_view
-      sha256: "8036802a00bae2a78fc197af8a158e3e2f7b500561ed23b4c458107685e645bb"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.14.0"
-  plugin_platform_interface:
-    dependency: transitive
-    description:
-      name: plugin_platform_interface
-      sha256: da3fdfeccc4d4ff2da8f8c556704c08f912542c5fb3cf2233ed75372384a034d
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.6"
   pointycastle:
     dependency: transitive
     description:
