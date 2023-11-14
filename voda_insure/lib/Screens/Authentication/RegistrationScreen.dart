@@ -16,6 +16,35 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
+  Future<void> postData() async {
+    var url = 'http://10.0.2.2:8080/register';
+
+    var headers = {
+      'Content-Type': 'application/json',
+      'Cookie': 'JSESSIONID=C67875C92020A131353A2804AF99FC10'
+    };
+
+    var data =
+        json.encode({"email": "jairus", "password": "actuarial science"});
+
+    try {
+      var response = await http.post(
+        Uri.parse(url),
+        headers: headers,
+        body: data,
+      );
+
+      if (response.statusCode == 200) {
+        print('hellooooooooooo');
+        print(json.encode(json.decode(response.body)));
+      } else {
+        print(response.reasonPhrase);
+      }
+    } catch (error) {
+      print('Error: $error');
+    }
+  }
+
   Textstyle textStyle = Textstyle();
   Appstyle appStyle = Appstyle();
   final RegistrationRequest request = RegistrationRequest();
@@ -158,7 +187,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   child: ElevatedButton(
                     onPressed: () {
                       var email, password;
-
                       setState() {
                         email = emailController.text;
                         password = passwordController.text;
@@ -166,6 +194,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
                       request.registrationRequest(
                           emailController.text, passwordController.text);
+                      // postData();
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0XFF021E3E),
