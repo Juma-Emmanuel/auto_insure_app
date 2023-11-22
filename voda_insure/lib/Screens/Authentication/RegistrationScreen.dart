@@ -5,46 +5,26 @@ import 'package:http/http.dart' as http;
 import 'package:voda_insure/Controllers/Authentication/RegistrationController.dart';
 import 'package:voda_insure/Models/AuthModels/RegistrationModel.dart';
 import 'package:voda_insure/Styles/style.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
+// import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:country_picker/country_picker.dart';
+// import 'package:intl_phone_field/phone_number.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 class RegistrationScreen extends StatefulWidget {
-  const RegistrationScreen({super.key});
+  final bool registerWithEmail;
+  final bool registerCountry;
+  final bool registerWithPhone;
+  const RegistrationScreen(
+      {super.key,
+      required this.registerWithEmail,
+      required this.registerWithPhone,
+      required this.registerCountry});
 
   @override
   State<RegistrationScreen> createState() => _RegistrationScreenState();
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
-  Future<void> postData() async {
-    var url = 'http://10.0.2.2:8080/register';
-
-    var headers = {
-      'Content-Type': 'application/json',
-      'Cookie': 'JSESSIONID=C67875C92020A131353A2804AF99FC10'
-    };
-
-    var data =
-        json.encode({"email": "jairus", "password": "actuarial science"});
-
-    try {
-      var response = await http.post(
-        Uri.parse(url),
-        headers: headers,
-        body: data,
-      );
-
-      if (response.statusCode == 200) {
-        print('hellooooooooooo');
-        print(json.encode(json.decode(response.body)));
-      } else {
-        print(response.reasonPhrase);
-      }
-    } catch (error) {
-      print('Error: $error');
-    }
-  }
-
   Textstyle textStyle = Textstyle();
   Appstyle appStyle = Appstyle();
   final RegistrationRequest request = RegistrationRequest();
@@ -55,12 +35,28 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   late TextEditingController passwordController = TextEditingController();
   late TextEditingController confirmPasswordController =
       TextEditingController();
+  String formattedPhoneNumber = '';
+
+  Country? selectedCountry;
+
+  void _openCountryPicker() {
+    showCountryPicker(
+      context: context,
+      showPhoneCode: false,
+      onSelect: (Country country) {
+        setState(() {
+          selectedCountry = country;
+        });
+      },
+    );
+  }
+
   @override
   void initState() {
     super.initState();
     fullnameController = TextEditingController(text: '');
     emailController = TextEditingController(text: '');
-    phoneController = TextEditingController(text: '');
+
     passwordController = TextEditingController(text: '');
     confirmPasswordController = TextEditingController(text: '');
   }
@@ -75,7 +71,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             color: Color(0XFF726666),
           ),
           onPressed: () {
-            Navigator.pushNamed(context, '/login');
+            Navigator.pushNamed(context, '/registrationselect');
           },
         ),
       ),
@@ -114,40 +110,71 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 30),
-                child: SizedBox(
-                  width: 350,
-                  height: 48,
-                  child: TextField(
-                    controller: emailController,
-                    decoration: InputDecoration(
-                      hintText: 'Email Address',
-                      focusedBorder: textfieldBorder,
-                      enabledBorder: textfieldBorder,
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 30),
-                child: SizedBox(
-                  width: 350,
-                  height: 68,
-                  child: IntlPhoneField(
-                    decoration: InputDecoration(
-                      focusedBorder: textfieldBorder,
-                      enabledBorder: textfieldBorder,
-                      labelText: 'Phone Number',
-                      border: const OutlineInputBorder(
-                        borderSide: BorderSide(),
+              if (widget.registerWithEmail) ...[
+                Padding(
+                  padding: const EdgeInsets.only(top: 30),
+                  child: SizedBox(
+                    width: 350,
+                    height: 48,
+                    child: TextField(
+                      controller: emailController,
+                      decoration: InputDecoration(
+                        hintText: 'Email Address',
+                        focusedBorder: textfieldBorder,
+                        enabledBorder: textfieldBorder,
                       ),
                     ),
-                    initialCountryCode: 'IN',
-                    onChanged: (phone) {},
                   ),
                 ),
-              ),
+              ],
+              if (widget.registerCountry) ...[
+                Padding(
+                  padding: const EdgeInsets.only(top: 30),
+                  child: SizedBox(
+                    width: 350,
+                    height: 48,
+                    child: TextField(
+                      readOnly: true,
+                      onTap: _openCountryPicker,
+                      controller: TextEditingController(
+                        text: selectedCountry?.name ?? 'Select Country',
+                      ),
+                      decoration: InputDecoration(
+                        focusedBorder: textfieldBorder,
+                        enabledBorder: textfieldBorder,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+              if (widget.registerWithPhone) ...[
+                Padding(
+                  padding: const EdgeInsets.only(top: 30),
+                  child: SizedBox(
+                    width: 350,
+                    height: 48,
+                    child: InternationalPhoneNumberInput(
+                      inputDecoration: InputDecoration(
+                        hintText: 'Phone Number',
+                        focusedBorder: textfieldBorder,
+                        enabledBorder: textfieldBorder,
+                        border: const OutlineInputBorder(
+                          borderSide: BorderSide(),
+                        ),
+                      ),
+                      onInputChanged: (PhoneNumber number) {
+                        String countryCode = number.dialCode ?? '';
+                        String phoneNumber = number.phoneNumber ?? '';
+                        formattedPhoneNumber = ' $phoneNumber';
+                      },
+                      selectorConfig: const SelectorConfig(
+                        selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
+                      ),
+                      textFieldController: phoneController,
+                    ),
+                  ),
+                ),
+              ],
               Padding(
                 padding: const EdgeInsets.only(top: 30),
                 child: SizedBox(
@@ -186,15 +213,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   height: 42,
                   child: ElevatedButton(
                     onPressed: () {
-                      var email, password;
-                      setState() {
-                        email = emailController.text;
-                        password = passwordController.text;
-                      }
-
-                      request.registrationRequest(
-                          emailController.text, passwordController.text);
-                      // postData();
+                      // request.registrationRequest(
+                      //     fullnameController.text,
+                      //     emailController.text,
+                      //     passwordController.text,
+                      //     formattedPhoneNumber);
+                      // String selectedCountryName =
+                      //     selectedCountry?.name ?? 'N/A';
+                      String selectedCountryName = selectedCountry?.name ?? '';
+                      print('Selected Country: $selectedCountryName');
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0XFF021E3E),
@@ -238,5 +265,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             ]),
       ),
     );
+  }
+
+  void handlePhoneNumber(String phoneNumber) {
+    // You can use formattedPhoneNumber outside the widget
+    print('Handling Phone Number: $phoneNumber');
+    // Add your logic here
   }
 }

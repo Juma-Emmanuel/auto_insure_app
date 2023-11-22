@@ -3,5 +3,12 @@ class RegistrationModel {
   // final String confirmPassword;
   final String email;
   final String password;
-  const RegistrationModel({required this.email, required this.password});
+  final String name;
+  final String phonenumber;
+  const RegistrationModel({
+    required this.name,
+    required this.email,
+    required this.password,
+    required this.phonenumber,
+  });
 }

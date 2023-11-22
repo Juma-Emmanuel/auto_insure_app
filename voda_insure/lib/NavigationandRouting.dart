@@ -5,6 +5,7 @@ import 'package:voda_insure/Screens/Authentication/LoginScreen.dart';
 import 'package:voda_insure/Screens/Authentication/PasswordResetScreen.dart';
 import 'package:voda_insure/Screens/Authentication/PhoneVerificationScreen.dart';
 import 'package:voda_insure/Screens/Authentication/RegistrationScreen.dart';
+import 'package:voda_insure/Screens/Authentication/RegistrationSelect.dart';
 import 'package:voda_insure/Screens/Authentication/UserProfileScreen.dart';
 import 'package:voda_insure/Screens/Authentication/VerificationCodeScreen.dart';
 import 'package:voda_insure/Screens/Authentication/VerificationScreen.dart';
@@ -45,7 +46,7 @@ class AppRoutes {
     '/passwordresetscreen': (context) => const PasswordResetScreen(),
     '/userprofilescreen': (context) => const UserProfileScreen(),
     '/editprofilescreen': (context) => const EditProfileScreen(),
-    '/registration': (context) => const RegistrationScreen(),
+    '/registrationselect': (context) => RegistrationSelect(),
     '/homescreen': (context) => HomeScreen(),
     '/articlewebview': (context) => const ArticleWebView(),
     '/registervehicle': (context) => const RegisterVehicleScreen(),
