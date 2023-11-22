@@ -213,15 +213,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   height: 42,
                   child: ElevatedButton(
                     onPressed: () {
-                      // request.registrationRequest(
-                      //     fullnameController.text,
-                      //     emailController.text,
-                      //     passwordController.text,
-                      //     formattedPhoneNumber);
-                      // String selectedCountryName =
-                      //     selectedCountry?.name ?? 'N/A';
-                      String selectedCountryName = selectedCountry?.name ?? '';
-                      print('Selected Country: $selectedCountryName');
+                      request.registrationRequest(
+                          fullnameController.text,
+                          emailController.text,
+                          passwordController.text,
+                          formattedPhoneNumber);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0XFF021E3E),
@@ -265,11 +261,5 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             ]),
       ),
     );
-  }
-
-  void handlePhoneNumber(String phoneNumber) {
-    // You can use formattedPhoneNumber outside the widget
-    print('Handling Phone Number: $phoneNumber');
-    // Add your logic here
   }
 }
