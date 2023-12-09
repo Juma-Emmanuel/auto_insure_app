@@ -4,7 +4,7 @@ import 'package:voda_insure/Controllers/MainAPI.dart';
 import 'package:voda_insure/Models/AuthModels/RegistrationModel.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class RegistrationRequest {
+class RegisterVehicleRequest {
   Future registrationRequest(int nationalId, String fullname, String country,
       String email, String password, String phonenumber) async {
     RegistrationModel user = RegistrationModel(

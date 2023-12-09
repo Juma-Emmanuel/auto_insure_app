@@ -38,6 +38,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   late TextEditingController confirmPasswordController =
       TextEditingController();
   String formattedPhoneNumber = '';
+  String phoneCountryName = '';
 
   Country? selectedCountry;
 
@@ -115,6 +116,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 48,
               child: TextField(
                 controller: nationalIdController,
+                keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   hintText: 'National ID',
                   focusedBorder: textfieldBorder,
@@ -150,7 +152,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   readOnly: true,
                   onTap: _openCountryPicker,
                   controller: TextEditingController(
-                    text: selectedCountry?.name ?? 'Select Country',
+                    text: selectedCountry?.countryCode ?? 'Select Country',
                   ),
                   decoration: InputDecoration(
                     focusedBorder: textfieldBorder,
@@ -176,8 +178,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     ),
                   ),
                   onInputChanged: (PhoneNumber number) {
-                    String countryCode = number.dialCode ?? '';
                     String phoneNumber = number.phoneNumber ?? '';
+                    String selectedCountryName = number.isoCode ?? '';
+                    phoneCountryName = '$selectedCountryName';
                     formattedPhoneNumber = ' $phoneNumber';
                   },
                   selectorConfig: const SelectorConfig(
@@ -226,11 +229,25 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 42,
               child: ElevatedButton(
                 onPressed: () {
-                  request.registrationRequest(
-                      fullnameController.text,
-                      emailController.text,
-                      passwordController.text,
-                      formattedPhoneNumber);
+                  if (widget.registerWithEmail) {
+                    request.registrationRequest(
+                        int.parse(nationalIdController.text),
+                        fullnameController.text,
+                        selectedCountry!.name,
+                        emailController.text,
+                        passwordController.text,
+                        formattedPhoneNumber);
+                  } else {
+                    request.registrationRequest(
+                        int.parse(nationalIdController.text),
+                        fullnameController.text,
+                        phoneCountryName,
+                        emailController.text,
+                        passwordController.text,
+                        formattedPhoneNumber);
+                  }
+
+                  print(selectedCountry?.name);
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0XFF021E3E),

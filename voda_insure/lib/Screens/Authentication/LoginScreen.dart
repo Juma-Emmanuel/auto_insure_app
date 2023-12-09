@@ -13,6 +13,9 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   Textstyle textStyle = Textstyle();
   Appstyle appStyle = Appstyle();
+  late TextEditingController emailController = TextEditingController();
+  late TextEditingController passwordController = TextEditingController();
+  final LoginRequest request = LoginRequest();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,8 +91,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 onPressed: () {
                   // Navigator.push(context,
                   //     MaterialPageRoute(builder: (context) => HomeScreen()));
-                  Navigator.pushNamedAndRemoveUntil(
-                      context, '/homescreen', ((route) => false));
+                  // Navigator.pushNamedAndRemoveUntil(
+                  //     context, '/homescreen', ((route) => false));
+                  request.loginRequest(
+                    emailController.text,
+                    passwordController.text,
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0XFF021E3E),
