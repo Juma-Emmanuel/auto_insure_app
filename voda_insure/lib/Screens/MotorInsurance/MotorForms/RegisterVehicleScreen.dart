@@ -1,4 +1,7 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
+import 'package:voda_insure/Controllers/MotorInsurance/RegisterVehicleController.dart';
 import 'package:voda_insure/Screens/MotorInsurance/MotorStyles.dart';
 import 'package:voda_insure/Styles/style.dart';
 
@@ -27,6 +30,7 @@ class _RegisterVehicleScreenState extends State<RegisterVehicleScreen> {
   final TextEditingController driversIDController = TextEditingController();
   final TextEditingController driversNameController = TextEditingController();
   TextEditingController yearOfExperienceController = TextEditingController();
+  final RegisterVehicleRequest request = RegisterVehicleRequest();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -141,7 +145,20 @@ class _RegisterVehicleScreenState extends State<RegisterVehicleScreen> {
                         width: 350,
                         height: 42,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            request.registrationRequest(
+                                registrationController.text,
+                                chasisController.text,
+                                cvController.text,
+                                tonnageController.text,
+                                makeController.text,
+                                valueController.text,
+                                placeController.text,
+                                yearOfManufactureController.text,
+                                driversIDController.text,
+                                driversNameController.text,
+                                yearOfExperienceController.text);
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0XFF021E3E),
                           ),

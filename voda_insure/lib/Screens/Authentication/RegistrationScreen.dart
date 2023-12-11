@@ -5,9 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:voda_insure/Controllers/Authentication/RegistrationController.dart';
 import 'package:voda_insure/Models/AuthModels/RegistrationModel.dart';
 import 'package:voda_insure/Styles/style.dart';
-// import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:country_picker/country_picker.dart';
-// import 'package:intl_phone_field/phone_number.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -233,7 +231,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     request.registrationRequest(
                         int.parse(nationalIdController.text),
                         fullnameController.text,
-                        selectedCountry!.name,
+                        selectedCountry!.countryCode,
                         emailController.text,
                         passwordController.text,
                         formattedPhoneNumber);
@@ -246,8 +244,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         passwordController.text,
                         formattedPhoneNumber);
                   }
-
-                  print(selectedCountry?.name);
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0XFF021E3E),

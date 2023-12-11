@@ -89,14 +89,21 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 42,
               child: ElevatedButton(
                 onPressed: () {
-                  // Navigator.push(context,
-                  //     MaterialPageRoute(builder: (context) => HomeScreen()));
-                  // Navigator.pushNamedAndRemoveUntil(
-                  //     context, '/homescreen', ((route) => false));
                   request.loginRequest(
                     emailController.text,
                     passwordController.text,
                   );
+                  request.onAuthentication = (isAuthenticated) {
+                    if (isAuthenticated) {
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, '/homescreen', ((route) => false));
+                    } else {
+                      Navigator.pushNamed(
+                        context,
+                        '/editprofilescreen',
+                      );
+                    }
+                  };
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0XFF021E3E),
