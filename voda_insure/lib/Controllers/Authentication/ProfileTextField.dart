@@ -20,7 +20,7 @@ class _ProfileTextFieldState extends State<ProfileTextField> {
   @override
   void initState() {
     super.initState();
-    controller = new TextEditingController(text: widget.input);
+    controller = TextEditingController(text: widget.input);
   }
 
   @override

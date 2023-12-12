@@ -6,7 +6,6 @@ class MotorClaimImageView extends StatefulWidget {
   final List<String> images;
   final int initialIndex;
 
-  // final String imageUrl;
   const MotorClaimImageView(
       {super.key, required this.images, required this.initialIndex});
 

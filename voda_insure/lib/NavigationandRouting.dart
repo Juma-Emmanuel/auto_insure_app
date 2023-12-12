@@ -4,7 +4,6 @@ import 'package:voda_insure/Screens/Authentication/EmailVerificationScreen.dart'
 import 'package:voda_insure/Screens/Authentication/LoginScreen.dart';
 import 'package:voda_insure/Screens/Authentication/PasswordResetScreen.dart';
 import 'package:voda_insure/Screens/Authentication/PhoneVerificationScreen.dart';
-import 'package:voda_insure/Screens/Authentication/RegistrationScreen.dart';
 import 'package:voda_insure/Screens/Authentication/RegistrationSelect.dart';
 import 'package:voda_insure/Screens/Authentication/UserProfileScreen.dart';
 import 'package:voda_insure/Screens/Authentication/VerificationCodeScreen.dart';
@@ -31,9 +30,10 @@ import 'package:voda_insure/Screens/MotorInsurance/Agreements/Faqs.dart';
 import 'package:voda_insure/Screens/MotorInsurance/Agreements/MotorPrivacyPolicyScreen.dart';
 import 'package:voda_insure/Screens/MotorInsurance/Agreements/MotorTermsAndConditionsScreen.dart';
 import 'package:voda_insure/Screens/MotorInsurance/MotorForms/RegisterVehicleScreen.dart';
+import 'package:voda_insure/Screens/MotorInsurance/MotorReports/CoverVehiclesList.dart';
 import 'package:voda_insure/Screens/MotorInsurance/MotorReports/MotorVehiclesMotorcyclesReportScreen.dart';
 import 'package:voda_insure/Screens/MotorInsurance/MotorReports/MycoverReport.dart';
-import 'package:voda_insure/Screens/MotorInsurance/MotorReports/VehiclesList.dart';
+import 'package:voda_insure/Screens/MotorInsurance/MotorReports/ReportVehiclesList.dart';
 
 class AppRoutes {
   static Map<String, WidgetBuilder> routes = {
@@ -50,13 +50,14 @@ class AppRoutes {
     '/homescreen': (context) => HomeScreen(),
     '/articlewebview': (context) => const ArticleWebView(),
     '/registervehicle': (context) => const RegisterVehicleScreen(),
+    '/covervehiclelist': (context) => const CoverVehiclesList(),
     '/mycoverreport': (context) => const MycoverReport(),
     '/motorvehiclemotorcyclereport': (context) =>
         const MotorVehiclesMotorcyclesReportScreen(),
     '/motortermsandconditions': (context) => const MotorTermsandConditions(),
     '/motorprivacypolicy': (context) => const MotorPrivacyPolicy(),
     '/faqs': (context) => const Faqs(),
-    '/vehicleslist': (context) => const VehiclesList(),
+    '/vehicleslist': (context) => const ReportVehiclesList(),
     '/makemotorclaim': (context) => const MakeMotorClaimScreen(),
     '/motorclaimshistory': (context) => const MotorClaimsHistory(),
     '/motorclaimdetailsreport': (context) => const MotorClaimDetailsReport(),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:voda_insure/Controllers/Authentication/UserProfileController.dart';
+import 'package:voda_insure/Models/AuthModels/UserDetailsModel.dart';
 import 'package:voda_insure/Styles/style.dart';
-import 'package:voda_insure/Controllers/Authentication/ProfileController.dart';
+import 'package:voda_insure/Controllers/Authentication/ProfileTextField.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -14,10 +16,25 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController fullnameController = TextEditingController();
+  UserProfileController userProfileController = UserProfileController();
 
+  UserDetailsModel? user;
   @override
   void initState() {
     super.initState();
+    fetchData();
+  }
+
+  Future<void> fetchData() async {
+    try {
+      UserDetailsModel fetchedUser =
+          await userProfileController.fetchUserDetails();
+      setState(() {
+        user = fetchedUser;
+      });
+    } catch (e) {
+      throw Exception('Error during fetch request: $e');
+    }
   }
 
   @override
@@ -84,71 +101,80 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             ),
           ),
           separator,
-          Padding(
-            padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 30),
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Container(
-                // height: 21,
-                margin: const EdgeInsets.only(
-                  bottom: 20.0,
-                ),
-                child: Text(
-                  'Email',
-                  style: textStyle.bodyMediumGrey,
-                ),
-              ),
-              const SizedBox(
-                height: 15,
-                child: ProfileTextField(
-                  input: 'ttt',
-                ),
-              ),
-            ]),
-          ),
-          Padding(
-              padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 30),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      // height: 21,
-                      margin: const EdgeInsets.only(
-                        bottom: 20.0,
-                      ),
-                      child: Text(
-                        'Phone Number',
-                        style: textStyle.bodyMediumGrey,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 15,
-                      child: ProfileTextField(
-                        input: 'halo',
-                      ),
-                    )
-                  ])),
-          Padding(
-            padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 30),
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Container(
-                margin: const EdgeInsets.only(
-                  bottom: 20.0,
-                ),
-                child: Text(
-                  'Full Name',
-                  style: textStyle.bodyMediumGrey,
-                ),
-              ),
-              const SizedBox(
-                height: 15,
-                child: ProfileTextField(
-                  input: 'hiiiii',
-                ),
-              ),
-            ]),
-          ),
+          user != null
+              ? Padding(
+                  padding:
+                      const EdgeInsets.only(left: 30.0, right: 30.0, top: 30),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(
+                            bottom: 20.0,
+                          ),
+                          child: Text(
+                            'Email',
+                            style: textStyle.bodyMediumGrey,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 15,
+                          child: ProfileTextField(
+                            input: user!.email,
+                          ),
+                        ),
+                      ]),
+                )
+              : CircularProgressIndicator(),
+          user != null
+              ? Padding(
+                  padding:
+                      const EdgeInsets.only(left: 30.0, right: 30.0, top: 30),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(
+                            bottom: 20.0,
+                          ),
+                          child: Text(
+                            'Phone Number',
+                            style: textStyle.bodyMediumGrey,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 15,
+                          child: ProfileTextField(
+                            input: user!.phoneNumber,
+                          ),
+                        )
+                      ]))
+              : CircularProgressIndicator(),
+          user != null
+              ? Padding(
+                  padding:
+                      const EdgeInsets.only(left: 30.0, right: 30.0, top: 30),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(
+                            bottom: 20.0,
+                          ),
+                          child: Text(
+                            'Full Name',
+                            style: textStyle.bodyMediumGrey,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 15,
+                          child: ProfileTextField(
+                            input: user!.fullName,
+                          ),
+                        ),
+                      ]),
+                )
+              : CircularProgressIndicator(),
         ]),
       ),
     );

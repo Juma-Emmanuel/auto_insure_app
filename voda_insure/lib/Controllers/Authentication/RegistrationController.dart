@@ -28,14 +28,7 @@ class RegistrationRequest {
           'country': user.country
         }));
     if (response.statusCode == 200) {
-      print(json.encode(json.decode(response.body)));
-      print("heloooooooooooooooooooo");
-      // String authToken = json.decode(response.body)['token'];
-      // await saveAuthToken(authToken);
-    } else {
-      print(response.reasonPhrase);
-      print("imekataaaaaaaa");
-    }
+    } else {}
   }
 
   Future<void> saveAuthToken(String token) async {

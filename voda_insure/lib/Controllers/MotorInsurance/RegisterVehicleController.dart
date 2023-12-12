@@ -2,8 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:voda_insure/Controllers/MainAPI.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'dart:ffi';
-import 'package:voda_insure/Models/MotorModels/RegisterVehicleModel.dart';
+import 'package:voda_insure/Models/MotorModels/Vehicle.dart';
 
 class RegisterVehicleRequest {
   Future<String?> getAuthToken() async {
@@ -24,7 +23,7 @@ class RegisterVehicleRequest {
     String driverName,
     String driverExperience,
   ) async {
-    RegisterVehicleModel vehicle = RegisterVehicleModel(
+    Vehicle vehicle = Vehicle(
       registrationNumber: registrationNumber,
       chasisNumber: chasisNumber,
       cvNumber: cvNumber,
@@ -58,9 +57,6 @@ class RegisterVehicleRequest {
           'driverExperience': vehicle.driverExperience,
         }));
     if (response.statusCode == 200) {
-      print(json.encode(json.decode(response.body)));
-    } else {
-      print(response.reasonPhrase);
-    }
+    } else {}
   }
 }

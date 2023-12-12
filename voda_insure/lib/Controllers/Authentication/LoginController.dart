@@ -1,9 +1,8 @@
-import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:voda_insure/Controllers/MainAPI.dart';
 import 'package:voda_insure/Models/AuthModels/LoginModel.dart';
-import 'package:voda_insure/Models/AuthModels/RegistrationModel.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 typedef AuthCallback = void Function(bool isAuthenticated);

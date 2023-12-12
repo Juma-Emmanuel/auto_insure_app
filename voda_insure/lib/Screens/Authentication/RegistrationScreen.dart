@@ -1,9 +1,5 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:voda_insure/Controllers/Authentication/RegistrationController.dart';
-import 'package:voda_insure/Models/AuthModels/RegistrationModel.dart';
 import 'package:voda_insure/Styles/style.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
