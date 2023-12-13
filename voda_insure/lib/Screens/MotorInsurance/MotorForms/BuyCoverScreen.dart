@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:voda_insure/Controllers/MotorInsurance/GetVehicleController.dart';
+import 'package:voda_insure/Controllers/MotorInsurance/BuyMotorCover.dart';
+import 'package:voda_insure/Controllers/MotorInsurance/GetVehicles.dart';
 import 'package:voda_insure/Styles/style.dart';
 
 class BuyCoverScreen extends StatefulWidget {
-  const BuyCoverScreen({super.key});
+  final int vehicleId;
+  const BuyCoverScreen({super.key, required this.vehicleId});
 
   @override
   State<BuyCoverScreen> createState() => _BuyCoverScreenState();
@@ -15,6 +17,7 @@ class _BuyCoverScreenState extends State<BuyCoverScreen> {
   final TextEditingController _renewalDateController = TextEditingController();
   final TextEditingController _expiryDateController = TextEditingController();
   GetVehicles getVehicles = GetVehicles();
+  BuyMotorCover request = BuyMotorCover();
   Future<void> _renewalSelectDate(BuildContext context) async {
     DateTime? pickedDate = await showDatePicker(
       context: context,
@@ -206,7 +209,13 @@ class _BuyCoverScreenState extends State<BuyCoverScreen> {
               height: 42,
               child: ElevatedButton(
                 onPressed: () {
-                  getVehicles.fetchVehiclesByNationalId(1212);
+                  request.buyMotorCoverRequest(
+                      widget.vehicleId,
+                      0,
+                      '',
+                      _expiryDateController.text,
+                      _renewalDateController.text,
+                      _selectedItem);
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0XFF021E3E),

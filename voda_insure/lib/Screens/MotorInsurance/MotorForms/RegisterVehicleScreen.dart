@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:voda_insure/Controllers/MotorInsurance/RegisterVehicleController.dart';
+import 'package:voda_insure/Controllers/MotorInsurance/RegisterVehicle.dart';
 import 'package:voda_insure/Screens/MotorInsurance/MotorStyles.dart';
 import 'package:voda_insure/Styles/style.dart';
 
@@ -145,6 +145,7 @@ class _RegisterVehicleScreenState extends State<RegisterVehicleScreen> {
                         child: ElevatedButton(
                           onPressed: () {
                             request.registrationRequest(
+                                0,
                                 registrationController.text,
                                 chasisController.text,
                                 cvController.text,

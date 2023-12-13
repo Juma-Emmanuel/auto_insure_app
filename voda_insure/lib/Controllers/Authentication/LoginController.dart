@@ -18,7 +18,7 @@ class LoginRequest {
       password: password,
     );
     String mainUrl = MainApi.url;
-    String registrationUrl = "$mainUrl/users/authenticate2";
+    String registrationUrl = "$mainUrl/users/authenticate";
     final response = await http.post(Uri.parse(registrationUrl),
         headers: {'Content-Type': 'application/json'},
         body: json.encode({

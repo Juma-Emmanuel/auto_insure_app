@@ -1,4 +1,5 @@
 class Vehicle {
+  final int vehicleId;
   final String registrationNumber;
   final String chasisNumber;
   final String cvNumber;
@@ -10,7 +11,8 @@ class Vehicle {
   final String driverId;
   final String driverName;
   final String driverExperience;
-  const Vehicle({
+  Vehicle({
+    required this.vehicleId,
     required this.chasisNumber,
     required this.registrationNumber,
     required this.cvNumber,
@@ -26,6 +28,7 @@ class Vehicle {
 
   factory Vehicle.fromJson(Map<String, dynamic> json) {
     return Vehicle(
+      vehicleId: json['vehicleId'] ?? '',
       registrationNumber: json['registrationNumber'] ?? '',
       chasisNumber: json['chasisNumber'] ?? '',
       cvNumber: json['cvNumber'] ?? '',

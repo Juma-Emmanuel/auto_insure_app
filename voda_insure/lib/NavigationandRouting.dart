@@ -51,9 +51,6 @@ class AppRoutes {
     '/articlewebview': (context) => const ArticleWebView(),
     '/registervehicle': (context) => const RegisterVehicleScreen(),
     '/covervehiclelist': (context) => const CoverVehiclesList(),
-    '/mycoverreport': (context) => const MycoverReport(),
-    '/motorvehiclemotorcyclereport': (context) =>
-        const MotorVehiclesMotorcyclesReportScreen(),
     '/motortermsandconditions': (context) => const MotorTermsandConditions(),
     '/motorprivacypolicy': (context) => const MotorPrivacyPolicy(),
     '/faqs': (context) => const Faqs(),

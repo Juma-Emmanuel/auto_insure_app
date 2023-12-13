@@ -11,6 +11,7 @@ class RegisterVehicleRequest {
   }
 
   Future registrationRequest(
+    int vehicleId,
     String registrationNumber,
     String chasisNumber,
     String cvNumber,
@@ -24,6 +25,7 @@ class RegisterVehicleRequest {
     String driverExperience,
   ) async {
     Vehicle vehicle = Vehicle(
+      vehicleId: vehicleId,
       registrationNumber: registrationNumber,
       chasisNumber: chasisNumber,
       cvNumber: cvNumber,
@@ -53,7 +55,7 @@ class RegisterVehicleRequest {
           'vehicleValue': vehicle.vehicleValue,
           'place': vehicle.place,
           'driverId': vehicle.driverId,
-          ' driverName': vehicle.driverName,
+          'driverName': vehicle.driverName,
           'driverExperience': vehicle.driverExperience,
         }));
     if (response.statusCode == 200) {

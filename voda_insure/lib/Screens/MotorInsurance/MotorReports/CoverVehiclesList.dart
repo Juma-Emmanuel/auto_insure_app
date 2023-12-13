@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:voda_insure/Controllers/MotorInsurance/GetVehicleController.dart';
+import 'package:voda_insure/Controllers/MotorInsurance/GetVehicles.dart';
 import 'package:voda_insure/Models/MotorModels/Vehicle.dart';
+import 'package:voda_insure/Screens/MotorInsurance/MotorForms/BuyCoverScreen.dart';
 import 'package:voda_insure/Styles/style.dart';
 import 'package:voda_insure/Screens/MotorInsurance/MotorStyles.dart';
 
@@ -90,8 +91,14 @@ class _CoverVehiclesListState extends State<CoverVehiclesList> {
                               padding: const EdgeInsets.only(top: 20.0),
                               child: InkWell(
                                 onTap: () {
-                                  Navigator.pushNamed(
-                                      context, '/motorvehiclemotorcyclereport');
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => BuyCoverScreen(
+                                        vehicleId: vehicles[index].vehicleId,
+                                      ),
+                                    ),
+                                  );
                                 },
                                 child: Container(
                                   width: 250,
