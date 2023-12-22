@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:voda_insure/Controllers/Claims/MakeMotorClaim.dart';
 
 import 'package:voda_insure/Styles/style.dart';
 
 class MakeMotorClaimScreen extends StatefulWidget {
-  const MakeMotorClaimScreen({super.key});
+  final int motorId;
+  MakeMotorClaimScreen({super.key, required this.motorId});
 
   @override
   State<MakeMotorClaimScreen> createState() => _MakeMotorClaimScreenState();
@@ -13,13 +15,14 @@ class _MakeMotorClaimScreenState extends State<MakeMotorClaimScreen> {
   Textstyle textStyle = Textstyle();
   Appstyle appStyle = Appstyle();
   final TextEditingController _claimDateController = TextEditingController();
+  final TextEditingController _clashDateController = TextEditingController();
   final TextEditingController claimStatusController = TextEditingController();
   final TextEditingController claimAmountController = TextEditingController();
   final TextEditingController claimDescriptionController =
       TextEditingController();
   final TextEditingController claimDocumentController = TextEditingController();
   final TextEditingController claimCommentController = TextEditingController();
-
+  MakeMotorClaim request = MakeMotorClaim();
   String _selectedItem = 'Third party';
   @override
   Widget build(BuildContext context) {
@@ -59,6 +62,8 @@ class _MakeMotorClaimScreenState extends State<MakeMotorClaimScreen> {
               children: [
                 DatePicker(
                     controller: _claimDateController, label: 'Claim Date:'),
+                DatePicker(
+                    controller: _clashDateController, label: 'Clash Date:'),
                 Padding(
                   padding: const EdgeInsets.only(top: 20),
                   child: Column(
@@ -189,7 +194,17 @@ class _MakeMotorClaimScreenState extends State<MakeMotorClaimScreen> {
             child: SizedBox(
               height: 42,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  request.makeMotorClaim(
+                      widget.motorId,
+                      _claimDateController.text,
+                      _clashDateController.text,
+                      claimStatusController.text,
+                      claimAmountController.text,
+                      claimDescriptionController.text,
+                      _selectedItem,
+                      claimDocumentController.text);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0XFF021E3E),
                 ),

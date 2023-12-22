@@ -16,7 +16,8 @@ import 'package:voda_insure/Screens/Claims/MedicalClaims/ClaimReports/ClaimsDocu
 import 'package:voda_insure/Screens/Claims/MedicalClaims/ClaimReports/ClaimsHistoryScreen.dart';
 import 'package:voda_insure/Screens/Claims/MedicalClaims/ClaimReports/ClaimsUploadScreen.dart';
 import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimForms/ClaimFileUpload.dart';
-import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimForms/MakeClaimScreen.dart';
+import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimForms/ClaimsCoverLists.dart';
+
 import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimReports/ClaimDetailsReport.dart';
 
 import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimReports/ClaimDocumentsScreen.dart';
@@ -55,8 +56,8 @@ class AppRoutes {
     '/motorprivacypolicy': (context) => const MotorPrivacyPolicy(),
     '/faqs': (context) => const Faqs(),
     '/vehicleslist': (context) => const ReportVehiclesList(),
-    '/makemotorclaim': (context) => const MakeMotorClaimScreen(),
     '/motorclaimshistory': (context) => const MotorClaimsHistory(),
+    '/claimscoverlist': (context) => const ClaimsCoversList(),
     '/motorclaimdetailsreport': (context) => const MotorClaimDetailsReport(),
     '/motorclaimuploadsreport': (context) => const MotorClaimsUploadReport(),
     '/makemedicalclaim': (context) => const MakeMedicalClaimScreen(),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:voda_insure/Controllers/MotorInsurance/GetMotorCover.dart';
-import 'package:voda_insure/Models/MotorModels/MotorCover.dart';
+import 'package:voda_insure/Models/MotorModels/GetMotorCoverModel.dart';
+import 'package:voda_insure/Models/MotorModels/PostMotorCoverModel.dart';
 import 'package:voda_insure/Screens/MotorInsurance/MotorReports/MotorReportTextfield.dart';
 import 'package:voda_insure/Styles/style.dart';
 
@@ -17,11 +18,17 @@ class _MycoverReportState extends State<MycoverReport> {
   Appstyle appStyle = Appstyle();
   GetMotorCover getMotorCover = GetMotorCover();
 
-  MotorCover? motorCover;
+  GetMotorCoverModel? motorCover;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchMotorCover();
+  }
 
   Future<void> fetchMotorCover() async {
     try {
-      MotorCover fetchedMotorCover =
+      GetMotorCoverModel fetchedMotorCover =
           await getMotorCover.fetchMotorCover(widget.motorId);
       setState(() {
         motorCover = fetchedMotorCover;
@@ -53,25 +60,6 @@ class _MycoverReportState extends State<MycoverReport> {
             ),
           ),
           separator,
-          Padding(
-            padding: const EdgeInsets.only(top: 30),
-            child: SizedBox(
-              width: 350,
-              height: 42,
-              child: ElevatedButton(
-                onPressed: () {
-                  getMotorCover.fetchMotorCover(widget.motorId);
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0XFF021E3E),
-                ),
-                child: Text(
-                  'BUY INSURANCE COVER ',
-                  style: textStyle.buttonText,
-                ),
-              ),
-            ),
-          ),
           motorCover != null
               ? Column(
                   children: [
@@ -165,7 +153,7 @@ class _MycoverReportState extends State<MycoverReport> {
                             ])),
                   ],
                 )
-              : CircularProgressIndicator(),
+              : const CircularProgressIndicator(),
         ])));
   }
 }

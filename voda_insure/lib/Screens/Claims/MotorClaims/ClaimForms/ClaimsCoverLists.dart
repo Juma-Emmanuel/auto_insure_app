@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:voda_insure/Controllers/MotorInsurance/GetMotorCovers.dart';
 import 'package:voda_insure/Models/MotorModels/GetMotorCoverModel.dart';
 import 'package:voda_insure/Models/MotorModels/PostMotorCoverModel.dart';
+import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimForms/MakeClaimScreen.dart';
 import 'package:voda_insure/Screens/MotorInsurance/MotorReports/MotorVehiclesMotorcyclesReportScreen.dart';
 import 'package:voda_insure/Screens/MotorInsurance/MotorReports/MycoverReport.dart';
 import 'package:voda_insure/Styles/style.dart';
 
-class MotorCoversList extends StatefulWidget {
-  const MotorCoversList({super.key});
+class ClaimsCoversList extends StatefulWidget {
+  const ClaimsCoversList({super.key});
 
   @override
-  State<MotorCoversList> createState() => _MotorCoversListState();
+  State<ClaimsCoversList> createState() => _ClaimsCoversListState();
 }
 
-class _MotorCoversListState extends State<MotorCoversList> {
+class _ClaimsCoversListState extends State<ClaimsCoversList> {
   GetMotorCovers getMotorCovers = GetMotorCovers();
   List<GetMotorCoverModel> motorCovers = [];
   @override
@@ -55,7 +56,7 @@ class _MotorCoversListState extends State<MotorCoversList> {
                   top: 10,
                 ),
                 child: Text(
-                  'My Motor Covers ',
+                  'MY Motor Covers ',
                   style: textStyle.bodyLarge,
                 ),
               ),
@@ -75,7 +76,8 @@ class _MotorCoversListState extends State<MotorCoversList> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => MycoverReport(
+                                      builder: (context) =>
+                                          MakeMotorClaimScreen(
                                         motorId: motorCovers[index].motorId,
                                       ),
                                     ),

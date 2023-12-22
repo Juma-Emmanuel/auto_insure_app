@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:voda_insure/Controllers/MainAPI.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:voda_insure/Models/MotorModels/MotorCover.dart';
+import 'package:voda_insure/Models/MotorModels/PostMotorCoverModel.dart';
 
 class BuyMotorCover {
   Future<String?> getAuthToken() async {
@@ -12,15 +12,11 @@ class BuyMotorCover {
 
   Future buyMotorCoverRequest(
     int vehicleId,
-    int motorId,
-    String policyNumber,
     String coverExpiryDate,
     String coverRenewalDate,
     String coverType,
   ) async {
-    MotorCover motorCover = MotorCover(
-      motorId: motorId,
-      policyNumber: policyNumber,
+    PostMotorCoverModel motorCover = PostMotorCoverModel(
       coverExpiryDate: coverExpiryDate,
       coverRenewalDate: coverRenewalDate,
       coverType: coverType,

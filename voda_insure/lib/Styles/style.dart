@@ -229,6 +229,7 @@ class _DatePickerState extends State<DatePicker> {
       setState(() {
         String formattedDate =
             '${pickedDate.month}/${pickedDate.day}/${pickedDate.year}';
+
         widget.controller.text = formattedDate;
       });
     }

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:voda_insure/Styles/style.dart';
 
 class MotorReportTextField extends StatefulWidget {
-  final String input;
+  String? input;
 
-  const MotorReportTextField({
+  MotorReportTextField({
     super.key,
-    required this.input,
+    this.input,
   });
 
   @override

@@ -4,20 +4,21 @@ import 'package:voda_insure/Controllers/MainAPI.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voda_insure/Models/MotorModels/GetMotorCoverModel.dart';
 import 'package:voda_insure/Models/MotorModels/PostMotorCoverModel.dart';
+import 'package:voda_insure/Models/Claims/GetMotorClaimModel.dart';
 
-class GetMotorCovers {
+class GetMotorClaims {
   Future<String?> getAuthToken() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getString('jwtToken');
   }
 
-  Future<List<GetMotorCoverModel>> fetchMotorCovers(int nationalId) async {
+  Future<List<GetMotorClaimModel>> fetchMotorClaims(int nationalId) async {
     String? token = await getAuthToken();
     if (token == null) {
       return [];
     }
     String mainUrl = MainApi.url;
-    String fetchUrl = "$mainUrl/motorcover/getmotorcovers/$nationalId";
+    String fetchUrl = "$mainUrl/motorclaim/getmotorclaims/$nationalId";
     try {
       final response = await http.get(
         Uri.parse(fetchUrl),
@@ -29,9 +30,9 @@ class GetMotorCovers {
       if (response.statusCode == 200) {
         List<dynamic> jsonList = json.decode(response.body);
 
-        List<GetMotorCoverModel> motorCovers =
-            jsonList.map((json) => GetMotorCoverModel.fromJson(json)).toList();
-        return motorCovers;
+        List<GetMotorClaimModel> motorClaims =
+            jsonList.map((json) => GetMotorClaimModel.fromJson(json)).toList();
+        return motorClaims;
       } else {
         return [];
       }

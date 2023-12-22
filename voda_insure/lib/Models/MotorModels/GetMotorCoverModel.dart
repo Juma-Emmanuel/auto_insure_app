@@ -1,19 +1,19 @@
-class MotorCover {
+class GetMotorCoverModel {
   final int motorId;
   final String policyNumber;
   final String coverExpiryDate;
   final String coverRenewalDate;
   final String coverType;
 
-  const MotorCover({
+  GetMotorCoverModel({
     required this.motorId,
     required this.policyNumber,
     required this.coverExpiryDate,
     required this.coverRenewalDate,
     required this.coverType,
   });
-  factory MotorCover.fromJson(Map<String, dynamic> json) {
-    return MotorCover(
+  factory GetMotorCoverModel.fromJson(Map<String, dynamic> json) {
+    return GetMotorCoverModel(
       motorId: json['motorId'] ?? '',
       policyNumber: json['policyNumber'] ?? '',
       coverExpiryDate: json['coverExpiryDate'] ?? '',

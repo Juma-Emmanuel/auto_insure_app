@@ -2,7 +2,8 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'package:voda_insure/Controllers/MainAPI.dart';
-import 'package:voda_insure/Models/MotorModels/MotorCover.dart';
+import 'package:voda_insure/Models/MotorModels/GetMotorCoverModel.dart';
+import 'package:voda_insure/Models/MotorModels/PostMotorCoverModel.dart';
 
 class GetMotorCover {
   Future<String?> getAuthToken() async {
@@ -10,10 +11,10 @@ class GetMotorCover {
     return prefs.getString('jwtToken');
   }
 
-  late MotorCover motorCover;
-  late Future<MotorCover> motorCoverFuture;
+  late GetMotorCoverModel motorCover;
+  late Future<GetMotorCoverModel> motorCoverFuture;
 
-  Future<MotorCover> fetchMotorCover(int motorId) async {
+  Future<GetMotorCoverModel> fetchMotorCover(int motorId) async {
     String? token = await getAuthToken();
     if (token == null) {
       throw Exception('Token is null');
@@ -34,8 +35,7 @@ class GetMotorCover {
       if (response.statusCode == 200) {
         Map<String, dynamic> motorCoverData = json.decode(response.body);
 
-        print(motorCoverData);
-        return MotorCover.fromJson(motorCoverData);
+        return GetMotorCoverModel.fromJson(motorCoverData);
       } else {
         throw Exception('Request failed with status: ${response.statusCode}');
       }

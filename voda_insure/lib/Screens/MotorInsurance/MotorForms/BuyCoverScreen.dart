@@ -211,8 +211,6 @@ class _BuyCoverScreenState extends State<BuyCoverScreen> {
                 onPressed: () {
                   request.buyMotorCoverRequest(
                       widget.vehicleId,
-                      0,
-                      '',
                       _expiryDateController.text,
                       _renewalDateController.text,
                       _selectedItem);
