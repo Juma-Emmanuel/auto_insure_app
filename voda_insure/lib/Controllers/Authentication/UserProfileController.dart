@@ -20,7 +20,7 @@ class UserProfileController {
     }
 
     String mainUrl = MainApi.url;
-    String fetchUrl = "$mainUrl/users/getuser";
+    String fetchUrl = "$mainUrl/user/current-user";
 
     try {
       final response = await http.get(

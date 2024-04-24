@@ -225,10 +225,10 @@ class _DatePickerState extends State<DatePicker> {
       lastDate: DateTime(2100),
     );
 
-    if (pickedDate != null && pickedDate != DateTime.now()) {
+    if (pickedDate != DateTime.now()) {
       setState(() {
         String formattedDate =
-            '${pickedDate.month}/${pickedDate.day}/${pickedDate.year}';
+            '${pickedDate?.month}/${pickedDate?.day}/${pickedDate?.year}';
 
         widget.controller.text = formattedDate;
       });

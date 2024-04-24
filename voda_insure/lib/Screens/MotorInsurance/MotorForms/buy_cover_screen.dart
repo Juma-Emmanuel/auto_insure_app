@@ -26,10 +26,10 @@ class _BuyCoverScreenState extends State<BuyCoverScreen> {
       lastDate: DateTime(2100),
     );
 
-    if (pickedDate != null && pickedDate != DateTime.now()) {
+    if (pickedDate != DateTime.now()) {
       setState(() {
         String formattedDate =
-            '${pickedDate.month}-${pickedDate.day}-${pickedDate.year}';
+            '${pickedDate?.month}-${pickedDate?.day}-${pickedDate?.year}';
         _renewalDateController.text = formattedDate;
       });
     }
@@ -43,10 +43,10 @@ class _BuyCoverScreenState extends State<BuyCoverScreen> {
       lastDate: DateTime(2100),
     );
 
-    if (pickedDate != null && pickedDate != DateTime.now()) {
+    if (pickedDate != DateTime.now()) {
       setState(() {
         String formattedDate =
-            '${pickedDate.month}-${pickedDate.day}-${pickedDate.year}';
+            '${pickedDate?.month}-${pickedDate?.day}-${pickedDate?.year}';
         _expiryDateController.text = formattedDate;
       });
     }

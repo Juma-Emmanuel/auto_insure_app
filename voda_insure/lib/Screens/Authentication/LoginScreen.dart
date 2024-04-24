@@ -89,10 +89,40 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 42,
               child: ElevatedButton(
                 onPressed: () {
-                  request.loginRequest(
+                  request
+                      .loginRequest(
                     emailController.text,
                     passwordController.text,
-                  );
+                  )
+                      .then((success) {
+                    if (success) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          margin: EdgeInsets.only(bottom: 410),
+                          behavior: SnackBarBehavior.floating,
+                          backgroundColor: Colors.green,
+                          content: Text(
+                            'Login was succesfull.',
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      );
+                      emailController.clear();
+                      passwordController.clear();
+                      Navigator.pushReplacementNamed(context, '/homescreen');
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          margin: EdgeInsets.only(bottom: 410),
+                          behavior: SnackBarBehavior.floating,
+                          backgroundColor: Color.fromARGB(255, 189, 56, 38),
+                          content: Text('Login Please try again.'),
+                        ),
+                      );
+                    }
+                  });
+                  ;
+
                   request.onAuthentication = (isAuthenticated) {
                     if (isAuthenticated) {
                       Navigator.pushNamedAndRemoveUntil(

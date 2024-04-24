@@ -29,12 +29,13 @@ import 'package:voda_insure/Screens/Home/ArticleWebView.dart';
 import 'package:voda_insure/Screens/Home/HomeScreen.dart';
 import 'package:voda_insure/Screens/MotorInsurance/Agreements/Faqs.dart';
 import 'package:voda_insure/Screens/MotorInsurance/Agreements/MotorPrivacyPolicyScreen.dart';
-import 'package:voda_insure/Screens/MotorInsurance/Agreements/MotorTermsAndConditionsScreen.dart';
-import 'package:voda_insure/Screens/MotorInsurance/MotorForms/RegisterVehicleScreen.dart';
-import 'package:voda_insure/Screens/MotorInsurance/MotorReports/CoverVehiclesList.dart';
-import 'package:voda_insure/Screens/MotorInsurance/MotorReports/MotorVehiclesMotorcyclesReportScreen.dart';
-import 'package:voda_insure/Screens/MotorInsurance/MotorReports/MycoverReport.dart';
-import 'package:voda_insure/Screens/MotorInsurance/MotorReports/ReportVehiclesList.dart';
+import 'package:voda_insure/Screens/MotorInsurance/Agreements/motor_terms_conditions_screen.dart';
+
+import 'package:voda_insure/Screens/MotorInsurance/MotorForms/register_vehicle_screen.dart';
+import 'package:voda_insure/Screens/MotorInsurance/MotorReports/cover_vehicles_list.dart';
+import 'package:voda_insure/Screens/MotorInsurance/MotorReports/motor_report_screen.dart';
+import 'package:voda_insure/Screens/MotorInsurance/MotorReports/my_cover_report.dart';
+import 'package:voda_insure/Screens/MotorInsurance/MotorReports/report_vehicles_list.dart';
 
 class AppRoutes {
   static Map<String, WidgetBuilder> routes = {

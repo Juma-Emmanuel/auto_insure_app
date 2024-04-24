@@ -1,33 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:voda_insure/Controllers/MotorInsurance/GetMotorCovers.dart';
-import 'package:voda_insure/Models/MotorModels/GetMotorCoverModel.dart';
-import 'package:voda_insure/Models/MotorModels/PostMotorCoverModel.dart';
-import 'package:voda_insure/Screens/MotorInsurance/MotorReports/MotorVehiclesMotorcyclesReportScreen.dart';
-import 'package:voda_insure/Screens/MotorInsurance/MotorReports/MycoverReport.dart';
+import 'package:voda_insure/Controllers/MotorInsurance/GetVehicles.dart';
+import 'package:voda_insure/Models/MotorModels/Vehicle.dart';
+import 'package:voda_insure/Screens/MotorInsurance/MotorReports/motor_report_screen.dart';
 import 'package:voda_insure/Styles/style.dart';
 
-class MotorCoversList extends StatefulWidget {
-  const MotorCoversList({super.key});
+class ReportVehiclesList extends StatefulWidget {
+  const ReportVehiclesList({super.key});
 
   @override
-  State<MotorCoversList> createState() => _MotorCoversListState();
+  State<ReportVehiclesList> createState() => _ReportVehiclesListState();
 }
 
-class _MotorCoversListState extends State<MotorCoversList> {
-  GetMotorCovers getMotorCovers = GetMotorCovers();
-  List<GetMotorCoverModel> motorCovers = [];
+class _ReportVehiclesListState extends State<ReportVehiclesList> {
+  GetVehicles getVehicles = GetVehicles();
+  List<Vehicle> vehicles = [];
   @override
   void initState() {
     super.initState();
-    fetchMotorCovers();
+    fetchData();
   }
 
-  Future<void> fetchMotorCovers() async {
+  Future<void> fetchData() async {
     try {
-      List<GetMotorCoverModel> fetchedMotorCovers =
-          await getMotorCovers.fetchMotorCovers(1212);
+      List<Vehicle> fetchedVehicles =
+          await getVehicles.fetchVehiclesByNationalId(1212);
       setState(() {
-        motorCovers = fetchedMotorCovers;
+        vehicles = fetchedVehicles;
       });
     } catch (e) {
       throw Exception('Error fetching data: $e');
@@ -55,19 +53,17 @@ class _MotorCoversListState extends State<MotorCoversList> {
                   top: 10,
                 ),
                 child: Text(
-                  'My Motor Covers ',
+                  'MY VEHICLES/MOTOCYCLES REPORT ',
                   style: textStyle.bodyLarge,
                 ),
               ),
               separator,
-              motorCovers.isEmpty
+              vehicles.isEmpty
                   ? const Center(child: CircularProgressIndicator())
                   : Container(
                       child: Column(
                         children: [
-                          for (int index = 0;
-                              index < motorCovers.length;
-                              index++)
+                          for (int index = 0; index < vehicles.length; index++)
                             Padding(
                               padding: const EdgeInsets.only(top: 20.0),
                               child: InkWell(
@@ -75,8 +71,9 @@ class _MotorCoversListState extends State<MotorCoversList> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => MycoverReport(
-                                        motorId: motorCovers[index].motorId,
+                                      builder: (context) =>
+                                          MotorVehiclesMotorcyclesReportScreen(
+                                        vehicleId: vehicles[index].vehicleId,
                                       ),
                                     ),
                                   );
@@ -106,7 +103,7 @@ class _MotorCoversListState extends State<MotorCoversList> {
                                           padding:
                                               const EdgeInsets.only(left: 10.0),
                                           child: Text(
-                                            motorCovers[index].policyNumber,
+                                            vehicles[index].registrationNumber,
                                             style: textStyle.bodyLarge,
                                           ),
                                         )

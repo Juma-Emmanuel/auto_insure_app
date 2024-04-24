@@ -224,21 +224,79 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               child: ElevatedButton(
                 onPressed: () {
                   if (widget.registerWithEmail) {
-                    request.registrationRequest(
-                        int.parse(nationalIdController.text),
-                        fullnameController.text,
-                        selectedCountry!.countryCode,
-                        emailController.text,
-                        passwordController.text,
-                        formattedPhoneNumber);
+                    request
+                        .registrationRequest(
+                            int.parse(nationalIdController.text),
+                            fullnameController.text,
+                            selectedCountry!.countryCode,
+                            emailController.text,
+                            passwordController.text,
+                            formattedPhoneNumber)
+                        .then((success) {
+                      if (success) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            margin: EdgeInsets.only(bottom: 410),
+                            behavior: SnackBarBehavior.floating,
+                            backgroundColor: Colors.green,
+                            content: Text(
+                              'Congrats. Registration was succesfull.',
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        );
+                        emailController.clear();
+                        passwordController.clear();
+                        Navigator.pushReplacementNamed(context, '/login');
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            margin: EdgeInsets.only(bottom: 410),
+                            behavior: SnackBarBehavior.floating,
+                            backgroundColor: Color.fromARGB(255, 189, 56, 38),
+                            content:
+                                Text('Registration failed. Please try again.'),
+                          ),
+                        );
+                      }
+                    });
                   } else {
-                    request.registrationRequest(
-                        int.parse(nationalIdController.text),
-                        fullnameController.text,
-                        phoneCountryName,
-                        emailController.text,
-                        passwordController.text,
-                        formattedPhoneNumber);
+                    request
+                        .registrationRequest(
+                            int.parse(nationalIdController.text),
+                            fullnameController.text,
+                            phoneCountryName,
+                            emailController.text,
+                            passwordController.text,
+                            formattedPhoneNumber)
+                        .then((success) {
+                      if (success) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            margin: EdgeInsets.only(bottom: 410),
+                            behavior: SnackBarBehavior.floating,
+                            backgroundColor: Colors.green,
+                            content: Text(
+                              'Congrats. Registration was succesfull.',
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        );
+                        emailController.clear();
+                        passwordController.clear();
+                        Navigator.pushReplacementNamed(context, '/login');
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            margin: EdgeInsets.only(bottom: 410),
+                            behavior: SnackBarBehavior.floating,
+                            backgroundColor: Color.fromARGB(255, 189, 56, 38),
+                            content:
+                                Text('Registration failed. Please try again.'),
+                          ),
+                        );
+                      }
+                    });
                   }
                 },
                 style: ElevatedButton.styleFrom(

@@ -1,10 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:voda_insure/Screens/MotorInsurance/MotorForms/BuyCoverScreen.dart';
-import 'package:voda_insure/Screens/MotorInsurance/MotorReports/CoverVehiclesList.dart';
-import 'package:voda_insure/Screens/MotorInsurance/MotorReports/MotorCoversList.dart';
-import 'package:voda_insure/Screens/MotorInsurance/MotorReports/MycoverReport.dart';
-import 'package:voda_insure/Screens/MotorInsurance/MotorStyles.dart';
+import 'package:voda_insure/Screens/MotorInsurance/MotorForms/buy_cover_screen.dart';
+import 'package:voda_insure/Screens/MotorInsurance/MotorReports/cover_vehicles_list.dart';
+import 'package:voda_insure/Screens/MotorInsurance/MotorReports/motor_covers_list.dart';
+import 'package:voda_insure/Screens/MotorInsurance/MotorReports/my_cover_report.dart';
+import 'package:voda_insure/Screens/MotorInsurance/motor_styles.dart';
 import 'package:voda_insure/Styles/style.dart';
 
 class MotorInsuranceScreen extends StatefulWidget {

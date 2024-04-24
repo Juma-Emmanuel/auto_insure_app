@@ -16,23 +16,21 @@ class RegistrationRequest {
       phoneNumber: phonenumber,
     );
     String mainUrl = MainApi.url;
-    String registrationUrl = "$mainUrl/register";
+    String registrationUrl = "$mainUrl/user/register";
     final response = await http.post(Uri.parse(registrationUrl),
         headers: {'Content-Type': 'application/json'},
         body: json.encode({
-          'nationalId': user.nationalId,
+          // 'nationalId': user.nationalId,
           'fullName': user.fullName,
           'email': user.email,
           'password': user.password,
           'phoneNumber': user.phoneNumber,
           'country': user.country
         }));
-    if (response.statusCode == 200) {
-    } else {}
-  }
-
-  Future<void> saveAuthToken(String token) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString('authToken', token);
+    if (response.statusCode == 201) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

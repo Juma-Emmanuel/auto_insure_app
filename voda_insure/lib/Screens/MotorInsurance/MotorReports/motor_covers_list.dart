@@ -1,31 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:voda_insure/Controllers/MotorInsurance/GetVehicles.dart';
-import 'package:voda_insure/Models/MotorModels/Vehicle.dart';
-import 'package:voda_insure/Screens/MotorInsurance/MotorReports/MotorVehiclesMotorcyclesReportScreen.dart';
+import 'package:voda_insure/Controllers/MotorInsurance/GetMotorCovers.dart';
+import 'package:voda_insure/Models/MotorModels/GetMotorCoverModel.dart';
+import 'package:voda_insure/Models/MotorModels/PostMotorCoverModel.dart';
+import 'package:voda_insure/Screens/MotorInsurance/MotorReports/motor_report_screen.dart';
+import 'package:voda_insure/Screens/MotorInsurance/MotorReports/my_cover_report.dart';
 import 'package:voda_insure/Styles/style.dart';
 
-class ReportVehiclesList extends StatefulWidget {
-  const ReportVehiclesList({super.key});
+class MotorCoversList extends StatefulWidget {
+  const MotorCoversList({super.key});
 
   @override
-  State<ReportVehiclesList> createState() => _ReportVehiclesListState();
+  State<MotorCoversList> createState() => _MotorCoversListState();
 }
 
-class _ReportVehiclesListState extends State<ReportVehiclesList> {
-  GetVehicles getVehicles = GetVehicles();
-  List<Vehicle> vehicles = [];
+class _MotorCoversListState extends State<MotorCoversList> {
+  GetMotorCovers getMotorCovers = GetMotorCovers();
+  List<GetMotorCoverModel> motorCovers = [];
   @override
   void initState() {
     super.initState();
-    fetchData();
+    fetchMotorCovers();
   }
 
-  Future<void> fetchData() async {
+  Future<void> fetchMotorCovers() async {
     try {
-      List<Vehicle> fetchedVehicles =
-          await getVehicles.fetchVehiclesByNationalId(1212);
+      List<GetMotorCoverModel> fetchedMotorCovers =
+          await getMotorCovers.fetchMotorCovers(1212);
       setState(() {
-        vehicles = fetchedVehicles;
+        motorCovers = fetchedMotorCovers;
       });
     } catch (e) {
       throw Exception('Error fetching data: $e');
@@ -53,17 +55,19 @@ class _ReportVehiclesListState extends State<ReportVehiclesList> {
                   top: 10,
                 ),
                 child: Text(
-                  'MY VEHICLES/MOTOCYCLES REPORT ',
+                  'My Motor Covers ',
                   style: textStyle.bodyLarge,
                 ),
               ),
               separator,
-              vehicles.isEmpty
+              motorCovers.isEmpty
                   ? const Center(child: CircularProgressIndicator())
                   : Container(
                       child: Column(
                         children: [
-                          for (int index = 0; index < vehicles.length; index++)
+                          for (int index = 0;
+                              index < motorCovers.length;
+                              index++)
                             Padding(
                               padding: const EdgeInsets.only(top: 20.0),
                               child: InkWell(
@@ -71,9 +75,8 @@ class _ReportVehiclesListState extends State<ReportVehiclesList> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) =>
-                                          MotorVehiclesMotorcyclesReportScreen(
-                                        vehicleId: vehicles[index].vehicleId,
+                                      builder: (context) => MycoverReport(
+                                        motorId: motorCovers[index].motorId,
                                       ),
                                     ),
                                   );
@@ -103,7 +106,7 @@ class _ReportVehiclesListState extends State<ReportVehiclesList> {
                                           padding:
                                               const EdgeInsets.only(left: 10.0),
                                           child: Text(
-                                            vehicles[index].registrationNumber,
+                                            motorCovers[index].policyNumber,
                                             style: textStyle.bodyLarge,
                                           ),
                                         )

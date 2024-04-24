@@ -18,26 +18,30 @@ class LoginRequest {
       password: password,
     );
     String mainUrl = MainApi.url;
-    String registrationUrl = "$mainUrl/users/authenticate";
+    String registrationUrl = "$mainUrl/user/authenticate";
     final response = await http.post(Uri.parse(registrationUrl),
         headers: {'Content-Type': 'application/json'},
         body: json.encode({
           'username': user.email,
           'password': user.password,
         }));
-    final Map<String, dynamic> responseData = json.decode(response.body);
-    if (response.statusCode == 200 &&
-        responseData['message'] == 'Authentication successful') {
-      if (responseData.containsKey('token')) {
-        await saveAuthToken(responseData['token']);
-      }
-      if (onAuthentication != null) {
-        onAuthentication!(true);
+
+    if (response.statusCode == 200) {
+      if (response.body.isNotEmpty) {
+        final Map<String, dynamic> responseData = json.decode(response.body);
+        if (responseData.containsKey('token')) {
+          await saveAuthToken(responseData['token']);
+        }
+        return true;
+        // if (onAuthentication != null) {
+        //   onAuthentication!(true);
+        // }
       }
     } else {
-      if (onAuthentication != null) {
-        onAuthentication!(false);
-      }
+      return false;
+      // if (onAuthentication != null) {
+      //   onAuthentication!(false);
+      // }
     }
   }
 

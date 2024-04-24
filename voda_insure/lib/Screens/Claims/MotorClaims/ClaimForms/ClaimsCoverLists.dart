@@ -3,8 +3,8 @@ import 'package:voda_insure/Controllers/MotorInsurance/GetMotorCovers.dart';
 import 'package:voda_insure/Models/MotorModels/GetMotorCoverModel.dart';
 import 'package:voda_insure/Models/MotorModels/PostMotorCoverModel.dart';
 import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimForms/MakeClaimScreen.dart';
-import 'package:voda_insure/Screens/MotorInsurance/MotorReports/MotorVehiclesMotorcyclesReportScreen.dart';
-import 'package:voda_insure/Screens/MotorInsurance/MotorReports/MycoverReport.dart';
+import 'package:voda_insure/Screens/MotorInsurance/MotorReports/motor_report_screen.dart';
+import 'package:voda_insure/Screens/MotorInsurance/MotorReports/my_cover_report.dart';
 import 'package:voda_insure/Styles/style.dart';
 
 class ClaimsCoversList extends StatefulWidget {

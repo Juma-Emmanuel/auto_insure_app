@@ -5,7 +5,7 @@ import 'package:voda_insure/Screens/Home/Drawer.dart';
 
 import 'package:voda_insure/Screens/Home/PostView.dart';
 import 'package:voda_insure/Screens/MedicalInsurance/MedicalInsuranceScreen.dart';
-import 'package:voda_insure/Screens/MotorInsurance/MotorInsuranceScreen.dart';
+import 'package:voda_insure/Screens/MotorInsurance/motor_insurance_screen.dart';
 import 'package:voda_insure/Styles/style.dart';
 
 class HomeScreen extends StatefulWidget {
