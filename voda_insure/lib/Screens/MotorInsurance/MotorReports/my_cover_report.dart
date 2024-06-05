@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:voda_insure/Controllers/MotorInsurance/GetMotorCover.dart';
-import 'package:voda_insure/Models/MotorModels/GetMotorCoverModel.dart';
-import 'package:voda_insure/Models/MotorModels/PostMotorCoverModel.dart';
+import 'package:voda_insure/Controllers/MotorInsurance/get_motor_cover.dart';
+import 'package:voda_insure/Models/MotorModels/get_motor_cover_model.dart';
+
 import 'package:voda_insure/Screens/MotorInsurance/MotorReports/motor_report_textfield.dart';
 import 'package:voda_insure/Styles/style.dart';
 

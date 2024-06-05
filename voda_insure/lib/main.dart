@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:voda_insure/Screens/Authentication/UserProfileScreen.dart';
+
 import 'package:voda_insure/navigation_and_routing.dart';
 import 'package:voda_insure/Screens/Splash/splash_screen.dart';
 

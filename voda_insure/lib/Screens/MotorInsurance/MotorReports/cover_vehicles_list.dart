@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:voda_insure/Controllers/MotorInsurance/GetVehicles.dart';
-import 'package:voda_insure/Models/MotorModels/Vehicle.dart';
+import 'package:voda_insure/Controllers/MotorInsurance/get_vehicles.dart';
+import 'package:voda_insure/Models/MotorModels/vehicle.dart';
 import 'package:voda_insure/Screens/MotorInsurance/MotorForms/buy_cover_screen.dart';
 import 'package:voda_insure/Styles/style.dart';
 import 'package:voda_insure/Screens/MotorInsurance/motor_styles.dart';

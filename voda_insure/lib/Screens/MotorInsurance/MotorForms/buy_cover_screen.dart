@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:voda_insure/Controllers/MotorInsurance/BuyMotorCover.dart';
-import 'package:voda_insure/Controllers/MotorInsurance/GetVehicles.dart';
+import 'package:voda_insure/Controllers/MotorInsurance/buy_motor_cover.dart';
+import 'package:voda_insure/Controllers/MotorInsurance/get_vehicles.dart';
 import 'package:voda_insure/Styles/style.dart';
 
 class BuyCoverScreen extends StatefulWidget {

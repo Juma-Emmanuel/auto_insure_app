@@ -4,41 +4,42 @@ import 'package:voda_insure/Controllers/main_api.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voda_insure/Models/AuthModels/user_details_model.dart';
 
-class UpdateProfileRequest {
+class UserProfileController {
   Future<String?> getAuthToken() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getString('jwtToken');
   }
 
-  Future updateRequest(
-      int nationalId, String fullname, String email, String phonenumber) async {
+  late UserDetailsModel userDetailsModel;
+  late Future<UserDetailsModel> userFuture;
+
+  Future<UserDetailsModel> fetchUserDetails() async {
     String? token = await getAuthToken();
     if (token == null) {
       throw Exception('Token is null');
     }
 
-    UserDetailsModel user = UserDetailsModel(
-      nationalId: nationalId,
-      fullName: fullname,
-      email: email,
-      phoneNumber: phonenumber,
-    );
     String mainUrl = MainApi.url;
-    String registrationUrl = "$mainUrl/user/$nationalId";
-    final response = await http.put(Uri.parse(registrationUrl),
+    String fetchUrl = "$mainUrl/user/current-user";
+
+    try {
+      final response = await http.get(
+        Uri.parse(fetchUrl),
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer $token',
         },
-        body: json.encode({
-          'fullName': user.fullName,
-          'email': user.email,
-          'phoneNumber': user.phoneNumber,
-        }));
-    if (response.statusCode == 200) {
-      return true;
-    } else {
-      return false;
+      );
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> userData = json.decode(response.body);
+
+        return UserDetailsModel.fromJson(userData);
+      } else {
+        throw Exception('Request failed with status: ${response.statusCode}');
+      }
+    } catch (e) {
+      throw Exception('Error during fetch request: $e');
     }
   }
 }

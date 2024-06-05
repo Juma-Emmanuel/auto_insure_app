@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:voda_insure/Controllers/MotorInsurance/RegisterVehicle.dart';
+import 'package:voda_insure/Controllers/MotorInsurance/register_vehicle.dart';
 import 'package:voda_insure/Screens/MotorInsurance/motor_styles.dart';
 import 'package:voda_insure/Styles/style.dart';
 
