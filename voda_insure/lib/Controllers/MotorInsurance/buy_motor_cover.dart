@@ -23,7 +23,7 @@ class BuyMotorCover {
     );
     String? token = await getAuthToken();
     String mainUrl = MainApi.url;
-    String registrationUrl = "$mainUrl/motorcover/add/$vehicleId";
+    String registrationUrl = "$mainUrl/add/$vehicleId";
     final response = await http.post(Uri.parse(registrationUrl),
         headers: {
           'Content-Type': 'application/json',
@@ -34,7 +34,11 @@ class BuyMotorCover {
           'coverRenewalDate': motorCover.coverRenewalDate,
           'coverType': motorCover.coverType,
         }));
-    if (response.statusCode == 200) {
-    } else {}
+    if (response.statusCode == 201) {
+      print('buy cover request success');
+    } else {
+      print(response.statusCode);
+      print('buy cover request failed');
+    }
   }
 }

@@ -20,7 +20,7 @@ class GetMotorCover {
     }
 
     String mainUrl = MainApi.url;
-    String fetchUrl = "$mainUrl/motorcover/getmotorcover/$motorId";
+    String fetchUrl = "$mainUrl/getmotorcover/$motorId";
 
     try {
       final response = await http.get(

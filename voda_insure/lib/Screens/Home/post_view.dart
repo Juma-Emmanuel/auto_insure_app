@@ -1,6 +1,10 @@
+// ignore_for_file: unnecessary_const
+
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:voda_insure/Screens/Home/post.dart';
 import 'package:voda_insure/Styles/style.dart';
+import 'package:voda_insure/widgets/product_card.dart';
 
 class Postview extends StatefulWidget {
   const Postview({super.key});
@@ -15,71 +19,80 @@ class _PostviewState extends State<Postview> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 20.0, bottom: 30),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+          Container(
+            width: MediaQuery.of(context).size.width,
+            padding: const EdgeInsets.all(16),
+            color: const Color(0xFFEFEDFF),
+            child: Column(
               children: [
-                CompanyFeed(
-                  imagePath: 'assets/jubilee.png',
-                  containerColor: const Color(0XFFD21044),
-                  onTap: () {},
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 25.0),
-                  child: CompanyFeed(
-                    imagePath: 'assets/apa_logo.png',
-                    containerColor: const Color(0XFF0D4093),
-                    onTap: () {},
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 25.0, right: 25.0),
-                  child: CompanyFeed(
-                    imagePath: 'assets/uap_logo.jpg',
-                    containerColor: const Color(0XFFCC003D),
-                    onTap: () {},
-                  ),
-                ),
-                CompanyFeed(
-                  imagePath: 'assets/cicgroup.png',
-                  containerColor: Colors.white,
-                  onTap: () {},
+                Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Image.asset("assets/motor-vehicle.png")),
+                const Text(
+                  'Secure your future with us!',
+                  style: TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF0058A7)),
                 ),
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(
-              top: 8.0,
-              left: 10,
-              right: 10,
-            ),
-            child: Container(
-              height: 1,
-              color: const Color(0XFFBBBBBB),
-            ),
-          ),
-          const Post(
-            containerColor: Color(0XFF0D4093),
-            imagePath: 'assets/apa_logo.png',
-            companyName: 'APA Insurance',
-            coverType: 'Motor insurance',
-            postTime: '15h',
-            postText:
-                'dWhat a way to kick off #CSWeek2023 !!! Earlier today #ICXBoardMember @SteveGMbuthia & a member from our secretariat Joy Njeru visited @APAInsuranceKE during their #CSWeek2023 #DoItNow launch campaign. @Sheila_Bundi  #SEAwards2023 #DrivingCXAgility',
-            photo: 'assets/APA_post.jpg',
-          ),
-          const Post(
-            containerColor: Color(0XFF0D4093),
-            imagePath: 'assets/apa_logo.png',
-            companyName: 'APA Insurance',
-            coverType: 'Motor insurance',
-            postTime: '15h',
-            postText:
-                'dWhat a way to kick off #CSWeek2023 !!! Earlier today #ICXBoardMember @SteveGMbuthia & a member from our secretariat Joy Njeru visited @APAInsuranceKE during their #CSWeek2023 #DoItNow launch campaign. @Sheila_Bundi  #SEAwards2023 #DrivingCXAgility',
-            photo: 'assets/APA_post.jpg',
-          ),
+          Column(
+            children: [
+              const Text('Our Products',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  )),
+              SizedBox(
+                height: 35,
+              ),
+              Row(
+                children: [
+                  OurProduct(
+                    text: 'Comprehensive Insurance',
+                    icon: Icon(Icons.local_car_wash, color: Color(0xFF0058A7)),
+                    ontap: () {},
+                  ),
+                  OurProduct(
+                    text: 'ThirdParty Insurance',
+                    icon: const FaIcon(
+                      FontAwesomeIcons.shieldAlt,
+                      size: 20,
+                      color: Color(0xFF0058A7),
+                    ),
+                    ontap: () {},
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 35,
+              ),
+              Row(
+                children: [
+                  OurProduct(
+                    text: 'Personal Injury Protection (PIP)',
+                    icon: Icon(Icons.health_and_safety,
+                        size: 20, color: Color(0xFF0058A7)),
+                    ontap: () {},
+                  ),
+                  OurProduct(
+                    text: 'Collision Insurance',
+                    icon: const FaIcon(
+                      FontAwesomeIcons.carCrash,
+                      size: 20,
+                      color: Color(0xFF0058A7),
+                    ),
+                    ontap: () {},
+                  ),
+                ],
+              ),
+            ],
+          )
         ],
       ),
     );

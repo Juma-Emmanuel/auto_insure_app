@@ -168,7 +168,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 TextButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/registrationselect');
+                      Navigator.pushNamed(context, '/register');
+
                     },
                     child: const Text(
                       'Register',
@@ -181,11 +182,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             ),
           ),
-          SizedBox(
-            width: 180,
-            height: 34,
-            child: Image.asset('assets/smart_logo.jpg'),
-          ),
+
         ]),
       ),
     );

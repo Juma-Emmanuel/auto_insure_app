@@ -31,13 +31,14 @@ class LoginRequest {
         final Map<String, dynamic> responseData = json.decode(response.body);
         if (responseData.containsKey('token')) {
           await saveAuthToken(responseData['token']);
+          print("token on login");
+          print(responseData['token']);
         }
         return true;
-       
       }
     } else {
+      print(response.statusCode);
       return false;
-      
     }
   }
 

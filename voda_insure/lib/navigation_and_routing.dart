@@ -6,22 +6,13 @@ import 'package:voda_insure/Screens/Authentication/password_reset.dart';
 import 'package:voda_insure/Screens/Authentication/phone_verification.dart';
 import 'package:voda_insure/Screens/Authentication/registration_select.dart';
 import 'package:voda_insure/Screens/Authentication/user_profile.dart';
+import 'package:voda_insure/Screens/Authentication/user_registration.dart';
 import 'package:voda_insure/Screens/Authentication/verification_code.dart';
 import 'package:voda_insure/Screens/Authentication/verification.dart';
-import 'package:voda_insure/Screens/Claims/MedicalClaims/ClaimForms/claim_file_upload.dart';
-import 'package:voda_insure/Screens/Claims/MedicalClaims/ClaimForms/make_claim.dart';
-import 'package:voda_insure/Screens/Claims/MedicalClaims/ClaimReports/claim_details_report.dart';
-
-import 'package:voda_insure/Screens/Claims/MedicalClaims/ClaimReports/claims_documents.dart';
-import 'package:voda_insure/Screens/Claims/MedicalClaims/ClaimReports/claims_history.dart';
-import 'package:voda_insure/Screens/Claims/MedicalClaims/ClaimReports/claims_upload.dart';
 import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimForms/claim_file_upload.dart';
 import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimForms/claims_cover_lists.dart';
-
 import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimReports/claim_detail_report.dart';
-
 import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimReports/claim_documents.dart';
-
 import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimReports/claim_history.dart';
 import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimReports/claim_images.dart';
 import 'package:voda_insure/Screens/Claims/MotorClaims/ClaimReports/claim_upload_screen.dart';
@@ -38,6 +29,7 @@ class AppRoutes {
   static Map<String, WidgetBuilder> routes = {
     '/login': (context) => const LoginScreen(),
     '/verificationscreen': (context) => const VerificationScreen(),
+    '/register': (context) => const RegistrationScreen(),
     '/emailverificationscreen': (context) => const EmailVerificationScreen(),
     '/phoneverificationscreen': (context) => const PhoneVerificationScreen(),
     '/forgotpasswordscreen': (context) => const VerificationScreen(),
@@ -45,7 +37,7 @@ class AppRoutes {
     '/passwordresetscreen': (context) => const PasswordResetScreen(),
     '/userprofilescreen': (context) => const UserProfileScreen(),
     '/editprofilescreen': (context) => const EditProfileScreen(),
-    '/registrationselect': (context) => const RegistrationSelect(),
+    // '/registrationselect': (context) => const RegistrationSelect(),
     '/homescreen': (context) => HomeScreen(),
     '/articlewebview': (context) => const ArticleWebView(),
     '/registervehicle': (context) => const RegisterVehicleScreen(),
@@ -58,18 +50,11 @@ class AppRoutes {
     '/claimscoverlist': (context) => const ClaimsCoversList(),
     '/motorclaimdetailsreport': (context) => const MotorClaimDetailsReport(),
     '/motorclaimuploadsreport': (context) => const MotorClaimsUploadReport(),
-    '/makemedicalclaim': (context) => const MakeMedicalClaimScreen(),
-    '/medicalclaimshistory': (context) => const MedicalClaimsHistory(),
-    '/medicalclaimdetailsreport': (context) =>
-        const MedicalClaimDetailsReport(),
-    '/medicalclaimuploadsreport': (context) =>
-        const MedicalClaimsUploadReport(),
+
     '/motorclaimimagesscreen': (context) => const MotorClaimsImagesScreen(),
     '/motorclaimdocumentsscreen': (context) =>
         const MotorClaimsDocumentsScreen(),
-    '/medicalclaimdocumentsscreen': (context) =>
-        const MedicalClaimsDocumentsScreen(),
-    '/medicalfileupload': (context) => const MedicalFileUpload(),
+
     '/motorfileupload': (context) => const MotorFileUpload(),
   };
 }

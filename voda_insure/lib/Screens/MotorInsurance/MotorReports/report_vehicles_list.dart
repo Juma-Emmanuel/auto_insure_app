@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:voda_insure/Controllers/Authentication/user_profile_controller.dart';
 import 'package:voda_insure/Controllers/MotorInsurance/get_vehicles.dart';
+import 'package:voda_insure/Models/AuthModels/user_details_model.dart';
 import 'package:voda_insure/Models/MotorModels/vehicle.dart';
 import 'package:voda_insure/Screens/MotorInsurance/MotorReports/motor_report_screen.dart';
 import 'package:voda_insure/Styles/style.dart';
@@ -12,6 +14,7 @@ class ReportVehiclesList extends StatefulWidget {
 }
 
 class _ReportVehiclesListState extends State<ReportVehiclesList> {
+  UserProfileController userProfileController = UserProfileController();
   GetVehicles getVehicles = GetVehicles();
   List<Vehicle> vehicles = [];
   @override
@@ -22,8 +25,10 @@ class _ReportVehiclesListState extends State<ReportVehiclesList> {
 
   Future<void> fetchData() async {
     try {
+      UserDetailsModel fetchedUser =
+          await userProfileController.fetchUserDetails();
       List<Vehicle> fetchedVehicles =
-          await getVehicles.fetchVehiclesByNationalId(1212);
+          await getVehicles.fetchVehiclesByNationalId(fetchedUser.nationalId);
       setState(() {
         vehicles = fetchedVehicles;
       });
@@ -53,7 +58,7 @@ class _ReportVehiclesListState extends State<ReportVehiclesList> {
                   top: 10,
                 ),
                 child: Text(
-                  'MY VEHICLES/MOTOCYCLES REPORT ',
+                  'MY VEHICLES ',
                   style: textStyle.bodyLarge,
                 ),
               ),

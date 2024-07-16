@@ -46,10 +46,9 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
       child: CustomScrollView(slivers: <Widget>[
         SliverToBoxAdapter(
           child: Column(children: [
-            profileUrl != null
+            profileUrl != null && profileUrl != "404"
                 ? CircleAvatar(
                     radius: 100,
-                    // backgroundImage: MemoryImage(_image!),
                     backgroundImage: NetworkImage(profileUrl!),
                   )
                 : Padding(
@@ -144,7 +143,6 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     left: 10,
                   ),
                   child: SizedBox(
-                    // width: 179,
                     height: 62,
                     child: ElevatedButton(
                       onPressed: () {},
@@ -196,7 +194,6 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 Padding(
                   padding: const EdgeInsets.only(top: 30),
                   child: SizedBox(
-                    // width: 179,
                     height: 62,
                     child: ElevatedButton(
                       onPressed: () {},

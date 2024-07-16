@@ -5,14 +5,10 @@ import 'package:country_picker/country_picker.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 class RegistrationScreen extends StatefulWidget {
-  final bool registerWithEmail;
-  final bool registerCountry;
-  final bool registerWithPhone;
+
   const RegistrationScreen(
       {super.key,
-      required this.registerWithEmail,
-      required this.registerWithPhone,
-      required this.registerCountry});
+     });
 
   @override
   State<RegistrationScreen> createState() => _RegistrationScreenState();
@@ -119,7 +115,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
             ),
           ),
-          if (widget.registerWithEmail) ...[
+          // if (widget.registerWithEmail) ...[
             Padding(
               padding: const EdgeInsets.only(top: 30),
               child: SizedBox(
@@ -135,28 +131,28 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 ),
               ),
             ),
-          ],
-          if (widget.registerCountry) ...[
-            Padding(
-              padding: const EdgeInsets.only(top: 30),
-              child: SizedBox(
-                width: 350,
-                height: 48,
-                child: TextField(
-                  readOnly: true,
-                  onTap: _openCountryPicker,
-                  controller: TextEditingController(
-                    text: selectedCountry?.countryCode ?? 'Select Country',
-                  ),
-                  decoration: InputDecoration(
-                    focusedBorder: textfieldBorder,
-                    enabledBorder: textfieldBorder,
-                  ),
-                ),
-              ),
-            ),
-          ],
-          if (widget.registerWithPhone) ...[
+          // ],
+          // if (widget.registerCountry) ...[
+          //   Padding(
+          //     padding: const EdgeInsets.only(top: 30),
+          //     child: SizedBox(
+          //       width: 350,
+          //       height: 48,
+          //       child: TextField(
+          //         readOnly: true,
+          //         onTap: _openCountryPicker,
+          //         controller: TextEditingController(
+          //           text: selectedCountry?.countryCode ?? 'Select Country',
+          //         ),
+          //         decoration: InputDecoration(
+          //           focusedBorder: textfieldBorder,
+          //           enabledBorder: textfieldBorder,
+          //         ),
+          //       ),
+          //     ),
+          //   ),
+          // ],
+          // if (widget.registerWithPhone) ...[
             Padding(
               padding: const EdgeInsets.only(top: 30),
               child: SizedBox(
@@ -184,7 +180,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 ),
               ),
             ),
-          ],
+          // ],
           Padding(
             padding: const EdgeInsets.only(top: 30),
             child: SizedBox(
@@ -223,12 +219,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 42,
               child: ElevatedButton(
                 onPressed: () {
-                  if (widget.registerWithEmail) {
+                  // if (widget.registerWithEmail) {
                     request
                         .registrationRequest(
                             int.parse(nationalIdController.text),
                             fullnameController.text,
-                            selectedCountry!.countryCode,
+                            // selectedCountry!.countryCode,
+                        phoneCountryName,
                             emailController.text,
                             passwordController.text,
                             formattedPhoneNumber)
@@ -245,9 +242,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             ),
                           ),
                         );
+                        Navigator.pushReplacementNamed(context, '/login');
                         emailController.clear();
                         passwordController.clear();
-                        Navigator.pushReplacementNamed(context, '/login');
+
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
@@ -260,44 +258,44 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         );
                       }
                     });
-                  } else {
-                    request
-                        .registrationRequest(
-                            int.parse(nationalIdController.text),
-                            fullnameController.text,
-                            phoneCountryName,
-                            emailController.text,
-                            passwordController.text,
-                            formattedPhoneNumber)
-                        .then((success) {
-                      if (success) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            margin: EdgeInsets.only(bottom: 410),
-                            behavior: SnackBarBehavior.floating,
-                            backgroundColor: Colors.green,
-                            content: Text(
-                              'Congrats. Registration was succesfull.',
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        );
-                        emailController.clear();
-                        passwordController.clear();
-                        Navigator.pushReplacementNamed(context, '/login');
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            margin: EdgeInsets.only(bottom: 410),
-                            behavior: SnackBarBehavior.floating,
-                            backgroundColor: Color.fromARGB(255, 189, 56, 38),
-                            content:
-                                Text('Registration failed. Please try again.'),
-                          ),
-                        );
-                      }
-                    });
-                  }
+                  // } else {
+                  //   request
+                  //       .registrationRequest(
+                  //           int.parse(nationalIdController.text),
+                  //           fullnameController.text,
+                  //           phoneCountryName,
+                  //           emailController.text,
+                  //           passwordController.text,
+                  //           formattedPhoneNumber)
+                  //       .then((success) {
+                  //     if (success) {
+                  //       ScaffoldMessenger.of(context).showSnackBar(
+                  //         const SnackBar(
+                  //           margin: EdgeInsets.only(bottom: 410),
+                  //           behavior: SnackBarBehavior.floating,
+                  //           backgroundColor: Colors.green,
+                  //           content: Text(
+                  //             'Congrats. Registration was succesfull.',
+                  //             textAlign: TextAlign.center,
+                  //           ),
+                  //         ),
+                  //       );
+                  //       emailController.clear();
+                  //       passwordController.clear();
+                  //       Navigator.pushReplacementNamed(context, '/login');
+                  //     } else {
+                  //       ScaffoldMessenger.of(context).showSnackBar(
+                  //         const SnackBar(
+                  //           margin: EdgeInsets.only(bottom: 410),
+                  //           behavior: SnackBarBehavior.floating,
+                  //           backgroundColor: Color.fromARGB(255, 189, 56, 38),
+                  //           content:
+                  //               Text('Registration failed. Please try again.'),
+                  //         ),
+                  //       );
+                  //     }
+                  //   });
+                  // }
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0XFF021E3E),

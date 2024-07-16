@@ -32,6 +32,7 @@ class _MotorVehiclesMotorcyclesReportScreenState
       Vehicle fetchedVehicle = await getVehicle.fetchVehicle(widget.vehicleId);
       setState(() {
         vehicle = fetchedVehicle;
+        print(vehicle!.make);
       });
     } catch (e) {
       throw Exception('Error during fetch request: $e');
@@ -56,7 +57,7 @@ class _MotorVehiclesMotorcyclesReportScreenState
                 top: 10,
               ),
               child: Text(
-                'Motorvehicle/Motorcycle Report',
+                'Motorvehicle Report',
                 style: textStyle.bodyLarge,
               ),
             ),
@@ -83,72 +84,6 @@ class _MotorVehiclesMotorcyclesReportScreenState
                                   height: 15,
                                   child: MotorReportTextField(
                                     input: vehicle!.registrationNumber,
-                                  ),
-                                )
-                              ])),
-                      Padding(
-                          padding: const EdgeInsets.only(
-                              left: 30.0, right: 30.0, top: 30),
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  margin: const EdgeInsets.only(
-                                    bottom: 20.0,
-                                  ),
-                                  child: Text(
-                                    'Chasis Number:',
-                                    style: textStyle.bodyMediumGrey,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 15,
-                                  child: MotorReportTextField(
-                                    input: vehicle!.chasisNumber,
-                                  ),
-                                )
-                              ])),
-                      Padding(
-                          padding: const EdgeInsets.only(
-                              left: 30.0, right: 30.0, top: 30),
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  margin: const EdgeInsets.only(
-                                    bottom: 20.0,
-                                  ),
-                                  child: Text(
-                                    'CV Number',
-                                    style: textStyle.bodyMediumGrey,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 15,
-                                  child: MotorReportTextField(
-                                    input: vehicle!.cvNumber,
-                                  ),
-                                )
-                              ])),
-                      Padding(
-                          padding: const EdgeInsets.only(
-                              left: 30.0, right: 30.0, top: 30),
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  margin: const EdgeInsets.only(
-                                    bottom: 20.0,
-                                  ),
-                                  child: Text(
-                                    'Tonnage:',
-                                    style: textStyle.bodyMediumGrey,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 15,
-                                  child: MotorReportTextField(
-                                    input: vehicle!.tonnage,
                                   ),
                                 )
                               ])),

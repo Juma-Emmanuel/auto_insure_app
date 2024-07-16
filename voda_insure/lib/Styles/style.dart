@@ -48,7 +48,7 @@ final OutlineInputBorder textfieldBorder = OutlineInputBorder(
   ),
 );
 BoxDecoration shadow = BoxDecoration(
-  borderRadius: BorderRadius.circular(20),
+  borderRadius: BorderRadius.circular(10),
   color: Colors.white,
   boxShadow: [
     BoxShadow(

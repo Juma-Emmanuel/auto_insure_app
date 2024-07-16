@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:voda_insure/Controllers/Authentication/user_profile_controller.dart';
 import 'package:voda_insure/Controllers/MotorInsurance/get_motor_covers.dart';
+import 'package:voda_insure/Models/AuthModels/user_details_model.dart';
 import 'package:voda_insure/Models/MotorModels/get_motor_cover_model.dart';
 import 'package:voda_insure/Screens/MotorInsurance/MotorReports/my_cover_report.dart';
 import 'package:voda_insure/Styles/style.dart';
@@ -12,6 +14,7 @@ class MotorCoversList extends StatefulWidget {
 }
 
 class _MotorCoversListState extends State<MotorCoversList> {
+  UserProfileController userProfileController = UserProfileController();
   GetMotorCovers getMotorCovers = GetMotorCovers();
   List<GetMotorCoverModel> motorCovers = [];
   @override
@@ -22,8 +25,10 @@ class _MotorCoversListState extends State<MotorCoversList> {
 
   Future<void> fetchMotorCovers() async {
     try {
+      UserDetailsModel fetchedUser =
+          await userProfileController.fetchUserDetails();
       List<GetMotorCoverModel> fetchedMotorCovers =
-          await getMotorCovers.fetchMotorCovers(1212);
+          await getMotorCovers.fetchMotorCovers(fetchedUser.nationalId);
       setState(() {
         motorCovers = fetchedMotorCovers;
       });

@@ -30,7 +30,10 @@ class FetchProfilePic {
       if (response.statusCode == 200) {
         var jsonResponse = json.decode(response.body);
         return jsonResponse['fileUrl'];
-      } else {
+      }else if(response.statusCode == 404){
+        return "404";
+      }
+      else {
         throw Exception('Request failed with status: ${response.statusCode}');
       }
     } catch (e) {

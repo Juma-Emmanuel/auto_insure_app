@@ -30,11 +30,14 @@ class GetVehicles {
 
         List<Vehicle> vehicles =
             jsonList.map((json) => Vehicle.fromJson(json)).toList();
+        print(vehicles);
         return vehicles;
       } else {
+        print("no vehicles");
         return [];
       }
     } catch (e) {
+      print(e);
       return [];
     }
   }

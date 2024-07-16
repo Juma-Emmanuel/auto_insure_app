@@ -98,18 +98,6 @@ class _RegisterVehicleScreenState extends State<RegisterVehicleScreen> {
                       label: 'Registration Number:',
                     ),
                     RegisterVehicleTextfield(
-                      controller: chasisController,
-                      label: 'Chasis Number:',
-                    ),
-                    RegisterVehicleTextfield(
-                      controller: cvController,
-                      label: 'CV Number',
-                    ),
-                    RegisterVehicleTextfield(
-                      controller: tonnageController,
-                      label: 'Tonnage:',
-                    ),
-                    RegisterVehicleTextfield(
                       controller: makeController,
                       label: 'Make:',
                     ),
@@ -121,7 +109,11 @@ class _RegisterVehicleScreenState extends State<RegisterVehicleScreen> {
                       controller: placeController,
                       label: 'Place:',
                     ),
-                    DatePicker(
+                    // DatePicker(
+                    //   controller: yearOfManufactureController,
+                    //   label: 'Year of Manufacture:',
+                    // ),
+                    RegisterVehicleTextfield(
                       controller: yearOfManufactureController,
                       label: 'Year of Manufacture:',
                     ),
@@ -147,9 +139,6 @@ class _RegisterVehicleScreenState extends State<RegisterVehicleScreen> {
                             request.registrationRequest(
                                 0,
                                 registrationController.text,
-                                chasisController.text,
-                                cvController.text,
-                                tonnageController.text,
                                 makeController.text,
                                 valueController.text,
                                 placeController.text,
@@ -157,6 +146,7 @@ class _RegisterVehicleScreenState extends State<RegisterVehicleScreen> {
                                 driversIDController.text,
                                 driversNameController.text,
                                 yearOfExperienceController.text);
+                            print("..................ttttttt");
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0XFF021E3E),

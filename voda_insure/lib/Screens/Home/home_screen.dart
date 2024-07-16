@@ -22,7 +22,6 @@ class _HomeScreenState extends State<HomeScreen> {
     const Postview(),
     const MotorInsuranceScreen(),
     const ClaimsScreen(),
-    const MedicalInsuranceScreen(),
     const UserProfileScreen(),
   ];
 
@@ -88,13 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             label: 'Claims',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.medical_services_outlined,
-            ),
-            
-            label: 'Medical',
-          ),
+
           BottomNavigationBarItem(
             icon: Icon(
               Icons.person_outline,

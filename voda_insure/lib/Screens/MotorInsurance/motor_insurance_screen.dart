@@ -119,7 +119,7 @@ class _MotorInsuranceScreenState extends State<MotorInsuranceScreen> {
         Padding(
           padding: const EdgeInsets.only(top: 15.0),
           child: MotorSelect(
-            selectText: 'My Vehicle/Motocycle Report',
+            selectText: 'My Vehicle Report',
             onTap: () {
               Navigator.pushNamed(context, '/vehicleslist');
             },

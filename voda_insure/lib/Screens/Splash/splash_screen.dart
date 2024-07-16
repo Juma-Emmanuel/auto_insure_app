@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:voda_insure/Screens/Home/home_screen.dart';
 import 'package:voda_insure/Styles/animation.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -15,7 +16,11 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(
       const Duration(seconds: 5),
-      () => Navigator.pushReplacementNamed(context, '/login'),
+      // () => Navigator.pushReplacementNamed(context, '/login'),
+      () => Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomeScreen()),
+      ),
     );
   }
 

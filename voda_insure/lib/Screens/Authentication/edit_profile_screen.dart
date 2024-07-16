@@ -136,7 +136,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             child: Stack(
               children: <Widget>[
                 // _image != null
-                profileUrl != null
+                profileUrl != null && profileUrl != "404"
                     ? CircleAvatar(
                         radius: 100,
                         // backgroundImage: MemoryImage(_image!),

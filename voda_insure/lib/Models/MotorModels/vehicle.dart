@@ -1,9 +1,6 @@
 class Vehicle {
   final int vehicleId;
   final String registrationNumber;
-  final String chasisNumber;
-  final String cvNumber;
-  final String tonnage;
   final String make;
   final String vehicleValue;
   final String place;
@@ -13,10 +10,7 @@ class Vehicle {
   final String driverExperience;
   Vehicle({
     required this.vehicleId,
-    required this.chasisNumber,
     required this.registrationNumber,
-    required this.cvNumber,
-    required this.tonnage,
     required this.make,
     required this.vehicleValue,
     required this.place,
@@ -30,10 +24,7 @@ class Vehicle {
     return Vehicle(
       vehicleId: json['vehicleId'] ?? '',
       registrationNumber: json['registrationNumber'] ?? '',
-      chasisNumber: json['chasisNumber'] ?? '',
-      cvNumber: json['cvNumber'] ?? '',
-      tonnage: json['tonnage'] ?? '',
-      make: json['make'] ?? '',
+      make: json['vehicleMake'] ?? '',
       vehicleValue: json['vehicleValue'] ?? '',
       place: json['place'] ?? '',
       manufactureYear: json['manufactureYear'] ?? '',

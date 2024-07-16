@@ -13,9 +13,6 @@ class RegisterVehicleRequest {
   Future registrationRequest(
     int vehicleId,
     String registrationNumber,
-    String chasisNumber,
-    String cvNumber,
-    String tonnage,
     String make,
     String vehicleValue,
     String place,
@@ -27,9 +24,6 @@ class RegisterVehicleRequest {
     Vehicle vehicle = Vehicle(
       vehicleId: vehicleId,
       registrationNumber: registrationNumber,
-      chasisNumber: chasisNumber,
-      cvNumber: cvNumber,
-      tonnage: tonnage,
       make: make,
       vehicleValue: vehicleValue,
       place: place,
@@ -39,6 +33,8 @@ class RegisterVehicleRequest {
       driverExperience: driverExperience,
     );
     String? token = await getAuthToken();
+    String? token1 =
+        "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdW1hZW1tYW51ZWwyM0BvdXRsb29rLmNvbSIsImlhdCI6MTcyMTA0NjUzOSwiZXhwIjoxNzIxMDgyNTM5fQ.8uyimGCZvumJ4aO7VlTiFUp3cjat8JAyS2HDjAVWulE";
     String mainUrl = MainApi.url;
     String registrationUrl = "$mainUrl/vehicle/register";
     final response = await http.post(Uri.parse(registrationUrl),
@@ -48,17 +44,18 @@ class RegisterVehicleRequest {
         },
         body: json.encode({
           'registrationNumber': vehicle.registrationNumber,
-          'chasisNumber': vehicle.chasisNumber,
-          'cvNumber': vehicle.cvNumber,
-          'tonnage': vehicle.tonnage,
-          'make': vehicle.make,
+          'vehicleMake': vehicle.make,
           'vehicleValue': vehicle.vehicleValue,
           'place': vehicle.place,
+          'manufactureYear': vehicle.manufactureYear,
           'driverId': vehicle.driverId,
           'driverName': vehicle.driverName,
           'driverExperience': vehicle.driverExperience,
         }));
-    if (response.statusCode == 200) {
-    } else {}
+    if (response.statusCode == 201) {
+      print('succesful vehicle register');
+    } else {
+      print(response.statusCode);
+    }
   }
 }
